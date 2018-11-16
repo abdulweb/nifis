@@ -15,7 +15,13 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('profile_id')->unsigned()->nullable()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');;
+            $table->string('date');
+            $table->string('address');
+            $table->string('type');
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->string('description');
             $table->timestamps();
         });
     }

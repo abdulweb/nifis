@@ -15,7 +15,8 @@ class CreateFamilyEventsTable extends Migration
     {
         Schema::create('family_events', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('family_id')->unsigned()->nullable()->foreign()->refernces('id')->on('families')->delete('restrict')->update('cascade');
+            $table->integer('event_id')->unsigned()->nullable()->foreign()->refernces('id')->on('events')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }
