@@ -15,7 +15,9 @@ class CreateDeathsTable extends Migration
     {
         Schema::create('deaths', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('profile_id')->unsigned()->nullable()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
+            $table->integer('date');
+            $table->string('place');
             $table->timestamps();
         });
     }
