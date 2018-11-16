@@ -15,7 +15,7 @@ class CreateHusbandsTable extends Migration
     {
         Schema::create('husbands', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('profile_id')->unsigned()->nullable()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }

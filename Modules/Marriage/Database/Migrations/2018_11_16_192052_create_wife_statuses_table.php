@@ -15,7 +15,7 @@ class CreateWifeStatusesTable extends Migration
     {
         Schema::create('wife_statuses', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('name');
             $table->timestamps();
         });
     }
