@@ -15,7 +15,8 @@ class CreateLivesInsTable extends Migration
     {
         Schema::create('lives_ins', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('address_id')->default()->unsigned()->nullable()->foreign()->refernces('id')->on('addresses')->delete('restrict')->update('cascade');
+            $table->integer('user_id')->default()->unsigned()->nullable()->foreign()->refernces('id')->on('users')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }
