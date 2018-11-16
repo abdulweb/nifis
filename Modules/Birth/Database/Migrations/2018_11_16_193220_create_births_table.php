@@ -15,7 +15,14 @@ class CreateBirthsTable extends Migration
     {
         Schema::create('births', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('father_id')->unsigned()->nullable()->foreign()->refernces('id')->on('fathers')->delete('restrict')->update('cascade');
+            $table->integer('mother_id')->unsigned()->nullable()->foreign()->refernces('id')->on('mothers')->delete('restrict')->update('cascade');
+            $table->integer('child_id')->unsigned()->nullable()->foreign()->refernces('id')->on('childrens')->delete('restrict')->update('cascade');
+            $table->string('place');
+            $table->char('weight');
+            $table->integer('date');
+            $table->string('deliver_at');
+            $table->integer('delivery_id')->default(0);
             $table->timestamps();
         });
     }

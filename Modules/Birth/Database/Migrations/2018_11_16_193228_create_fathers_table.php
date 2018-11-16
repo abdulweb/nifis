@@ -15,7 +15,7 @@ class CreateFathersTable extends Migration
     {
         Schema::create('fathers', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('husband_id')->unsigned()->nullable()->foreign()->refernces('id')->on('husbands')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }
