@@ -15,7 +15,7 @@ class CreateFamilyScalesTable extends Migration
     {
         Schema::create('family_scales', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

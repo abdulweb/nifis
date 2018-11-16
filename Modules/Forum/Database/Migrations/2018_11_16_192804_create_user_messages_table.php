@@ -15,7 +15,8 @@ class CreateUserMessagesTable extends Migration
     {
         Schema::create('user_messages', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('profile_id')->unsigned()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
+            $table->integer('message_id')->unsigned()->foreign()->refernces('id')->on('messages')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }
