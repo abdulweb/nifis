@@ -15,7 +15,8 @@ class CreateUserVediosTable extends Migration
     {
         Schema::create('user_vedios', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('profile_id')->unsigned()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
+            $table->string('vedio_id')->unsigned()->foreign()->refernces('id')->on('vedios')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreateVediosTable extends Migration
     {
         Schema::create('vedios', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('name');
             $table->timestamps();
         });
     }

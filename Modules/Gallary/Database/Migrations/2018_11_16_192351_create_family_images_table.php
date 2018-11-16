@@ -15,7 +15,8 @@ class CreateFamilyImagesTable extends Migration
     {
         Schema::create('family_images', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('family_id')->unsigned()->foreign()->refernces('id')->on('families')->delete('restrict')->update('cascade');;
+            $table->string('image_id')->unsigned()->foreign()->refernces('id')->on('images')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }
