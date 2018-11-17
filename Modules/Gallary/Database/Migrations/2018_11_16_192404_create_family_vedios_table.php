@@ -15,8 +15,8 @@ class CreateFamilyVediosTable extends Migration
     {
         Schema::create('family_vedios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('family_id')->unsigned()->foreign()->refernces('id')->on('families')->delete('restrict')->update('cascade');;
-            $table->string('vedio_id')->unsigned()->foreign()->refernces('id')->on('vedios')->delete('restrict')->update('cascade');;
+            $table->integer('family_id')->unsigned()->foreign()->refernces('id')->on('families')->delete('restrict')->update('cascade');;
+            $table->integer('vedio_id')->unsigned()->foreign()->refernces('id')->on('vedios')->delete('restrict')->update('cascade');;
             $table->timestamps();
         });
     }
