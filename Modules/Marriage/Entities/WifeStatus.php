@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class WifeStatus extends Model
 {
-    protected $fillable = [];
+
+    protected $guarded = [];
+
+    public function wife()
+    {
+    	return $this->hasMany(Wife::class);
+    }
+    
 }

@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserImage extends Model
 {
-    protected $fillable = [];
+
+	protected $guarded = [];
+
+    public function image()
+    {
+    	return $this->belongsTo(Image::class);
+    }
+
+    public function profile()
+    {
+    	return $this->belongsTo(Profile::class);
+    }
 }

@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserVedio extends Model
 {
-    protected $fillable = [];
+
+    protected $guarded = [];
+
+    public function vedio()
+    {
+    	return $this->belongsTo(Vedio::class);
+    }
+
+    public function profile()
+    {
+    	return $this->belongsTo(Profile::class);
+    }
 }

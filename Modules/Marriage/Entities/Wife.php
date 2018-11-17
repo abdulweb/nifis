@@ -6,5 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wife extends Model
 {
-    protected $fillable = [];
+
+    protected $guarded = [];
+
+    public function married()
+    {
+    	return $this->hasMany(Married::class);
+    }
+
+    public function profile()
+    {
+    	return $this->belongsTo(Profile::class);
+    }
+
+    public function status()
+    {
+    	return $this->belongsTo(Profile::class);
+    }
+    
 }
