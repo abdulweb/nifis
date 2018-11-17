@@ -15,7 +15,8 @@ class CreateGalarryImagesTable extends Migration
     {
         Schema::create('galarry_images', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('profile_id')->unsigned()->foreign()->refernces('id')->on('families')->delete('restrict')->update('cascade');;
+            $table->string('image');
             $table->timestamps();
         });
     }
