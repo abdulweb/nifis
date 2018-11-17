@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Announcement extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function profile()
+    {
+    	return $this->belongsTo(Profile::class);
+    }
+    
 }
