@@ -13,6 +13,11 @@ class Message extends Model
     	return $this->hasMany(UserMessage::class);
     }
 
+    public function profile()
+    {
+    	return $this->belongsTo(Profile::class);
+    }
+
     public function familyMessage()
     {
     	return $this->hasMany(FamilyMessage::class);

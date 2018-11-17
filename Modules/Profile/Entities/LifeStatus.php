@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class LifeStatus extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function profile()
+    {
+    	return $this->hasMany(Profile::class);
+    }
 }

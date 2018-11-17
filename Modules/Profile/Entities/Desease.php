@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Desease extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function deseaseUndergoes()
+    {
+    	return $this->hasMany(DeseaseUndergoes::class);
+    }
 }
