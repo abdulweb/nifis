@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Religion extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function family()
+    {
+    	return $this->hasMany(Family::class);
+    }
 }
