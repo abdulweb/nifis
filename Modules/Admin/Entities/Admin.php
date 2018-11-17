@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Admin extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function family()
+    {
+        return $this->belongsTo(Family::class);
+    }
+
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
+
 }
