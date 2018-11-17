@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class LivesIn extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function profile()
+    {
+        return $this->belongTo(Profile::class);
+    }
+
+    public function address()
+    {
+        return $this->belongTo(Address::class);
+    }
 }

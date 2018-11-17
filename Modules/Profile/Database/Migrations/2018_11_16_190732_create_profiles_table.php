@@ -15,7 +15,63 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('user_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('users')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->integer('gender_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('gender')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->integer('marital_status_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('marital_statuses')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->integer('life_status_id')->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('life_statuses')
+            ->delete('restrict')
+            ->update('cascade');;
+            $table->integer('user_health_id')->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('user_healths')
+            ->delete('restrict')
+            ->update('cascade');;
+            $table->integer('is_active');
+            $table->integer('family_id')->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('families')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->integer('image_id')->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('images')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->string('about_me')
+            ->nullable()
+            ->default('MY short Biography');
+            $table->string('date_of_birth');
             $table->timestamps();
         });
     }

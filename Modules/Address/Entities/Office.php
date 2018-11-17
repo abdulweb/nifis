@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Office extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function company()
+    {
+        return $this->belongTo(Company::class);
+    }
 }

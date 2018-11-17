@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function leaves_in()
+    {
+        return $this->hasOne(LivesIn::class);
+    }
+
+    public function work_in()
+    {
+        return $this->hasOne(WorkIn::class);
+    }
 }

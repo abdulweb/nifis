@@ -15,7 +15,8 @@ class CreateBusinessUndergoesTable extends Migration
     {
         Schema::create('business_undergoes', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('profile_id')->unsigned()->nullable()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
+            $table->integer('business_id')->unsigned()->nullable()->foreign()->refernces('id')->on('businesses')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }

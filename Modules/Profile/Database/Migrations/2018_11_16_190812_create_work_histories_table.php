@@ -15,7 +15,10 @@ class CreateWorkHistoriesTable extends Migration
     {
         Schema::create('work_histories', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('address_id')->unsigned()->nullable();
+            $table->integer('profile_id')->unsigned()->nullable();
+            $table->string('history');            
+            $table->integer('date'); 
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreateDeseasesTable extends Migration
     {
         Schema::create('deseases', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('name')->unique();
             $table->timestamps();
         });
     }

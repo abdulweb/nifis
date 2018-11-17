@@ -15,7 +15,7 @@ class CreateContactRefrencesTable extends Migration
     {
         Schema::create('contact_refrences', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('name');
             $table->timestamps();
         });
     }

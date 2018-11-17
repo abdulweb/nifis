@@ -15,7 +15,10 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('user_id')->nullable()->unsigned()->foreign()->refernces('id')->on('users')->delete('restrict')->update('cascade');
+            $table->string('path')->nullable();
+            $table->string('about');
+            $table->string('type');
             $table->timestamps();
         });
     }

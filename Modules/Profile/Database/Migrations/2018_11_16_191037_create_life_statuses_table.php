@@ -15,7 +15,7 @@ class CreateLifeStatusesTable extends Migration
     {
         Schema::create('life_statuses', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

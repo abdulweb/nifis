@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Town extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function lga()
+    {
+        return $this->belongTo(Lga::class);
+    }
+
+    public function area()
+    {
+        return $this->hasMany(State::class);
+    }
 }

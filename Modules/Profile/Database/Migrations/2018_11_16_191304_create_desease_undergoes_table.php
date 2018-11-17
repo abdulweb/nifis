@@ -15,7 +15,8 @@ class CreateDeseaseUndergoesTable extends Migration
     {
         Schema::create('desease_undergoes', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('profile_id')->unsigned()->nullable()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
+            $table->integer('desease_id')->unsigned()->nullable()->foreign()->refernces('id')->on('deseaseses')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }
