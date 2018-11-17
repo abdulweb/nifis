@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Father extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function husband()
+    {
+        return $this->belongTo(Husband::class);
+    }
+    
 }

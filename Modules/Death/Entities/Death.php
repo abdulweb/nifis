@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Death extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function profile()
+    {
+        return $this->belongTo(Profile::class);
+    }
+    
 }

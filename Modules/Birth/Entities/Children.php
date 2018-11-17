@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Children extends Model
 {
-    protected $fillable = [];
+    protected $giuarded = [];
+
+    public function profile()
+    {
+        return $this->belongTo(Profile::class);
+    }
+    
 }

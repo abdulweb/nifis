@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Divorce extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function married()
+    {
+        return $this->belongTo(Married::class);
+    }
+    
 }
