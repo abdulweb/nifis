@@ -16,6 +16,17 @@ class CreateAnnouncementsTable extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('profile_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->refernces('id')
+            ->on('profiles')
+            ->delete('cascade')
+            ->update('cascade');
+
+            $table->string('message');
+            
             $table->timestamps();
         });
     }
