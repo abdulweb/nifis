@@ -13,9 +13,29 @@ class Profile extends Model
     	return $this->hasOne(Children::class);
     }
 
+    public function announcement()
+    {
+    	return $this->hasMany(Announcement::class);
+    }
+
+    public function event()
+    {
+    	return $this->hasMany(Envet::class);
+    }
+    
+    public function attendEvent()
+    {
+    	return $this->hasMany(AttendEvent::class);
+    }
+
     public function userMessage()
     {
     	return $this->hasMany(UserMessage::class);
+    }
+    
+    public function family()
+    {
+    	return $this->belongsTo(Family::class);
     }
 
     public function message()
