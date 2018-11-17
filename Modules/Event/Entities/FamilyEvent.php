@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class FamilyEvent extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function family()
+    {
+    	return $this->belongsTo(Family::class);
+    }
 }
