@@ -15,7 +15,9 @@ class ProfileDatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
-        // $this->call("OthersTableSeeder");
+        $this->call(GenderTableSeeder::class);
+        $this->call(MaritalStatusTableSeeder::class);
+        $this->call(MaritalStatusTableSeeder::class);
+        $this->call(DeseaseTableSeeder::class);
     }
 }

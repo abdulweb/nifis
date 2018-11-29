@@ -6,7 +6,7 @@ use Module\Profile\Entitie\Gender
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class GenderTableSeedTableSeeder extends Seeder
+class GenderTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

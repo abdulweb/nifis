@@ -1,65 +1,54 @@
-@extends('layouts.app')
+@extends('layouts.welcome')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+<div class="wrapper-page">
 
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="m-t-40 account-pages">
+        <div class="text-center account-logo-box">
+            <h2 class="text-uppercase">
+                <a href="index.html" class="text-success">
+                    <span><img src="assets/images/logo.png" alt="" height="36"></span>
+                </a>
+            </h2>
+            <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
+        </div>
+        <div class="account-content">
+            <div class="text-center m-b-20">
+                <p class="text-muted m-b-0 font-13">Enter your email address and we'll send you an email with instructions to reset your password.  </p>
             </div>
+            <form class="form-horizontal" action="#">
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="email" required=""
+                               placeholder="Enter email">
+                    </div>
+                </div>
+
+                <div class="form-group account-btn text-center m-t-10">
+                    <div class="col-xs-12">
+                        <button class="btn w-md btn-bordered btn-danger waves-effect waves-light"
+                                type="submit">Send Email
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="clearfix"></div>
+
         </div>
     </div>
+    <!-- end card-box-->
+
+
+    <div class="row m-t-50">
+        <div class="col-sm-12 text-center">
+            <p class="text-muted">Already have account?<a href="page-login.html" class="text-primary m-l-5"><b>Sign In</b></a></p>
+        </div>
+    </div>
+
 </div>
+
 @endsection
