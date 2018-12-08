@@ -12,6 +12,7 @@
         "laravel/nova": "*",
         "laravel/tinker": "^1.0",
         "nwidart/laravel-modules": "^4.0",
+        "pusher/pusher-php-server": "~3.0",
         "spatie/laravel-permission": "^2.23",
         "vyuldashev/nova-permission": "^1.4"
     },
