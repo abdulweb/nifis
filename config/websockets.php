@@ -45,7 +45,7 @@ return [
     /*
      * This path will be used to register the necessary routes for the package.
      */
-    'path' => 'laravel-websockets',
+    'path' => 'socket-server',
 
     'statistics' => [
         /*
