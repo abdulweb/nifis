@@ -494,6 +494,7 @@ class ComposerStaticInit3e4677d8bf7cc67c26da8446eebc8f09
     );
 
     public static $classMap = array (
+        'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -514,6 +515,7 @@ class ComposerStaticInit3e4677d8bf7cc67c26da8446eebc8f09
         'App\\Nova\\Family' => __DIR__ . '/../..' . '/app/Nova/Family.php',
         'App\\Nova\\Resource' => __DIR__ . '/../..' . '/app/Nova/Resource.php',
         'App\\Nova\\User' => __DIR__ . '/../..' . '/app/Nova/User.php',
+        'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
