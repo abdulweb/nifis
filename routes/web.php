@@ -21,12 +21,15 @@ Auth::routes();
 Route::view('/room','room')->name('room');
 Route::get('/home', 'HomeController@index')->name('home');
 
+   Route::get('/sms','SubscriptionController@sms')->name('sms-subs');
+   Route::get('/slack','SubscriptionController@slack')->name('slack-subs');
+   Route::get('/email','SubscriptionController@email')->name('email-subs');
+   Route::get('/Subscription','SubscriptionController@subscription')->name('join-subs');
+   Route::post('/Subscribe','SubscriptionController@subscribe')->name('subscribe');
+
 Route::resource('/posts', 'PostController');
+Route::group(['middleware'=>'auth'], function(){
+   
+});
 Route::get('/subscribe', function (){
-	$user	=	User::find(1);
-    if($user->subscribed()){
-    	dd('the user subscribed');
-    }else{
-    	dd('the user has not subscribe');
-    }
 });

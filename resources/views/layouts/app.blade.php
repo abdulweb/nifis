@@ -77,7 +77,8 @@
         
     </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"> </script>
+    <script src="https://js.stripe.com/v2"> </script>
     @yield('scripts')
 </body>
 </html>

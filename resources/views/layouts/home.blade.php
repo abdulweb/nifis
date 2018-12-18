@@ -186,7 +186,7 @@
                                     <i class="mdi mdi-settings"></i>
                                 </a>
                             </li>
-
+                            
                             <li class="dropdown user-box">
                                 <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
                                     <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
@@ -207,6 +207,19 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+                             <li class="dropdown subs-list">
+                                <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
+                                    {{'Subscription'}}
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right subs-list notify-list">
+                                    
+                                    <li><a href="{{route('slack-subs')}}"><i class="ti-user m-r-5"></i> Slack Message</a></li>
+                                    <li><a href="{{route('sms-subs')}}"><i class="ti-user m-r-5"></i>Sms Message</a></li>
+                                    <li><a href="{{route('email-subs')}}"><i class="ti-settings m-r-5">
+                                    </i> E-mail Message</
+                                </ul>
+                            </li>
                         </ul> <!-- end navbar-right -->
 
                     </div><!-- end container -->
