@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+     
     /*
     |--------------------------------------------------------------------------
     | Default Queue Connection Name
@@ -31,7 +31,7 @@ return [
     'connections' => [
 
         'sync' => [
-            'driver' => 'sync',
+            'driver' => 'redis',
         ],
 
         'database' => [

@@ -11,6 +11,7 @@
 |
 */
 
-Route::prefix('family')->group(function() {
+Route::prefix('family')->middleware(['auth'])->group(function() {
     Route::get('/', 'FamilyController@index');
+    Route::get('/create', 'FamilyController@create');
 });

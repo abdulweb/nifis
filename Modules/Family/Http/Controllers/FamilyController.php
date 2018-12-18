@@ -23,7 +23,7 @@ class FamilyController extends Controller
      */
     public function create()
     {
-        return view('family::create');
+        return view('family::Family.create');
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
-
+use App\User;
+use App\Comment;
+use App\Events\NewComment;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,5 +18,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::view('/room','room')->name('room');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/posts', 'PostController');
+Route::get('/subscribe', function (){
+	$user	=	User::find(1);
+    if($user->subscribed()){
+    	dd('the user subscribed');
+    }else{
+    	dd('the user has not subscribe');
+    }
+});
