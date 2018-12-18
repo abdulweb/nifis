@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "eslint": "^5.8.0",
-        "laravel-echo": "^1.5.1",
+        "laravel-echo": "^1.5.2",
         "pusher-js": "^4.3.1"
     }
 }

@@ -25,6 +25,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Gate::define('viewWebSocketsDashboard', function ($user) {
+        //     return in_array([
+        //         'isahlabbo@gmail.com'
+        //     ], $user->email);
+        // });
     }
 }

@@ -24,7 +24,6 @@
       <h4>You must be logged in to submit a comment!</h4> <a href="/login">Login Now &gt;&gt;</a>
     </div>
 
-
     <div class="media" style="margin-top:20px;" v-for="comment in comments">
       <div class="media-left">
         <a href="#">
@@ -32,7 +31,7 @@
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading">@{{comment.user.name}} said...</h4>
+        <h4 class="media-heading">@{{comment.user.email}} said...</h4>
         <p>
           @{{comment.body}}
         </p>
@@ -41,7 +40,6 @@
     </div>
   </div>
 @endsection
-
 
 @section('scripts')
   <script>

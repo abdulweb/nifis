@@ -18,12 +18,13 @@ class CommentController extends Controller
   public function store(Request $request, Post $post)
   {
     $comment = $post->comments()->create([
+      
       'body' => $request->body,
       'user_id' => Auth::id()
     ]);
 
     $comment = Comment::where('id', $comment->id)->with('user')->first();
-    //broadcast(new NewComment($comment))->toOthers();
+    broadcast(new NewComment($comment))->toOthers();
     return $comment->toJson();
   }
 }

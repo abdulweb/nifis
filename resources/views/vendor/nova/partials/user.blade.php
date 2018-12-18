@@ -2,7 +2,7 @@
     <img src="https://secure.gravatar.com/avatar/{{ md5(auth()->user()->email) }}?size=512" class="rounded-full w-8 h-8 mr-3"/>
 
     <span class="text-90">
-        {{ auth()->user()->name }}
+        {{ auth()->user()->first_name }}
     </span>
 </dropdown-trigger>
 
