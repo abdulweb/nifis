@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stripe.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -78,7 +79,8 @@
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"> </script>
-    <script src="https://js.stripe.com/v2"> </script>
+    <script type="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     @yield('scripts')
 </body>
 </html>

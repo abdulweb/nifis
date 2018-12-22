@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use \Stripe\Stripe;
+use \Stripe\Token;
+
 class SubscriptionController extends Controller
 {
 	
@@ -32,9 +35,8 @@ class SubscriptionController extends Controller
     public function subscribe(Request $request)
     {
         $this->user = Auth::user();
-
-    	$this->user->newSubscription('Main', $request->plan)->create($request->token,[
-    		'email'=>$this->user->email
+    	$this->user->newSubscription('Main', 'sms-plan')->create($request->stripeToken,[
+    		'email'=>$request->stripeEmail
     	]);
 
     	return redirect()->route('home')->with('notice','Congratulation your subscription was successfull'); 
