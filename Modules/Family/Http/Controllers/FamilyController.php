@@ -14,7 +14,7 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        return view('family::index');
+        return view('family::Family.create');
     }
 
     /**

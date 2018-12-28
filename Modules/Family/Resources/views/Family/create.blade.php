@@ -1,98 +1,134 @@
-@extends('layouts.home')
-     
-@section('content')
-    <div class="row">
+@extends('family::layouts.master')
+
+@section('page-title')
+{{'Family Application Page'}}
+@endsection
+
+@section('page-content')
+ <div class="row">
     <div class="col-sm-12">
         <div class="card-box">
-            <h4 class="m-t-0 header-title"><b>Wizard with Validation</b></h4>
-            <p class="text-muted m-b-30 font-13">
-                Use the button classes on an <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, or <code>&lt;input&gt;</code> element.
-            </p>
-
-            <form id="wizard-validation-form" action="#">
+            <form id="wizard-validation-form" action="{{route('family.store')}}" method="POST">
+                @csrf
                 <div>
-                    <h3>Family</h3>
+                    <h3>Family Location</h3>
                     <section>
-                        <div class="form-group clearfix">
-                            <label class="col-lg-2 control-label " for="userName2">User name </label>
-                            <div class="col-lg-10">
-                                <input class="form-control" id="userName2" name="userName" type="text">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <strong class="lead">Family Location :</strong>
+                                {{'The family location information was require to restrict other family having the same family name within your location example we may have two family of the same name but different location.'}}
                             </div>
-                        </div>
-                        <div class="form-group clearfix">
-                            <label class="col-lg-2 control-label " for="password2"> Password *</label>
-                            <div class="col-lg-10">
-                                <input id="password2" name="password" type="text" class="required form-control">
+                            <div class="col-md-9">
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="Country">Country</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control" id="country" value="Nigeria"name="country" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="state">State</label>
+                                    <div class="col-lg-10">
+                                        <input id="password2" name="state" type="text" class="required form-control">
 
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="form-group clearfix">
-                            <label class="col-lg-2 control-label " for="confirm2">Confirm Password *</label>
-                            <div class="col-lg-10">
-                                <input id="confirm2" name="confirm" type="text" class="required form-control">
-                            </div>
-                        </div>
-                        <div class="form-group clearfix">
-                            <label class="col-lg-12 control-label ">(*) Mandatory</label>
-                        </div>
-                    </section>
-                    <h3>Step 2</h3>
-                    <section>
-
-                        <div class="form-group clearfix">
-                            <label class="col-lg-2 control-label" for="name2"> First name *</label>
-                            <div class="col-lg-10">
-                                <input id="name2" name="name" type="text" class="required form-control">
-                            </div>
-                        </div>
-                        <div class="form-group clearfix">
-                            <label class="col-lg-2 control-label " for="surname2"> Last name *</label>
-                            <div class="col-lg-10">
-                                <input id="surname2" name="surname" type="text" class="required form-control">
-
-                            </div>
-                        </div>
-
-                        <div class="form-group clearfix">
-                            <label class="col-lg-2 control-label " for="email2">Email *</label>
-                            <div class="col-lg-10">
-                                <input id="email2" name="email" type="text" class="required email form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group clearfix">
-                            <label class="col-lg-2 control-label " for="address2">Address </label>
-                            <div class="col-lg-10">
-                                <input id="address2" name="address" type="text" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group clearfix">
-                            <label class="col-lg-12 control-label ">(*) Mandatory</label>
-                        </div>
-
-                    </section>
-                    <h3>Step 3</h3>
-                    <section>
-                        <div class="form-group clearfix">
-                            <div class="col-lg-12">
-                                <ul class="list-unstyled w-list">
-                                    <li><b>First Name :</b> Jonathan </li>
-                                    <li><b>Last Name :</b> Smith </li>
-                                    <li><b>Emial:</b> jonathan@smith.com</li>
-                                    <li><b>Address:</b> 123 Your City, Cityname. </li>
-                                </ul>
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="lga">Local Government</label>
+                                    <div class="col-lg-10">
+                                        <input id="confirm2" name="lga" type="text" class="required form-control">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="location">Location/ address</label>
+                                    <div class="col-lg-10">
+                                        <input id="confirm2" name="location" type="text" class="required form-control">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
-                    <h3>Step Final</h3>
+                    <h3>Family Information</h3>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <strong class="lead">Family Location :</strong>
+                                {{'We need your family information to store agains any body who will be register under this family will be a member of this family and any information to be share in this family he will recive it'}}
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="userName2">Family Name</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control" id="userName2" name="family" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="title">Family Title</label>
+                                    <div class="col-lg-10">
+                                        <input id="password2" name="title" type="text" class="required form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="tribe">Tribe</label>
+                                    <div class="col-lg-10">
+                                        <input id="confirm2" name="tribe" type="text" class="required form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <h3>Family Root</h3>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <strong class="lead">Family Root :</strong>
+                                {{'The family root is the father in the family you want to register this can be you, your father or your grandfather and soon'}}
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="name">First Name</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control" id="name" name="name" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="sname">Last Name</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control" id="sname" name="sname" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="email">Email</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control" id="email" name="email" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="password">Password</label>
+                                    <div class="col-lg-10">
+                                        <input id="password2" name="password" type="password" class="required form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group clearfix">
+                                    <label class="col-lg-2 control-label " for="confirm2">Confirm Password</label>
+                                    <div class="col-lg-10">
+                                        <input id="confirm2" name="confirm" type="password" class="required form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <h3>Be Notify</h3>
                     <section>
                         <div class="form-group clearfix">
                             <div class="col-lg-12">
                                 <input id="acceptTerms-2" name="acceptTerms2" type="checkbox" class="required">
-                                <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+                                <label for="acceptTerms-2">Be notify that a single family accoount is enough to manage all the families in your family, and the information may be share accross those family and other related families,</label>
                             </div>
+                            <input type="submit" class="btb btn-primary" value="Create Account">
                         </div>
 
                     </section>
@@ -101,6 +137,5 @@
         </div>
     </div>
 </div>
-@stop
 
-
+@endsection
