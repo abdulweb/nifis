@@ -14,7 +14,7 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        return view('family::Family.create');
+        return view('family::index');
     }
 
     /**
@@ -33,6 +33,7 @@ class FamilyController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
     }
 
     /**

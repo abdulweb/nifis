@@ -6,7 +6,7 @@ use \Stripe\Stripe;
 use \Stripe\Plan;
 use \Stripe\Token;
 use \Stripe\Invoice;
-use Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
