@@ -17,7 +17,10 @@ class Profile extends Model
     {
     	return $this->hasMany(Announcement::class);
     }
-
+    public function religion()
+    {
+        return $this->belongsTo(Religion::class);
+    }
     public function event()
     {
     	return $this->hasMany(Envet::class);
