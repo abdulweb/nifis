@@ -1,0 +1,66 @@
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-lead-pencil "></i> <span> Registration </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#"><i class="mdi mdi-baby"></i> <span>Birth</span></a></li>
+            <li><a href="#">Marriage</a></li>
+            <li><a href="#">Divorce</a></li>
+            <li><a href="#">Death</a></li>
+            <li><a href="#">Return Divorce</a></li>
+        </ul>
+    </li>
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-nature-people "></i> <span> Family Event </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#">New Event</a></li>
+            <li><a href="#">Available Event</a></li>
+            <li><a href="#">Announce</a></li>
+        </ul>
+    </li>
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-face-profile "></i> <span> Profiles </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">My Child Profile</a></li>
+            <li><a href="#">My Wife Profile</a></li>
+        </ul>
+    </li>
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-forum "></i> <span> Forum </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#">Nuclear Forum</a></li>
+            <li><a href="#">Extended Forum</a></li>
+        </ul>
+    </li>
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-file-image "></i> <span> Gallary </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#">My Gallary</a></li>
+            <li><a href="#">Nuclear Family Gally</a></li>
+            <li><a href="#">Extended Family Gallary</a></li>
+        </ul>
+    </li>
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-certificate "></i> <span> Certificate </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#">Birth Certificate</a></li>
+            <li><a href="#">Marriage Certificate</a></li>
+        </ul>
+    </li>
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-account-search"></i> <span> Search </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#">Identity</a></li>
+            <li><a href="#">Relatives</a></li>
+        </ul>
+    </li>
+    <li class="has_sub">
+        <a href="#" class="waves-effect"><i class="mdi mdi-call-merge " ></i> <span> Merge Family </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li><a href="#">Merge My Family</a></li>
+            <li><a href="#">Merge To Family</a></li>
+            <li><a href="#">Merge From Family</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Calendar </span></a>
+    </li>

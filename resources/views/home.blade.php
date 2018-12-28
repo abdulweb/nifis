@@ -1,9 +1,23 @@
-@extends('layouts.home')
+@extends('layouts.master')
 
-<div class="alert alert-success">
-	@if(session('notice'))
-	    {{session('notice')}}
+@section('side-bar')
+
+	@if(Auth()->User()->family)
+	    @include('Include.Menu.member-side-bar')
+	@else
+	    @include('Include.Menu.user-side-bar')
 	@endif
-</div>
+
+@endsection
+
+@section('page-content')
+
+	@if(Auth()->User()->family)
+	    @include('Include.Pages.family_home')
+	@else
+	    @include('Include.Pages.user_home')
+	@endif
+
+@endsection
 
 
