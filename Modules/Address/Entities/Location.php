@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function families()
+    {
+    	return $this->belongsToMany('Modules\Family\Entities\Family');
+    }
 }
