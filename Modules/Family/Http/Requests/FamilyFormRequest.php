@@ -14,7 +14,9 @@ class FamilyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|min:2|max:255',
+            'sname' => 'required|string|min:2|max:255',
+            
         ];
     }
 

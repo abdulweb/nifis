@@ -16,7 +16,7 @@ class CreateAdminsTable extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('family_id')->default('0')->foreign()->refernces('id')->on('families')->delete('restrict')->update('cascade');
-            $table->integer('user_id')->default('0')->foreign()->refernces('id')->on('users')->delete('restrict')->update('cascade');
+            $table->integer('profile_id')->default('0')->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }

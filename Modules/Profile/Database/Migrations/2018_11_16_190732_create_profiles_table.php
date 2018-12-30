@@ -68,6 +68,13 @@ class CreateProfilesTable extends Migration
             ->on('images')
             ->delete('restrict')
             ->update('cascade');
+            $table->integer('religion_id')
+            ->unsigned()
+            ->foreign()
+            ->refernces('id')
+            ->on('religions')
+            ->delete('restrict')
+            ->update('cascade');
             $table->string('about_me')
             ->nullable()
             ->default('MY short Biography');

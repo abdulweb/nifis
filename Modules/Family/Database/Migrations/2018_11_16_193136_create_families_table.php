@@ -15,8 +15,9 @@ class CreateFamiliesTable extends Migration
     {
         Schema::create('families', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('religion_id')->unsigned()->foreign()->refernces('id')->on('religions')->delete('restrict')->update('cascade');
+            
             $table->integer('tribe_id')->unsigned()->foreign()->refernces('id')->on('tribes')->delete('restrict')->update('cascade');
+            $table->integer('location_id')->unsigned()->foreign()->refernces('id')->on('locations')->delete('restrict')->update('cascade');
             $table->integer('family_scale_id')->unsigned()->foreign()->refernces('id')->on('family_scales')->delete('restrict')->update('cascade');
             $table->char('family_name')->unique();
             $table->timestamps();
