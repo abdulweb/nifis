@@ -27,36 +27,61 @@ class NewFamily
     public $location;
     
 	public function register($data){
-
         $this->newUser($data);
         $this->newProfile($this->user);
         $this->familyLocation($data);
         $this->newTribe($data);
-        $this->newFamily($data);
-        $this->newAdmin();
-        
+        $this->newFamily($this->location, $data);
+        $this->newAdmin($this->family);
 	}
-    
 
-    public function newFamily($array){
-        $this->family = $this->location->family->create([
-            'family'=>$array['family'],
+    public function newFamily(Location $location, $array){
+        $this->family = $this->location->families()->create([
+            'name'=>$array['family'],
             'title' => $array['title'],
-            'tribe_id'=>$this->tribe->id
+            'tribe_id'=>$this->tribe->id,
         ]);
     }
 
+    public $country;
+
+    public function newCountry($data)
+    {
+        $this->country = Country::firstOrCreate(['name'=>$data['country']]);
+    }
+
+    public $state;
+
+    public function newState(Country $country, $data)
+    {
+        $this->state = $country->state()->firstOrCreate(['name'=>$data['state']]);
+    }
+
+    public $lga;
+
+    public function newLga(State $state, $data)
+    {
+        $this->lga = $state->lgas()->firstOrCreate(['name'=>$data['lga']]);
+    }
+
+    public function newLocation(Lga $lga, $data)
+    {
+        $this->location = $lga->locations()->firstOrCreate(['location'=>$data['location']]);
+    }
+
     public function newTribe($array){
-        $this->tribe = Tribe::firstOrCreate(['tribe'=>$array['tribe']]);
+        $this->tribe = Tribe::firstOrCreate(['name'=>$array['tribe']]);
     }
 
-    public function newAdmin(Admin $admin){
-    	$this->admin = $this->family->admin->create(['profile_id'=>$this->profile->id]);
+    public function newAdmin(Family $family){
+    	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id]);
     }
 
-    public function familyLocation(Locattion $locate, State $state, Country $country, $array){
-        $lga = $country->find(1)->state->firstOrCreate(['name'=>$array['state']])->lgas->firstOrCreate(['name',$array['lga']]);
-        $this->location = $lga->location->firstOrCreate($array['location']);
+    public function familyLocation($array){
+        $this->newCountry($array);
+        $this->newState($this->country, $array);
+        $this->newLga($this->state,$array);
+        $this->newLocation($this->lga,$array);
     }
 
     public function newUser($array)
@@ -74,8 +99,7 @@ class NewFamily
 
     public function newProfile(User $user)
     {
-        dd($user);
-    	$this->user->profile->create([
+    	$this->profile = $user->profile()->create([
             'gender_id'         => 1,
             'marital_status_id' => 1
         ]);

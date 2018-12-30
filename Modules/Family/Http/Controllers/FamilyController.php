@@ -12,7 +12,6 @@ use Modules\Family\Services\Account\RegisterFamily;
 
 use Modules\Family\Services\Account\NewFamily;
 
-use Modules\Family\Http\Requests\FamilyFormRequest;
 
 use Modules\Family\Events\NewFamilyEvent;
 

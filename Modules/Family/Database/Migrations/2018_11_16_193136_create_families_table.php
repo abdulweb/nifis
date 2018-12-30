@@ -18,7 +18,7 @@ class CreateFamiliesTable extends Migration
             
             $table->integer('tribe_id')->unsigned()->foreign()->refernces('id')->on('tribes')->delete('restrict')->update('cascade');
             $table->integer('location_id')->unsigned()->foreign()->refernces('id')->on('locations')->delete('restrict')->update('cascade');
-            $table->char('family_name')->unique();
+            $table->char('name')->unique();
             $table->string('title');
             $table->timestamps();
         });

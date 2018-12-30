@@ -10,7 +10,7 @@ class Family extends Model
     
     public function admin()
     {
-    	return $this->hasOne(UserMessage::class);
+    	return $this->hasOne('Modules\Admin\Entities\Admin');
     }
 
     public function familyEvent()

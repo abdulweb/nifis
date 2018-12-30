@@ -40,7 +40,7 @@ class CreateProfilesTable extends Migration
             ->delete('restrict')
             ->update('cascade');
             $table->integer('life_status_id')->unsigned()
-            ->nullable()
+            ->default(1)
             ->foreign()
             ->refernces('id')
             ->on('life_statuses')
@@ -69,6 +69,7 @@ class CreateProfilesTable extends Migration
             ->delete('restrict')
             ->update('cascade');
             $table->integer('religion_id')
+            ->nullable()
             ->unsigned()
             ->foreign()
             ->refernces('id')
