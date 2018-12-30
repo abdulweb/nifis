@@ -12,6 +12,7 @@
                 <!-- end row -->
 
                 <div class="row">
+                      @include('Include.Pages.message')
                       @yield('page-content')
                 </div>
                 <!-- end row -->

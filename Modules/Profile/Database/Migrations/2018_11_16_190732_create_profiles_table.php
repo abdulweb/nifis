@@ -53,7 +53,7 @@ class CreateProfilesTable extends Migration
             ->on('user_healths')
             ->delete('restrict')
             ->update('cascade');;
-            $table->integer('is_active');
+            $table->integer('is_active')->default(1);
             $table->integer('family_id')->unsigned()
             ->nullable()
             ->foreign()
@@ -78,7 +78,7 @@ class CreateProfilesTable extends Migration
             $table->string('about_me')
             ->nullable()
             ->default('MY short Biography');
-            $table->string('date_of_birth');
+            $table->string('date_of_birth')->default('Not Available');
             $table->timestamps();
         });
     }

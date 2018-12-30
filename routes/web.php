@@ -21,7 +21,6 @@ use \Stripe\Invoice;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 Route::get('/create_plan', function(){
 	Stripe::setApiKey(env('STRIPE_SECRET'));

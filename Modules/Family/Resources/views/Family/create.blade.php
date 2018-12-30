@@ -28,7 +28,7 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="state">State</label>
                                     <div class="col-lg-10">
-                                        <input id="password2" name="state" type="text" class="required form-control">
+                                        <input id="password2" value="{{ old('state') }}" name="state" type="text" class="required form-control">
 
                                     </div>
                                 </div>
@@ -36,14 +36,14 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="lga">Local Government</label>
                                     <div class="col-lg-10">
-                                        <input id="confirm2" name="lga" type="text" class="required form-control">
+                                        <input id="confirm2" name="lga" value="{{ old('lga') }}" type="text" class="required form-control">
                                     </div>
                                 </div>
                                 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="location">Location/ address</label>
                                     <div class="col-lg-10">
-                                        <input id="confirm2" name="location" type="text" class="required form-control">
+                                        <input id="confirm2" value="{{ old('location') }}" name="location" type="text" class="required form-control">
                                     </div>
                                 </div>
                             </div>
@@ -58,22 +58,22 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="userName2">Family Name</label>
+                                    <label class="col-lg-2 control-label " for="family">Family Name</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control" id="userName2" name="family" type="text">
+                                        <input class="form-control" value="{{ old('family') }}" id="family" name="family" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="title">Family Title</label>
                                     <div class="col-lg-10">
-                                        <input id="password2" name="title" type="text" class="required form-control">
+                                        <input id="title" value="{{ old('title') }}" name="title" type="text" class="required form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="tribe">Tribe</label>
                                     <div class="col-lg-10">
-                                        <input id="confirm2" name="tribe" type="text" class="required form-control">
+                                        <input id="tribe" value="{{ old('tribe') }}" name="tribe" type="text" class="required form-control">
                                     </div>
                                 </div>
                             </div>
@@ -90,19 +90,19 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="name">First Name</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control" id="name" name="name" type="text">
+                                        <input class="form-control" value="{{ old('name') }}" id="name" name="name" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="sname">Last Name</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control" id="sname" name="sname" type="text">
+                                        <input class="form-control" value="{{ old('sname') }}" id="sname" name="sname" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="email">Email</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control" id="email" name="email" type="text">
+                                        <input class="form-control" value="{{ old('email') }}" id="email" name="email" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group clearfix">

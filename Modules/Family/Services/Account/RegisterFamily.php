@@ -1,8 +1,11 @@
 <?php
-namespace Modules\Family\Services\Family;
 
-use Modules\Family\Services\Family\CreateFamily;
-use Modules\Family\Http\Requests\FamilyFormRequest
+namespace Modules\Family\Services\Account;
+
+use Modules\Family\Http\Requests\FamilyFormRequest;
+use Modules\Family\Services\Account\NewFamily;
+use Modules\Family\Events\NewFamilyEvent;
+
 trait RegisterFamily
 {
     public function index()
@@ -23,11 +26,11 @@ trait RegisterFamily
      * @param  Request $request
      * @return Response
      */
-    public function store(FamilyRequest $request, CreateFamily $newfamily)
-    {
+    public function store(FamilyFormRequest $request, NewFamily $newfamily)
+    { 
         if($newfamily->register($request->all())){
         	broadcast(new NewFamilyEvent($newfamily->family))->toOthers();
-        	return redirect()->route('home')->with('message','Family account crated successfully');
+        	return redirect()->route('family.create')->with('message','Family account crated successfully');
         }else{
         	return redirect()->route('family.create')->with('error','problem has occure in creating this family account');
         }
