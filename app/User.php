@@ -9,7 +9,7 @@ use Laravel\Cashier\Billable;
 class User extends Authenticatable
 {
     use Notifiable, Billable;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -29,7 +29,9 @@ class User extends Authenticatable
     public function accounts() {
       return $this->hasMany('App\SocialAccount');
     }
-
+    public function family() {
+      return $this->hasOne('Modules\Family\Entities\Family');
+    }
     public function posts() {
       return $this->hasMany('App\Post');
     }

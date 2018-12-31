@@ -21,9 +21,9 @@ class Family extends Model
     {
         return $this->hasOne('Modules\Address\Entities\Location');
     }
-    public function scale()
+    public function user()
     {
-    	return $this->belongsTo(FamilyScale::class);
+    	return $this->belongsTo(User::class);
     }
 
     public function religion()

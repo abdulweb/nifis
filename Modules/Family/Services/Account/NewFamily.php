@@ -25,7 +25,13 @@ class NewFamily
     public $profile;
 
     public $location;
-    
+
+    public $registerer;
+
+    public function __construct(User $user)
+    {
+        $this->registerer = Auth()->User();
+    }
 	public function register($data){
         $this->newUser($data);
         $this->newProfile($this->user,$data);
@@ -40,6 +46,7 @@ class NewFamily
             'name'=>$array['family'],
             'title' => $array['title'],
             'tribe_id'=>$this->tribe->id,
+            'user_id'=>$this->registerer->id,
         ]);
     }
 

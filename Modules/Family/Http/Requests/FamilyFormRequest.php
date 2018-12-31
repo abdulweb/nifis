@@ -50,7 +50,7 @@ class FamilyFormRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'family' => 'required|string|min:3|max:25|unique:families',
+            'family' => 'required|string|min:3|max:25|',
             'title' => 'required|string|min:3|max:25|unique:families',
             'tribe' => 'required|string|min:4|max:15',
             'location' => 'required|string|min:5|max:255',
