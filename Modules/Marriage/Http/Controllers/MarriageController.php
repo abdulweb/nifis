@@ -14,7 +14,7 @@ class MarriageController extends Controller
      */
     public function index()
     {
-        return view('marriage::index');
+        return view('marriage::Marriage.new_marriage');
     }
 
     /**
