@@ -21,9 +21,10 @@ class MarriageController extends Controller
      * Show the form for creating a new resource.
      * @return Response
      */
+    
     public function create()
     {
-        return view('marriage::create');
+        return view('marriage::Marriage.new_marriage');
     }
 
     /**
