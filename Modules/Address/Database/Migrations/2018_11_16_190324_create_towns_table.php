@@ -16,7 +16,7 @@ class CreateTownsTable extends Migration
         Schema::create('towns', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('lga_id')->default()->unsigned()->foreign()->refernces('id')->on('lgas')->delete('restrict')->update('cascade');
-            $table->string('town_name');
+            $table->string('name');
             $table->timestamps();
         });
     }

@@ -5,7 +5,7 @@ namespace Modules\Family\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class HasFamily
+class HasFamilyMiddleware
 {
     /**
      * Handle an incoming request.

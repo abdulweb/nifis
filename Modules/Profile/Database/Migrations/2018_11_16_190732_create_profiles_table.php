@@ -40,7 +40,7 @@ class CreateProfilesTable extends Migration
             ->delete('restrict')
             ->update('cascade');
             $table->integer('life_status_id')->unsigned()
-            ->nullable()
+            ->default(1)
             ->foreign()
             ->refernces('id')
             ->on('life_statuses')
@@ -53,7 +53,7 @@ class CreateProfilesTable extends Migration
             ->on('user_healths')
             ->delete('restrict')
             ->update('cascade');;
-            $table->integer('is_active');
+            $table->integer('is_active')->default(1);
             $table->integer('family_id')->unsigned()
             ->nullable()
             ->foreign()
@@ -68,10 +68,18 @@ class CreateProfilesTable extends Migration
             ->on('images')
             ->delete('restrict')
             ->update('cascade');
+            $table->integer('religion_id')
+            ->nullable()
+            ->unsigned()
+            ->foreign()
+            ->refernces('id')
+            ->on('religions')
+            ->delete('restrict')
+            ->update('cascade');
             $table->string('about_me')
             ->nullable()
             ->default('MY short Biography');
-            $table->string('date_of_birth');
+            $table->string('date_of_birth')->default('Not Available');
             $table->timestamps();
         });
     }

@@ -12,6 +12,10 @@
 */
 
 Route::prefix('family')->middleware('auth')->group(function() {
-    Route::post('/account', 'FamilyController@store')->name('family.store');
-    Route::get('/', 'FamilyController@index');
+
+    Route::middleware('hasFamily')->group(function() {
+	    Route::post('/account', 'FamilyController@store')->name('family.store');
+	    Route::get('/', 'FamilyController@create')->name('family.create');
+    });
+    
 });
