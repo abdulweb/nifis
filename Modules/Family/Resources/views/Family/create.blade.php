@@ -22,13 +22,13 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="Country">Country</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control" id="country" value="Nigeria"name="country" type="text">
+                                        <input placeholder="Country" class="form-control" id="country" value="Nigeria"name="country" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="state">State</label>
                                     <div class="col-lg-10">
-                                        <input id="password2" value="{{ old('state') }}" name="state" type="text" class="required form-control">
+                                        <input placeholder="State" id="password2" value="{{ old('state') }}" name="state" type="text" class="required form-control">
 
                                     </div>
                                 </div>
@@ -36,14 +36,14 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="lga">Local Government</label>
                                     <div class="col-lg-10">
-                                        <input id="confirm2" name="lga" value="{{ old('lga') }}" type="text" class="required form-control">
+                                        <input id="confirm2" placeholder="Local Government" name="lga" value="{{ old('lga') }}" type="text" class="required form-control">
                                     </div>
                                 </div>
                                 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="location">Location / address</label>
                                     <div class="col-lg-10">
-                                        <input id="confirm2" value="{{ old('location') }}" name="location" type="text" class="required form-control">
+                                        <input placeholder="Family Location" id="confirm2" value="{{ old('location') }}" name="location" type="text" class="required form-control">
                                     </div>
                                 </div>
                             </div>
@@ -60,20 +60,20 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="family">Family Name</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control" value="{{ old('family') }}" id="family" name="family" type="text">
+                                        <input placeholder="Family Name" class="form-control" value="{{ old('family') }}" id="family" name="family" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="title">Family Title</label>
                                     <div class="col-lg-10">
-                                        <input id="title" value="{{ old('title') }}" name="title" type="text" class="required form-control">
+                                        <input placeholder="Family Title" id="title" value="{{ old('title') }}" name="title" type="text" class="required form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="tribe">Tribe</label>
                                     <div class="col-lg-10">
-                                        <input id="tribe" value="{{ old('tribe') }}" name="tribe" type="text" class="required form-control">
+                                        <input placeholder="Family Tribe" id="tribe" value="{{ old('tribe') }}" name="tribe" type="text" class="required form-control">
                                     </div>
                                 </div>
                             </div>
@@ -112,14 +112,14 @@
                                                 <div class="form-group clearfix">
                                                     <label class="col-lg-2 control-label " for="name">First Name</label>
                                                     <div class="col-lg-10">
-                                                        <input class="form-control" value="{{ old('name') }}" id="name" name="name" type="text">
+                                                        <input placeholder="Root First Name" class="form-control" value="{{ old('name') }}" id="name" name="name" type="text">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group clearfix">
                                                     <label class="col-lg-2 control-label " for="sname">Last Name</label>
                                                     <div class="col-lg-10">
-                                                        <input class="form-control" value="{{ old('sname') }}" id="sname" name="sname" type="text">
+                                                        <input placeholder="Root Last Name" class="form-control" value="{{ old('sname') }}" id="sname" name="sname" type="text">
                                                     </div>
                                                 </div>
 
@@ -133,21 +133,21 @@
                                                 <div class="form-group clearfix">
                                                     <label class="col-lg-2 control-label " for="email">Email</label>
                                                     <div class="col-lg-10">
-                                                        <input class="form-control" value="{{ old('email') }}" id="email" name="email" type="text">
+                                                        <input placeholder="Root E-mail Address" class="form-control" value="{{ old('email') }}" id="email" name="email" type="text">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group clearfix">
                                                     <label class="col-lg-2 control-label " for="password">Password</label>
                                                     <div class="col-lg-10">
-                                                        <input id="password2" name="password" type="password" class="required form-control">
+                                                        <input id="password" name="password" type="password" class="required form-control">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group clearfix">
                                                     <label class="col-lg-2 control-label " for="confirm2">Confirm Password</label>
                                                     <div class="col-lg-10">
-                                                        <input id="confirm2" name="confirm" type="password" class="required form-control">
+                                                        <input id="confirm2" name="password_confirmation" type="password" class="required form-control">
                                                     </div>
                                                 </div>
                                             </div>
