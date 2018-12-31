@@ -5,7 +5,7 @@
 @endsection
 
 @section('page-content')
- <div class="row">
+ <div class="row" id="family">
     <div class="col-sm-12">
         <div class="card-box">
             <form id="wizard-validation-form" action="{{route('family.store')}}" method="POST">
@@ -41,7 +41,7 @@
                                 </div>
                                 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="location">Location/ address</label>
+                                    <label class="col-lg-2 control-label " for="location">Location / address</label>
                                     <div class="col-lg-10">
                                         <input id="confirm2" value="{{ old('location') }}" name="location" type="text" class="required form-control">
                                     </div>
@@ -87,37 +87,73 @@
                                 {{'The family root is the father in the family you want to register this can be you, your father or your grandfather and soon'}}
                             </div>
                             <div class="col-md-9">
-                                <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="name">First Name</label>
-                                    <div class="col-lg-10">
-                                        <input class="form-control" value="{{ old('name') }}" id="name" name="name" type="text">
+                                <div class="widget widget-tabs widget-tabs-gray border-bottom-none">
+                                    <!-- Widget heading -->
+                                    <div class="widget-head">
+                                        <strong class="lead">Are you a root of this family ? </strong>
+                                        <button  class="active btn btn-primary"  href="#yes" data-toggle="tab">Yes</button>
+                                        <button class="btn btn-warning" value="" href="#no" data-toggle="tab">No</button>
+                                        
                                     </div>
-                                </div>
-                                <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="sname">Last Name</label>
-                                    <div class="col-lg-10">
-                                        <input class="form-control" value="{{ old('sname') }}" id="sname" name="sname" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="email">Email</label>
-                                    <div class="col-lg-10">
-                                        <input class="form-control" value="{{ old('email') }}" id="email" name="email" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="password">Password</label>
-                                    <div class="col-lg-10">
-                                        <input id="password2" name="password" type="password" class="required form-control">
-                                    </div>
-                                </div>
+                                    <!-- // Widget heading END -->
+                                    <div class="widget-body">
+                                        <div class="tab-content">
+                                            <!-- Tab content -->
+                                            <div class="tab-pane active" id="yes">
+                                                <strong>We assume that you are a root of the family you want register if not click <a no href="#no" data-toggle="tab"><i></i>No</a></li></strong>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-2 control-label " for="mdate">Date Of Birth</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" value="{{ old('mdate') }}" id="date" name="mdate" type="date">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="no">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-2 control-label " for="name">First Name</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" value="{{ old('name') }}" id="name" name="name" type="text">
+                                                    </div>
+                                                </div>
 
-                                <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="confirm2">Confirm Password</label>
-                                    <div class="col-lg-10">
-                                        <input id="confirm2" name="confirm" type="password" class="required form-control">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-2 control-label " for="sname">Last Name</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" value="{{ old('sname') }}" id="sname" name="sname" type="text">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-2 control-label " for="date">Date Of Birth</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" value="{{ old('date') }}" id="date" name="date" type="date">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-2 control-label " for="email">Email</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" value="{{ old('email') }}" id="email" name="email" type="text">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-2 control-label " for="password">Password</label>
+                                                    <div class="col-lg-10">
+                                                        <input id="password2" name="password" type="password" class="required form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-2 control-label " for="confirm2">Confirm Password</label>
+                                                    <div class="col-lg-10">
+                                                        <input id="confirm2" name="confirm" type="password" class="required form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </div>   
                             </div>
                         </div>
                     </section>
@@ -126,7 +162,12 @@
                         <div class="form-group clearfix">
                             <div class="col-lg-12">
                                 <input id="acceptTerms-2" name="acceptTerms2" type="checkbox" class="required">
-                                <label for="acceptTerms-2">Be notify that a single family accoount is enough to manage all the families in your family, and the information may be share accross those family and other related families,</label>
+                                <label for="acceptTerms-2">Be notify that a single family accoount is enough to manage all the families in your family, and the information may be share accross those family and other related families.
+                                <br>
+                                Note that if you are creating family account where your father, grandfather is a root of the family your perosonal information was not yet added to the family, but if you are the root of the family your information was automatically register to the family.
+                                <br>
+                                For information refer to our manual.
+                                </label>
                             </div>
                             <input type="submit" class="btb btn-primary" value="Create Account">
                         </div>
@@ -138,4 +179,20 @@
     </div>
 </div>
 
+@endsection
+
+@section('footer')
+<script>
+    const app = new Vue({
+        el: '#family',
+        data: {
+            no: '',
+            yes: '',
+        },
+        mounted() {
+        
+      },
+    )};
+
+</script>
 @endsection

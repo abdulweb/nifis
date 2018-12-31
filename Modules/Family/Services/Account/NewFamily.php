@@ -28,11 +28,11 @@ class NewFamily
     
 	public function register($data){
         $this->newUser($data);
-        $this->newProfile($this->user);
+        $this->newProfile($this->user,$data);
         $this->familyLocation($data);
         $this->newTribe($data);
         $this->newFamily($this->location, $data);
-        $this->newAdmin($this->family);
+        $this->newAdmin($this->family,$data);
 	}
 
     public function newFamily(Location $location, $array){
@@ -73,8 +73,8 @@ class NewFamily
         $this->tribe = Tribe::firstOrCreate(['name'=>$array['tribe']]);
     }
 
-    public function newAdmin(Family $family){
-    	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id]);
+    public function newAdmin(Family $family,$data){
+    	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id,'date_of_birth'=>$data['date']]);
     }
 
     public function familyLocation($array){
@@ -86,22 +86,29 @@ class NewFamily
 
     public function newUser($array)
     {
-        $this->user = User::firstOrCreate([
-            'first_name'=>$array['name'],
-            'last_name'=>$array['sname'],
-            'email'=>$array['email'],
-            'password'=>Hash::make($array['password']),
-            'phone'=>'',
-        ]);
+        if(empty($array['date'])){
+            $this->user = Auth()->User();
+        }else{
+            $this->user = User::firstOrCreate([
+                'first_name'=>$array['name'],
+                'last_name'=>$array['sname'],
+                'email'=>$array['email'],
+                'password'=>Hash::make($array['password']),
+                'phone'=>'',
+            ]); 
+        }
+        
     }
-    
-    
-
-    public function newProfile(User $user)
+   
+    public function newProfile(User $user, $data)
     {
+        if(empty($array['date'])){
+            $array['date'] = $data['mdate'];
+        }
     	$this->profile = $user->profile()->create([
             'gender_id'         => 1,
-            'marital_status_id' => 1
+            'marital_status_id' => 1,
+            'date_of_birth' => $data['date']
         ]);
     }
 }

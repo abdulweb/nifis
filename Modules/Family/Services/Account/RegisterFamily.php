@@ -26,8 +26,9 @@ trait RegisterFamily
      * @param  Request $request
      * @return Response
      */
-    public function store(FamilyFormRequest $request, NewFamily $newfamily)
+    public function store(FamilyFormRequest $request)
     { 
+        $newfamily = new NewFamily; 
         if($newfamily->register($request->all())){
         	broadcast(new NewFamilyEvent($newfamily->family))->toOthers();
         	return redirect()->route('family.create')->with('message','Family account crated successfully');
