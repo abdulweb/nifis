@@ -13,7 +13,7 @@ class Town extends Model
         return $this->belongTo(Lga::class);
     }
 
-    public function area()
+    public function areas()
     {
         return $this->hasMany(State::class);
     }

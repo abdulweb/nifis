@@ -1,16 +1,14 @@
 <?php 
 
-namespace App\Services\Register\Marriage\Lives;
+namespace Modules\Marriage\Register\Marriage\Address;
 
-use App\Services\Register\Marriage\Lives\Family;
+use Modules\Address\Services\LivingAddress;
 
-class LivesFamily
+class LivesHere extends LivingAddress
 
 {
-    public function __construct($family_id,$user_id,$address_id)
+    public function __construct(Address $address,Profile $profile)
     {
-        $family = new Family();
-        $family->use_family($family_id,$user_id);
-        $family->lives_in($address_id,$user_id);
+        $address->leaves()->firstOrCreate(['profile_id'=>$profile->id]);
     }
 }
