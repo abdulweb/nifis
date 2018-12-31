@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="card-box">
-			<form id="wizard-vertical" action="{{route('marriage.create')}}" method="POST">
+			<form id="wizard-vertical" action="marriage/register" method="POST">
 				@csrf
 				<h3>Husband Info</h3>
 				<section>
@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="form-group clearfix">
-						<label class="col-lg-4 control-label " for="wife_last_name">Wife last Name</label>
+						<label class="col-lg-4 control-label" for="wife_last_name">Wife last Name</label>
 						<div class="col-lg-8">
 							<input placeholder="Wife Last Name"  class="form-control required" id="wife_last_name" name="wife_last_name" type="text">
 						</div>
@@ -42,7 +42,7 @@
 					<div class="form-group clearfix">
 						<label class="col-lg-4 control-label " for="userName1">Wife Status</label>
 						<div class="col-lg-8">
-							<select name="w_status" class="form-control">
+							<select name="status" class="form-control">
 								<option>Wife Status</option>
 								<option value="1">First Wife</option>
 								<option value="2">Second Wife</option>
@@ -159,6 +159,7 @@
 							<div class="checkbox checkbox-primary">
 								<input id="checkbox-v" type="checkbox">
 								<label for="checkbox-v"> I agree with the Terms and Conditions. </label>
+								<input type="submit" value="Register" class="btn btn-primary">
 							</div>
 						</div>
 					</div>

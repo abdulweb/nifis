@@ -11,7 +11,8 @@
 |
 */
 
-Route::prefix('marriage')->middleware(['auth','hasFamily'])->group(function() {
+Route::prefix('marriage')->group(function() {
     Route::get('/', 'MarriageController@index');
     Route::get('/create', 'MarriageController@create')->name('marriage.create');
+    Route::post('/register', 'MarriageController@store')->name('marriage.register');
 });
