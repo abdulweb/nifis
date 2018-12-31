@@ -34,7 +34,7 @@
     <script src="../plugins/jquery-validation/js/jquery.validate.min.js"></script>
     <!--wizard initialization-->
     <script src="assets/pages/jquery.wizard-init.js"></script>
-
+    <script src="{{ asset('js/app.js') }}"> </script>
     @yield('footer')
     <footer class="footer text-right">
         2017 - 2018 © Nigerian family innformation system

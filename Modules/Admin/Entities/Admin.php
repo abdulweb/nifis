@@ -10,12 +10,12 @@ class Admin extends Model
 
     public function family()
     {
-        return $this->belongsTo(Family::class);
+        return $this->belongsTo('Modules\Family\Entities\Family');
     }
 
     public function profile()
     {
-        return $this->belongsTo(Profile::class);
+        return $this->belongsTo('Modules\Profile\Entities\Profile');
     }
 
 }

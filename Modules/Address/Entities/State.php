@@ -13,7 +13,7 @@ class State extends Model
         return $this->belongTo(Country::class);
     }
 
-    public function lga()
+    public function lgas()
     {
         return $this->hasMany(Lga::class);
     }
