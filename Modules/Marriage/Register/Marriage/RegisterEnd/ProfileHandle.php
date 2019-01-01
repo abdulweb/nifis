@@ -25,7 +25,7 @@ trait ProfileHandle
 
     public function handleHusbandProfile()
 	{
-		$this->husbandProfile = User::find($this->data['user_id'])->profile()
+		$this->husbandProfile = User::find($this->data['user_id'])->profile();
 		$this->updateHusbandProfile();
 	}
 
@@ -38,7 +38,7 @@ trait ProfileHandle
 
 	public function handle()
 	{
-        $this handleWifeProfile()
-        $this handleHusbandProfile()
+        $this->handleWifeProfile();
+        $this->handleHusbandProfile();
 	}
 }

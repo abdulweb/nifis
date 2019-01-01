@@ -13,11 +13,11 @@ trait ValidateRequest
 
 	public $h_errors;
 
-    public function validateMarriageRequest($this->data){
+    public function validateMarriageRequest($data){
 
-        $husband = new ValidHusband(User::find($this->data['user_id']),$this->data);
+        $husband = new ValidHusband(User::find($data['user_id']),$data);
 
-        $wife = new ValidWife(User::where('email',$this->data['wife_email'])->get(),$this->data);
+        $wife = new ValidWife(User::where('email',$data['wife_email'])->get(),$data);
 
     	$this->h_errors = $husband->error;
 

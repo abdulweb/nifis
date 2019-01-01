@@ -2,6 +2,11 @@
 namespace Modules\Marriage\Register\Marriage;
 
 use Modules\Marriage\Register\Marriage\Register;
+
+use Illuminate\Http\Request;
+
+use Modules\Marriage\Events\NewMarriageEvent;
+
 use Modules\Marriage\Http\Requests\MarriageFormRequest;
 
 trait RegisterMarriage
@@ -34,7 +39,13 @@ trait RegisterMarriage
             broadcast(new NewMarriageEvent($request))->toOthers();
 
             return redirect()->route('marriage.index')->with('message','Marriage was successfully registered');
-            
+
         }
+    }
+
+    public function verify(Request $request)
+    {
+        session(['register'=>$request->all()]);
+        return redirect('/marriage');
     }
 }

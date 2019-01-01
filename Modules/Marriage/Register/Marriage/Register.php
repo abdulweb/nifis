@@ -2,16 +2,18 @@
 
 namespace Modules\Marriage\Register\Marriage;
 
-use Modules\Marriage\Register\Marriage\RegisterThisMarriage;
+use Modules\Marriage\Register\Marriage\RegisterEnd\RegisterThisMarriage;
 
 use Modules\Marriage\Register\Marriage\RegisterValid\ValidateRequest;
 
 class Register
 
 {
-	public $data;
+	
 
 	use ValidateRequest, RegisterThisMarriage;
+
+    public $data;
 
 	public function __construct($data)
 	{
@@ -19,7 +21,9 @@ class Register
 	}
     public function register()
     {
-        $validate = $this->validateMarriageRequest($this->data)
+
+        $validate = $this->validateMarriageRequest($this->data);
+
         if(empty($validate->h_error) && empty($validate->h_error)){
         	switch (session('register')) {
 	        	case 'father':
