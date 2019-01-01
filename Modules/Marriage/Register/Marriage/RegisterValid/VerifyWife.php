@@ -5,8 +5,11 @@ namespace Modules\Marriage\Register\Marriage\RegisterValid;
 use Modules\Marriage\Register\Marriage\RegisterValid\VerifyHusband;
 use App\User;
 
-class VerifyWife extends VerifyHusband
+class VerifyWife
 {
+    public $error = [];
+
+   
     public function birthAuth(User $user)
     {
         if(fiiled($user->profile()->child()->birth())){

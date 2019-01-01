@@ -13,4 +13,7 @@ class MarriageController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-use RegisterMarriage
+    
+    use RegisterMarriage;
+
+}
