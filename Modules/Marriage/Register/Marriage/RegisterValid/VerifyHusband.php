@@ -46,4 +46,11 @@ class VerifyHusband
             $this->error = ["Invalid husband and his mother information"];
         }
     }
+
+    public function husbandMarriageDateAuth(User $user)
+    {
+        if($this->data['mdate'] - $user->profile()->date_of_birth < 567648000){
+            $this->error = ["Sorry the husband marriage date authentication fails there must be the interval of atleast 15 years between husband date of birth and marriage date"];
+        }
+    }
 }
