@@ -1,5 +1,9 @@
 <?php
 
+namespace Modules\Marriage\Register\Marriage\RegisterEnd;
+
+use App\User;
+
 class ProfileHandle
 {
     public $data;
