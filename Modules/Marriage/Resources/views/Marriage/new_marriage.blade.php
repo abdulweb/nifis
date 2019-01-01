@@ -42,8 +42,8 @@
 					<div class="form-group clearfix">
 						<label class="col-lg-4 control-label " for="userName1">Wife Status</label>
 						<div class="col-lg-8">
-							<select name="status" class="form-control" value="{{old('status')}}" >
-								<option>Wife Status</option>
+							<select name="wife_status" class="form-control" value="{{old('status')}}" >
+								<option value="">Wife Status</option>
 								<option value="1">First Wife</option>
 								<option value="2">Second Wife</option>
 								<option value="3">Third Wife</option>

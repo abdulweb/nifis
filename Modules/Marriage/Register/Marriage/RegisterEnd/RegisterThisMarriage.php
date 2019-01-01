@@ -4,8 +4,13 @@ namespace Modules\Marriage\Register\Marriage\RegisterEnd;
 
 use Modules\Marriage\Register\Marriage\RegisterEnd\MarriageInitiate;
 
-class RegisterThisMarriage extends  MarriageInitiate
+
+trait RegisterThisMarriage
 {
+   
+
+    use MarriageInitiate;
+
     public function register()
     {
         $this->handle();

@@ -1,12 +1,15 @@
 <?php
 namespace Modules\Marriage\Register\Marriage\RegisterEnd;
 
-use Modules\Marriage\Register\Marriage\ProfileHandle;
+use Modules\Marriage\Register\Marriage\RegisterEnd\ProfileHandle;
+
 use Modules\Profile\Entities\Profile;
+
 use Modules\Marriage\Entities\Husband;
 
-class MarriageInitiate extends ProfileHandle
+trait MarriageInitiate
 {
+    use ProfileHandle;
 
     public $wife;
 

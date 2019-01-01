@@ -29,7 +29,7 @@ class MarriageFormRequest extends FormRequest
             'marriage_date' => 'required',
         ];
 
-        if($this->has('wfamily')){
+        if($this->has('wife_family')){
             $rules['wife_email'] = 'required|email';
             $rules['wife_family'] = 'required|string';
         }else{

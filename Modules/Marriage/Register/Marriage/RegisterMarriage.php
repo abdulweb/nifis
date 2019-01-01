@@ -1,6 +1,7 @@
 <?php
 namespace Modules\Marriage\Register\Marriage;
 
+use Modules\Marriage\Register\Marriage\Register;
 use Modules\Marriage\Http\Requests\MarriageFormRequest;
 
 trait RegisterMarriage
@@ -27,6 +28,13 @@ trait RegisterMarriage
      */
     public function store(MarriageFormRequest $request)
     {   
-        return $request->all();
+
+        if(new Register($request->all()) && blank(session('error'))){
+
+            broadcast(new NewMarriageEvent($request))->toOthers();
+
+            return redirect()->route('marriage.index')->with('message','Marriage was successfully registered');
+            
+        }
     }
 }
