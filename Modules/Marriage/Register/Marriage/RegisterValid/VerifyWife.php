@@ -33,9 +33,9 @@ class VerifyWife extends VerifyHusband
         }
     }
 
-    public function wifeMarriageDateAuth()
+    public function wifeMarriageDateAuth($data)
     {
-        if($this->data['mdate'] - $this->data['wdate'] < 378432000){
+        if($data['mdate'] - $data['wdate'] < 378432000){
             $this->error = ["Sorry the wife marriage date authentication fails there must be the interval of atleast 12 years between wife date of birth and marriage date"];
         }
     }
