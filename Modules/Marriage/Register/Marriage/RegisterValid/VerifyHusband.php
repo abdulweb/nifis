@@ -8,7 +8,7 @@ use Modules\Marriage\Entities\Wife;
 
 class VerifyHusband
 {
-    public $error[];
+    public $error = [];
 
     public function hasFamily(User $user)
     {
