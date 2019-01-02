@@ -10,7 +10,7 @@ use Modules\Address\Entities\Country;
 use Modules\Address\Entities\State;
 use Modules\Address\Entities\Lga;
 use Illuminate\Support\Facades\Hash;
-
+use Modules\Address\Services\FamilyLocation;
 class NewFamily 
 {
 
@@ -32,10 +32,11 @@ class NewFamily
     {
         $this->registerer = Auth()->User();
     }
-	public function register($data){
+
+	public function register(FamilyLocation $location, $data){
         $this->newUser($data);
         $this->newProfile($this->user,$data);
-        $this->familyLocation($data);
+        $this->location = $location->location($data);
         $this->newTribe($data);
         $this->newFamily($this->location, $data);
         $this->newAdmin($this->profile, $this->family,$data);
@@ -49,33 +50,6 @@ class NewFamily
             'user_id'=>$this->registerer->id,
         ]);
     }
-
-    public $country;
-
-    public function newCountry($data)
-    {
-        $this->country = Country::firstOrCreate(['name'=>$data['country']]);
-    }
-
-    public $state;
-
-    public function newState(Country $country, $data)
-    {
-        $this->state = $country->states()->firstOrCreate(['name'=>$data['state']]);
-    }
-
-    public $lga;
-
-    public function newLga(State $state, $data)
-    {
-        $this->lga = $state->lgas()->firstOrCreate(['name'=>$data['lga']]);
-    }
-
-    public function newLocation(Lga $lga, $data)
-    {
-        $this->location = $lga->locations()->firstOrCreate(['location'=>$data['location']]);
-    }
-
     public function newTribe($array){
         $this->tribe = Tribe::firstOrCreate(['name'=>$array['tribe']]);
     }
@@ -83,13 +57,6 @@ class NewFamily
     public function newAdmin(Profile $profile, Family $family,$data){
     	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id]);
         $this->profile->update(['family_id'=>$family->id])->save();
-    }
-
-    public function familyLocation($array){
-        $this->newCountry($array);
-        $this->newState($this->country, $array);
-        $this->newLga($this->state,$array);
-        $this->newLocation($this->lga,$array);
     }
 
     public function newUser($array)
