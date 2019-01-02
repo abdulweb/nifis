@@ -20,7 +20,7 @@ class ValidWife extends VerifyWife
     public function validateWife()
     {
         
-        if($this->data['wfamily']){
+        if($this->data['wife_email']){
             $this->birthAuth($this->user);
             $this->marriageAuth($this->user);
             $this->genderAuth($this->user);

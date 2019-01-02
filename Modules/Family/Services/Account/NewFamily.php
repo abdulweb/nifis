@@ -38,7 +38,7 @@ class NewFamily
         $this->familyLocation($data);
         $this->newTribe($data);
         $this->newFamily($this->location, $data);
-        $this->newAdmin($this->family,$data);
+        $this->newAdmin($this->profile, $this->family,$data);
 	}
 
     public function newFamily(Location $location, $array){
@@ -61,7 +61,7 @@ class NewFamily
 
     public function newState(Country $country, $data)
     {
-        $this->state = $country->state()->firstOrCreate(['name'=>$data['state']]);
+        $this->state = $country->states()->firstOrCreate(['name'=>$data['state']]);
     }
 
     public $lga;
@@ -80,8 +80,9 @@ class NewFamily
         $this->tribe = Tribe::firstOrCreate(['name'=>$array['tribe']]);
     }
 
-    public function newAdmin(Family $family,$data){
-    	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id,'date_of_birth'=>$data['date']]);
+    public function newAdmin(Profile $profile, Family $family,$data){
+    	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id]);
+        $this->profile->update(['family_id'=>$family->id])->save();
     }
 
     public function familyLocation($array){

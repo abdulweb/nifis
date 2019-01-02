@@ -15,7 +15,7 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_last_name">Who is to marry</label>
 			<div class="col-lg-8">
-				<select name="family" class="form-control">
+				<select name="status" class="form-control">
 					<option value="father">Father</option>
 					<option value="son">Son</option>
 					<option value="daughter">Doughter</option>

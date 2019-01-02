@@ -4,6 +4,8 @@ namespace Modules\Marriage\Register\Marriage\RegisterValid;
 
 use Modules\Marriage\Register\Marriage\RegisterValid\VerifyHusbandInWifeFamily;
 
+use App\User;
+
 class ValidHusband extends VerifyHusbandInWifeFamily
 {
     public $user;
@@ -22,14 +24,22 @@ class ValidHusband extends VerifyHusbandInWifeFamily
     public function validateHusband()
     {
 
-        if(filled($this->data['wfamily'])){
-            $this->familyAuth($this->data)
-            $this->husbandAuth($this->user,$this->data)
+        if(filled($this->data['wife_email'])){
+
+            if($this->user->profile()->husband()){
+                $this->familyAuth($this->data);
+                $this->husbandAuth($this->user,$this->data);
+            }
+
         }else if($this->hasFamily($this->user)){
+
             $this->canMarryAgain($this->user);
+
         }else if($this->user->profile()->child){
-            $this->canMarry($this->user)
-            $this->validBirth($this->user,$this->data)
+
+            $this->canMarry($this->user);
+            $this->validBirth($this->user,$this->data);
+
         }
         $this->husbandMarriageDateAuth($this->user);
 

@@ -31,10 +31,9 @@ trait RegisterMarriage
      * @param  Request $request
      * @return Response
      */
-    public function store(MarriageFormRequest $request)
-    {   
-
-        if(new Register($request->all()) && blank(session('error'))){
+    public function store(Request $request)
+    {   $marriage = new Register($request->all()); 
+        if($marriage->register() && session('error') == null){
 
             broadcast(new NewMarriageEvent($request))->toOthers();
 

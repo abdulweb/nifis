@@ -110,8 +110,17 @@
         <div class="widget-body">
             <div class="tab-content">
                 <!-- Tab content -->
-                <div class="tab-pane active" id="no">
-                    <strong>We assume that you this wife's parent doesn't have family account if they have click <a  href="#yes" data-toggle="tab"><i></i>yes they have</a></li></strong>
+                <div class="tab-pane active" id="default">
+                   <strong>Please answer question above !</strong>
+                </div>
+                
+                <div class="tab-pane" id="why">
+                    <strong>We want to establish connection between the wife family and husband family enable us to easely pass information from one family to another like invetation.  
+                    </strong>
+                </div>
+
+                <div class="tab-pane" id="no">
+                    <strong>We assume that this wife's parent doesn't have family account if they have click <a  href="#yes" data-toggle="tab"><i></i>yes they have</a></li></strong>
                     <div class="form-group clearfix">
                         <label class="col-lg-4 control-label " for="name">Wife Date Of Birth</label>
                         <div class="col-lg-8">
@@ -119,25 +128,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="why">
-                    <strong>We want to establish connection between the wife family and husband family enable us to easely pass information from one family to another like invetation.  
-                    </strong>
-                </div>
-                <div class="tab-pane" id="yes">
-                    <div class="form-group clearfix">
-                        <label class="col-lg-4 control-label " for="wife_family">Family Title</label>
-                        <div class="col-lg-8">
-                            <input placeholder="Wife Family Title" class="form-control" value="{{ old('wife_family') }}" id="name" name="wife_family" type="text">
-                        </div>
-                    </div>
 
-                    <div class="form-group clearfix">
-                        <label class="col-lg-4 control-label " for="sname">Wife E-mail address</label>
+                <!--wife family tab-->
+                <div class="tab-pane" id="yes">
+                     <div class="form-group clearfix">
+                        <label class="col-lg-4 control-label " for="name">Wife Email</label>
                         <div class="col-lg-8">
-                            <input placeholder="Wife E-mail Address" class="form-control" value="{{ old('wife_email') }}" id="wife_email" name="wife_email" type="email">
+                            <input placeholder="Wife Familt E-mail Address" class="form-control" value="{{ old('wife_email') }}" id="name" name="wife_email" type="email">
                         </div>
                     </div>
                 </div>
+                <!-- end wife family tab-->
             </div>
         </div>
     </div>

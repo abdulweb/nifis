@@ -9,7 +9,6 @@ use Modules\Marriage\Register\Marriage\RegisterValid\ValidateRequest;
 class Register
 
 {
-	
 
 	use ValidateRequest, RegisterThisMarriage;
 
@@ -19,13 +18,11 @@ class Register
 	{
 		$this->data = $data;
 	}
+
     public function register()
     {
-
-        $validate = $this->validateMarriageRequest($this->data);
-
-        if(empty($validate->h_error) && empty($validate->h_error)){
-        	switch (session('register')) {
+        if($validate = $this->validateMarriageRequest($this->data) && empty($validate->h_error) && empty($validate->h_error)){
+        	switch (session('register')->status) {
 	        	case 'father':
 	        		$this->registerMarriage($this->data);
 	        		break;

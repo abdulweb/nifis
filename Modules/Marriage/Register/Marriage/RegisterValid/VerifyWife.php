@@ -14,7 +14,7 @@ class VerifyWife
     {
         if(fiiled($user->profile()->child()->birth())){
             return true;
-        }eles{
+        }else{
             $this->error = ["Sorry the wife birth authentication fails base on the specify email no birth"];
         }
     }

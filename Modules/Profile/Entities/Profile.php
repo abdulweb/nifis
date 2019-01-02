@@ -63,7 +63,7 @@ class Profile extends Model
     
     public function husband()
     {
-    	return $this->hasOne(Husband::class);
+    	return $this->hasOne('Modules\Marriage\Entities\Husband');
     }
 
     public function user()

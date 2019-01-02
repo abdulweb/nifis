@@ -9,7 +9,7 @@ class Wife extends Model
 
     protected $guarded = [];
 
-    public function married()
+    public function marriages()
     {
     	return $this->hasMany(Married::class);
     }
