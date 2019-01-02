@@ -10,7 +10,7 @@ use Modules\Address\Entities\Country;
 use Modules\Address\Entities\State;
 use Modules\Address\Entities\Lga;
 use Illuminate\Support\Facades\Hash;
-
+use Modules\Profile\Entities\Profile;
 class NewFamily 
 {
 
@@ -34,11 +34,11 @@ class NewFamily
     }
 	public function register($data){
         $this->newUser($data);
-        $this->newProfile($this->user,$data);
         $this->familyLocation($data);
         $this->newTribe($data);
         $this->newFamily($this->location, $data);
-        $this->newAdmin($this->profile, $this->family,$data);
+        $this->newProfile($this->registerer,$data);
+        $this->newAdmin($this->profile, $this->family, $data);
 	}
 
     public function newFamily(Location $location, $array){
@@ -80,9 +80,9 @@ class NewFamily
         $this->tribe = Tribe::firstOrCreate(['name'=>$array['tribe']]);
     }
 
-    public function newAdmin(Profile $profile, Family $family,$data){
+    public function newAdmin(Profile $profile, Family $family, $data){
     	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id]);
-        $this->profile->update(['family_id'=>$family->id])->save();
+        $profile->update(['family_id'=>$family->id]);
     }
 
     public function familyLocation($array){
@@ -110,13 +110,15 @@ class NewFamily
    
     public function newProfile(User $user, $data)
     {
-        if(empty($array['date'])){
+        if(empty($data['date'])){
             $data['date'] = $data['mdate'];
         }
     	$this->profile = $user->profile()->create([
             'gender_id'         => 1,
             'marital_status_id' => 1,
-            'date_of_birth' => $data['date']
+            'date_of_birth' => $data['date'],
+            'family_id' =>$this->family->id
         ]);
     }
+    
 }

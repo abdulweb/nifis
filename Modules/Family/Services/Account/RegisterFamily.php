@@ -27,12 +27,14 @@ trait RegisterFamily
      * @return Response
      */
     public function store(FamilyFormRequest $request, NewFamily $newfamily)
-    { 
-        if($newfamily->register($request->all())){
-        	broadcast(new NewFamilyEvent($newfamily->family))->toOthers();
-        	return redirect()->route('family.create')->with('message','Family account crated successfully');
-        }else{
-        	return redirect()->route('family.create')->with('error','problem has occure in creating this family account');
+    {
+        try {
+            $newfamily->register($request->all());
+            broadcast(new NewFamilyEvent($newfamily->family))->toOthers();
+            return redirect()->route('family.create')->with('message','Family account crated successfully');
+        } catch (\Exception $exception) {
+            return back()->withInput()
+                ->withErrors(['error' => 'Unexpected error occurred while trying to process your request!']);
         }
     }
 }
