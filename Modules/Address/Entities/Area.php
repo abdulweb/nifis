@@ -8,12 +8,12 @@ class Area extends Model
 {
     protected $guarded = [];
 
-    public function house()
+    public function houses()
     {
         return $this->hasMany(House::class);
     }
 
-    public function company()
+    public function companies()
     {
         return $this->hasMany(Company::class);
     }

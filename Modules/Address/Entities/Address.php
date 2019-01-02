@@ -8,7 +8,7 @@ class Address extends Model
 {
     protected $guarded = [];
 
-    public function leaves_in()
+    public function leaves()
     {
         return $this->hasOne(LivesIn::class);
     }

@@ -49,11 +49,11 @@
                             </div>
                         </div>
                     </section>
-                    <h3>Family Information</h3>
+                    <h3>Family Info</h3>
                     <section>
                         <div class="row">
                             <div class="col-md-3">
-                                <strong class="lead">Family Location :</strong>
+                                <strong class="lead">Family Information :</strong>
                                 {{'We need your family information to store agains any body who will be register under this family will be a member of this family and any information to be share in this family he will recive it'}}
                             </div>
                             <div class="col-md-9">
