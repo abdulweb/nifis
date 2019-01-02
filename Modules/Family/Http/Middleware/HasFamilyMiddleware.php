@@ -16,8 +16,8 @@ class HasFamilyMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth()->User()->profile){
-            return redirect()->route('home');
+        if(Auth()->User()->profile()){
+            return redirect('/home');
         }
         return $next($request);
     }

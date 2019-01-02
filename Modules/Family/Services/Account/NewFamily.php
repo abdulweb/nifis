@@ -120,5 +120,5 @@ class NewFamily
             'family_id' =>$this->family->id
         ]);
     }
-    
+
 }

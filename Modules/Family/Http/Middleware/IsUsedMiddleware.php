@@ -16,6 +16,9 @@ class IsUsedMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if(Auth()->User()->family()){
+            return redirect('/home');
+        }
         return $next($request);
     }
 }
