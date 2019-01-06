@@ -12,7 +12,10 @@ class Profile extends Model
     {
     	return $this->hasOne(Children::class);
     }
-
+    public function admin()
+    {
+        return $this->hasOne('Modules\Admin\Entities\Admin');
+    }
     public function announcement()
     {
     	return $this->hasMany(Announcement::class);

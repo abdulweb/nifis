@@ -41,4 +41,8 @@ class User extends Authenticatable
     {
       return $this->hasOne('Modules\Profile\Entities\Profile');
     }
+    public function family()
+    {
+      return $this->hasOne('Modules\Family\Entities\Family');
+    }
 }

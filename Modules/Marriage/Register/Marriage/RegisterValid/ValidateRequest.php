@@ -19,12 +19,12 @@ trait ValidateRequest
     	$user = User::find(1);
         //i use 1 for testing later use $data['user_id']
         $husband = new ValidHusband($user,$data);
-        $husband->validateHusband();
+        //$husband->validateHusband();
         //User::where('email',$data['wife_email'])->get()
         $wife = new ValidWife($user,$data);
         $wife->validateWife();
     	$this->h_errors = $husband->error;
-        dd($h_errors);
+        //dd($h_errors);
     	$this->w_errors = $wife->error;
 
     }

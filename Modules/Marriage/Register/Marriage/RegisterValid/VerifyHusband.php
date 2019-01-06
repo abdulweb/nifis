@@ -10,9 +10,10 @@ class VerifyHusband
 {
     public $error = [];
 
-    public function hasFamily(User $user)
+    public function married(User $user)
     {
-        if(filled($user->profile()->admin())){
+        dd($user->profile()->get()->gender_id);
+        if($user->profile()->husband()){
            return true; 
         }
     }
@@ -23,7 +24,7 @@ class VerifyHusband
         if($user->profile()->data_of_birth >= 567648000){
             return true;
         }else{
-            $this->error = ["family authentication fails too early to marry"];
+            $this->error = ["marriage authentication fails too early to marry"];
         }
     }
 
