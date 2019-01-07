@@ -1,4 +1,8 @@
 <?php
+namespace Modules\Family\Services\Family;
+
+use Modules\Family\Entities\Family;
+use Modules\Family\Entities\SubFamily;
 
 class ValidFamilies
 {   
@@ -43,7 +47,7 @@ class ValidFamilies
             $this->myGrandFatherFamily();
             $this->myFatherBrotherFamilies();
         }
-        
+
     }
     private function hasSubFamily(Family $family)
     {
