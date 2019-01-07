@@ -9,7 +9,7 @@ class birthCore
 {
 	public $father =  [];
 	public $mothers = [];
-	public $family =  [];
+	public $families =  [];
 	public function __construct()
 	{
         $this->birthInfo(); 
@@ -27,9 +27,9 @@ class birthCore
             ];
             foreach($admin->profile->husband->marriages as $marriage){
             	$mother = $marriage->wife->profile->user;
-            	$this->mother = [
+            	$this->mothers[] = [
 	                'name' => $mother->first_name,
-	                'sname' => $mother->last_name,
+	                'surname' => $mother->last_name,
 	                'user_id' =>$mother->id
                 ];
             }

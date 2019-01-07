@@ -16,7 +16,7 @@ class Wife extends Model
 
     public function profile()
     {
-    	return $this->belongsTo(Profile::class);
+    	return $this->belongsTo('Modules\Profile\Entities\Profile');
     }
 
     public function status()

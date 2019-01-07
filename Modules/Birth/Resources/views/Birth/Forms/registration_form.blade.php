@@ -3,40 +3,49 @@
 	@csrf
 	<h3>Father Info</h3>
 	<section>
-		<input type="hidden" name="user_id" value="{{$husbands['user_id']}}">
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
+			<label class="col-lg-4 control-label " for="husband_first_name">Father First Name</label>
 			<div class="col-lg-8">
-				<input value="{{$husbands['name']}}" placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" value="{{old('husband_first_name')}}" disabled>
+				<input value="{{$father['name']}}" placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" disabled>
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_last_name">Husband Last Name</label>
+			<label class="col-lg-4 control-label " for="husband_last_name">Father Last Name</label>
 			<div class="col-lg-8">
-				<input value="{{$husbands['surname']}}" value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control" disabled>
+				<input value="{{$father['surname']}}" value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control" disabled>
 			</div>
 		</div>
-		
 	</section>
+
 	<h3>Mother Info</h3>
 	<section>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="wife_first_name">Wife First Name</label>
+			<label class="col-lg-4 control-label " for="wife_first_name">Mother First Name</label>
 			<div class="col-lg-8">
-				<input value="{{old('wife_first_name')}}" placeholder="Wife First Name" class="form-control required" id="wife_first_name" name="wife_first_name" type="text">
+				<select name="mother_last_name" class= form-control>
+					<option values="">Mother First Name</option>
+					@foreach($mothers as $mother)
+                        <option value="$mother['name']">{{$mother['name']}}</option>
+					@endforeach
+				</select>
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label" for="wife_last_name">Wife last Name</label>
+			<label class="col-lg-4 control-label" for="wife_last_name">Mother last Name</label>
 			<div class="col-lg-8">
-				<input value="{{old('wife_first_name')}}" placeholder="Wife Last Name"  class="form-control required" id="wife_last_name" name="wife_last_name" type="text">
+				<select name="mother_last_name" class= form-control>
+					<option values="">Mother Last Name</option>
+					@foreach($mothers as $mother)
+                        <option value="$mother['surname']">{{$mother['surname']}}</option>
+					@endforeach
+				</select>
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="userName1">Wife Status</label>
+			<label class="col-lg-4 control-label " for="userName1">Mother Status</label>
 			<div class="col-lg-8">
-				<select name="wife_status" class="form-control" value="{{old('wife_status')}}" >
-					<option value="">Wife Status</option>
+				<select name="mother_status" class="form-control" value="{{old('wife_status')}}" >
+					<option value="">Mother Status</option>
 					<option value="1">First Wife</option>
 					<option value="2">Second Wife</option>
 					<option value="3">Third Wife</option>
@@ -48,54 +57,63 @@
 	<h3>Child Info</h3>
 	<section>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="marriage_date">Date Of Marriage</label>
+			<label class="col-lg-4 control-label " for="child-name">Child First Name</label>
 			<div class="col-lg-8">
-				<input class="form-control required" id="marriage_date" name="marriage_date" type="date" value="{{old('marriage_date')}}" >
+				<input class="form-control required" id="marriage_date" name="child_name" type="text" value="{{old('child_name')}}" placeholder="Child First Name">
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="child-name">Child Health Status</label>
+			<div class="col-lg-8">
+				<select class="form-control" name="health_status">
+					<option value="">Health Status</option>
+					<option value="Normal">Normal</option>
+					<option>Fever</option>
+					<option>Stomac Ache</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="child-name">Child Weight</label>
+			<div class="col-lg-8">
+				<select class="form-control" name="weight">
+					<option value="">Child Weight</option>
+					<option value="1.0 kg">1.0 kg</option>
+					<option value="1.1 kg">1.1 kg</option>
+					<option value="1.2 kg">1.2 kg</option>
+				</select>
 			</div>
 		</div>
 	</section>
 	<h3>Birth Info</h3>
 	<section>
-		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="country">Country</label>
-			<div class="col-lg-8">
-				<input value="{{$family->location->lga->state->country->name}}"  placeholder="Country" class="form-control required" id="country" name="country" type="text" disabled>
-			</div>
-		</div>
-		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="state">State</label>
-			<div class="col-lg-8">
-				<input value="{{$family->location->lga->state->name}}" placeholder="State"  class="form-control required" id="state" name="state" type="text" disabled>
-			</div>
-		</div>
-		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="lga">Local Government</label>
-			<div class="col-lg-8">
-				<input value="{{$family->location->lga->name}}"  placeholder="Local Government" class="form-control required" id="lga" name="lga" type="text" disabled>
-			</div>
-		</div>
         <div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="town">Town/Village</label>
+			<label class="col-lg-4 control-label " for="town">Date Of Birth</label>
 			<div class="col-lg-8">
-				<input value="{{old('town')}}"  placeholder="Town/Village" class="form-control required" id="town" name="town" type="text">
+				<input value="{{old('date')}}" class="form-control required" id="date" name="date" type="date">
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="area">Area</label>
+			<label class="col-lg-4 control-label " for="area">Deliver At</label>
 			<div class="col-lg-8">
-				<input value="{{old('area')}}"  placeholder="Living Area"  class="form-control required" id="area" name="area" type="text">
+				<select class="form-control" name="deliver_at">
+					<option value="">Deliver At</option>
+					<option value="Home">Home</option>
+					<option value="Hospital">Hospital</option>
+					<option value="Other Places">Other Place</option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="house_no">House No</label>
+			<label class="col-lg-4 control-label " for="house_no">Midwifery First Name</label>
 			<div class="col-lg-8">
-				<input value="{{old('house_no')}}"  placeholder="House No" class="form-control required" id="house_no" name="house_no" type="text">
+				<input value="{{old('midwifery_name')}}"  placeholder="Midwifery First Name" class="form-control required"  name="midwifery_name" type="text">
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="house_desc">Description</label>
+			<label class="col-lg-4 control-label " for="midwifery_surname">Midwifery Surname</label>
 			<div class="col-lg-8">
-				<input value="{{old('house_desc')}}"  placeholder="House Description" class="form-control required" id="house_desc" name="house_desc" type="text">
+				<input value="{{old('midwifery_surname')}}"  placeholder="Midwifery Surname" class="form-control required" id="midwifery_surname" name="midwifery_surname" type="text">
 			</div>
 		</div>
 	</section>
