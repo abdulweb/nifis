@@ -15,10 +15,10 @@ trait MarriageInitiate
 
     public function createWife(Profile $profile)
     {
-        if(!$this->wifeProfile->wife()){
+        if($this->wifeProfile->wife == null){
         	$this->wife = $this->wifeProfile->wife()->create([]);
         }else{
-        	$this->wife = $this->wifeProfile->wife();
+        	$this->wife = $this->wifeProfile->wife;
         }	
     }
 
@@ -26,10 +26,10 @@ trait MarriageInitiate
 
     public function createHusband(Profile $profile)
     {
-        if(!$this->husnadProfile->husband()){
+        if($this->husnadProfile->husband == null){
         	$this->husband = $husbandProfile->husband()->create([]);
         }else{
-        	$this->husband = $this->husnadProfile->husband();
+        	$this->husband = $this->husnadProfile->husband;
         }	
     }
 

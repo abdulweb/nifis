@@ -18,7 +18,7 @@ trait ProfileHandle
             $user= User::create(['first_name'=>$this->data['wife_first_name'],'last_name'=>$this->data['wife_last_name'],'date_of_birth'=>$this->date['wife_date']]);
             $this->wifeProfile = $user->profile()->create(['gender_id'=>2,'marital_status_id'=>2]);
 		}else{
-            $user = User::where('email',$this->data['wemail']);
+            $user = User::where('email',$this->data['wife_email']);
             $this->wifeProfile = $user->profile();
 		}
 	}
@@ -41,4 +41,5 @@ trait ProfileHandle
         $this->handleWifeProfile();
         $this->handleHusbandProfile();
 	}
+	
 }

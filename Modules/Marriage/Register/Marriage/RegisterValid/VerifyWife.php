@@ -12,7 +12,7 @@ class VerifyWife
    
     public function birthAuth(User $user)
     {
-        if(fiiled($user->profile()->child()->birth())){
+        if(fiiled($user->profile->child->birth)){
             return true;
         }else{
             $this->error = ["Sorry the wife birth authentication fails base on the specify email no birth"];
@@ -22,16 +22,16 @@ class VerifyWife
     public function marriageAuth(User $user)
     {
 
-        if($user->profile()->date_of_birth < 378432000){
+        if($user->profile->date_of_birth < 378432000){
             $this->error = ["Sorry the wife marriage authentication fails the owner of this email was too young to marry"];
-        }else if($user->profile()->wife()->marriage()->is_active != 0){
+        }else if($user->profile->wife->marriage->is_active != 0){
             $this->error = ["Sorry the wife marriage authentication fails the owner of this email was already married"];
         }
     }
 
     public function genderAuth(User $user)
     {
-        if(filled($user->profile()->wife())){
+        if(filled($user->profile->wife){
             $this->error = ["Sorry the wife gender authentication fails this email is belongs to male"];
         }
     }

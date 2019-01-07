@@ -13,4 +13,8 @@ class Mother extends Model
         return $this->belongTo(Wife::class);
     }
     
+    public function birth()
+    {
+        return $this->hasMany(Birth::class);
+    }
 }

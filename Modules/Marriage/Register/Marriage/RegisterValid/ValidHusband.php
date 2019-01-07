@@ -23,19 +23,19 @@ class ValidHusband extends VerifyHusbandInWifeFamily
 
     public function validateHusband()
     {
-        dd($this->user->profile());
         if(filled($this->data['wife_email'])){
 
-            if($this->user->profile()->husband()){
+            if(filled($this->user->profile->husband)){
                 $this->familyAuth($this->data);
                 $this->husbandAuth($this->user,$this->data);
             }
 
-        }else if($this->married($this->user)){
+        }
+        if($this->married($this->user)){
 
             $this->canMarryAgain($this->user);
 
-        }else if($this->user->profile()->child()){
+        }else if(filled($this->user->profile->child)){
 
             $this->canMarry($this->user);
             $this->validBirth($this->user,$this->data);

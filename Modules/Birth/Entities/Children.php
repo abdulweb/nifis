@@ -12,5 +12,10 @@ class Children extends Model
     {
         return $this->belongTo(Profile::class);
     }
+
+    public function birth()
+    {
+        return $this->hasOne(Birth::class);
+    }
     
 }

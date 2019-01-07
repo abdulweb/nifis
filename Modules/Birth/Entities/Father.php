@@ -12,5 +12,8 @@ class Father extends Model
     {
         return $this->belongTo(Husband::class);
     }
-    
+    public function birth()
+    {
+        return $this->hasMany(Birth::class);
+    }
 }

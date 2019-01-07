@@ -22,9 +22,4 @@ class Birth extends Model
     {
         return $this->belongTo(Mother::class);
     }
-    
-    public function user()
-    {
-        return $this->belongTo(Users::class);
-    }
 }
