@@ -5,16 +5,16 @@ namespace Modules\Birth\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Family\Services\Birth\birthCore;
 class BirthController extends Controller
 {
     /**
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(birthCore $birth)
     {
-        return view('birth::index');
+        return view('birth::Birth.new_birth',['father'=>$birth->father,'mothers'=>$birth->mothers,'families'=>$birth->families]);
     }
 
     /**
@@ -33,8 +33,14 @@ class BirthController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
     }
 
+    public function verify(Request $request)
+    {
+        session(['family' => $request->all()]);
+        return redirect()->route('birth.index');
+    }
     /**
      * Show the specified resource.
      * @return Response

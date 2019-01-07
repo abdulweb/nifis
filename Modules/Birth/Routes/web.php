@@ -11,6 +11,8 @@
 |
 */
 
-Route::prefix('birth')->group(function() {
-    Route::get('/', 'BirthController@index');
+Route::prefix('birth/')->middleware(['auth'])->group(function() {
+    Route::get('/', 'BirthController@index')->name('birth.index');
+    Route::post('/register','BirthController@store')->name('birth.register');
+    Route::post('/verify','BirthController@verify')->name('birth.verify');
 });

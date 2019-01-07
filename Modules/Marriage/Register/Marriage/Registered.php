@@ -23,8 +23,8 @@ class Registered
     {
     	$validate = $this->validateMarriageRequest($this->data);
 
-        if(empty($this->h_errors) && empty($validate->w_errors)){
-
+        if(empty($this->h_errors) && empty($this->w_errors)){
+         
         	switch (session('register')['status']) {
 	        	case 'father':
 	        		$this->registerMarriage($this->data);
