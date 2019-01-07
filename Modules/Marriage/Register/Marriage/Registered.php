@@ -6,7 +6,7 @@ use Modules\Marriage\Register\Marriage\RegisterEnd\RegisterThisMarriage;
 
 use Modules\Marriage\Register\Marriage\RegisterValid\ValidateRequest;
 
-class Register
+class Registered
 
 {
 
@@ -19,12 +19,16 @@ class Register
 		$this->data = $data;
 	}
 
-    public function register()
+    public function registered()
     {
-        if($validate = $this->validateMarriageRequest($this->data) && empty($validate->h_error) && empty($validate->h_error)){
-        	switch (session('register')->status) {
+    	$validate = $this->validateMarriageRequest($this->data);
+
+        if(empty($this->h_errors) && empty($validate->w_errors)){
+
+        	switch (session('register')['status']) {
 	        	case 'father':
 	        		$this->registerMarriage($this->data);
+	        		session()->flash('message','marriage is successfully registered');
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
@@ -34,18 +38,17 @@ class Register
 	        		break;
 	        	default:
 	        		session()->flash('message','Unknown marriage');
-        	        return redirect('/marriage');
 	        		break;
 	        }
         }else{
-        	session()->flash('error', array_collapse([$validate->h_error,$validate->w_error]));
+        	session()->flash('error', array_collapse([$this->h_errors,$this->w_errors]));
         	return redirect('/marriage');
         } 
         
     }
 
-    public function registerMarriage(RegisterThisMarriage $register){
-        $register->register();
+    public function registerMarriage(){
+        $this->register();
     }
 
 

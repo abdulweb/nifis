@@ -13,8 +13,8 @@ class Location extends Model
     	return $this->hasMany('Modules\Family\Entities\Family');
     }
 
-    public function lgas()
+    public function lga()
     {
-    	return $this->belongsToMany(Lga::class);
+    	return $this->belongsTo(Lga::class);
     }
 }

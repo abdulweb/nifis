@@ -23,7 +23,7 @@ class VerifyHusband
         if($user->profile->data_of_birth >= 567648000){
             return true;
         }else{
-            $this->error = ["marriage authentication fails too early to marry"];
+            $this->error = "marriage authentication fails too early to marry";
         }
     }
 
@@ -36,21 +36,22 @@ class VerifyHusband
         if($wife < 4){
             return true;
         }else{
-            $this->error = ["family authentication fails can not marry more than 4 wives"];
+            $this->error = "family authentication fails can not marry more than 4 wives";
         }
     }
     
     public function validBirth(User $user, $data)
     {
         if($user->profile->child->birth->mother_id != Wife::where('status_id',$data['mstatus'])->get()->mother->id){
-            $this->error = ["husband birth authentication fails and his mother information"];
+            $this->error = "husband birth authentication fails and his mother information";
         }
     }
 
     public function husbandMarriageDateAuth(User $user)
     {
-        if($this->data['mdate'] - $user->profile->date_of_birth < 567648000){
-            $this->error = ["Sorry the husband marriage date authentication fails there must be the interval of atleast 15 years between husband date of birth and marriage date"];
+       
+        if(strtotime($this->data['marriage_date']) - strtotime($user->profile->date_of_birth) < 567648000){
+            $this->error = "Sorry the husband marriage date authentication fails there must be the interval of atleast 15 years between husband date of birth and marriage date";
         }
     }
 }

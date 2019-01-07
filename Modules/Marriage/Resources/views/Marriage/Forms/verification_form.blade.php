@@ -6,9 +6,10 @@
 			<label class="col-lg-4 control-label " for="husband_first_name">Family title</label>
 			<div class="col-lg-8">
 				<select name="family" class="form-control">
-					<option value="">family 1</option>
-					<option value="">family 2</option>
-					<option value="">family 3</option>
+					<option value="">Chose Family</option>
+					@foreach($families as $family)
+                        <option value="{{$family->id}}">{{$family->name}}</option>
+					@endforeach
 				</select>
 			</div>
 		</div>

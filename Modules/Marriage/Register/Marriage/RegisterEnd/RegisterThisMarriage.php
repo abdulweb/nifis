@@ -8,7 +8,6 @@ use Modules\Marriage\Register\Marriage\RegisterEnd\MarriageInitiate;
 trait RegisterThisMarriage
 {
    
-
     use MarriageInitiate;
 
     public function register()

@@ -10,7 +10,7 @@ class Lga extends Model
 
     public function state()
     {
-        return $this->belongTo(State::class);
+        return $this->belongsTo(State::class);
     }
 
     public function towns()

@@ -16,16 +16,13 @@ trait ValidateRequest
 	public $h_errors;
 
     public function validateMarriageRequest($data){
-    	$user = User::find(1);
-        //i use 1 for testing later use $data['user_id']
-        $husband = new ValidHusband($user,$data);
+    	 
+        $husband = new ValidHusband(User::find($data['user_id']),$data);
         $husband->validateHusband();
-        //User::where('email',$data['wife_email'])->get()
-        $wife = new ValidWife($user,$data);
+        
+        $wife = new ValidWife(User::where('email',$data['wife_email'])->get(),$data);
         $wife->validateWife();
     	$this->h_errors = $husband->error;
-        dd($h_errors);
     	$this->w_errors = $wife->error;
-
     }
 }

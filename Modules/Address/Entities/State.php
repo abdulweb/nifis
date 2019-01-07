@@ -10,7 +10,7 @@ class State extends Model
 
     public function country()
     {
-        return $this->belongTo(Country::class);
+        return $this->belongsTo(Country::class);
     }
 
     public function lgas()

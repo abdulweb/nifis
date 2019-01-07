@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Married extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
 }

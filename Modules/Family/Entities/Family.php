@@ -19,7 +19,7 @@ class Family extends Model
     }
     public function location()
     {
-        return $this->hasOne('Modules\Address\Entities\Location');
+        return $this->belongsTo('Modules\Address\Entities\Location');
     }
     public function user()
     {

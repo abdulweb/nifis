@@ -2,7 +2,22 @@
 	@csrf
 	<h3>Husband Info</h3>
 	<section>
+		@if(session('register')['status'] == 'father')
+		<input type="hidden" name="user_id" value="{{$husbands['user_id']}}">
 		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
+			<div class="col-lg-8">
+				<input value="{{$husbands['name']}}" placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" value="{{old('husband_first_name')}}" disabled>
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="husband_last_name">Husband Last Name</label>
+			<div class="col-lg-8">
+				<input value="{{$husbands['surname']}}" value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control" disabled>
+			</div>
+		</div>
+		@elseif(session('register')['status'] == 'son')
+        <div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
 			<div class="col-lg-8">
 				<input placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" value="{{old('husband_first_name')}}">
@@ -14,6 +29,20 @@
 				<input value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control">
 			</div>
 		</div>
+		@else
+        <div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
+			<div class="col-lg-8">
+				<input placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" value="{{old('husband_first_name')}}">
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="husband_last_name">Husband Last Name</label>
+			<div class="col-lg-8">
+				<input value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control">
+			</div>
+		</div>
+		@endif
 	</section>
 	<h3>Wife Info</h3>
 	<section>
@@ -56,19 +85,19 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="country">Country</label>
 			<div class="col-lg-8">
-				<input value="{{old('country')}}"  placeholder="Country" class="form-control required" id="country" name="country" type="text">
+				<input value="{{$family->location->lga->state->country->name}}"  placeholder="Country" class="form-control required" id="country" name="country" type="text" disabled>
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="state">State</label>
 			<div class="col-lg-8">
-				<input value="{{old('state')}}" placeholder="State"  class="form-control required" id="state" name="state" type="text">
+				<input value="{{$family->location->lga->state->name}}" placeholder="State"  class="form-control required" id="state" name="state" type="text" disabled>
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="lga">Local Government</label>
 			<div class="col-lg-8">
-				<input value="{{old('lga')}}"  placeholder="Local Government" class="form-control required" id="lga" name="lga" type="text">
+				<input value="{{$family->location->lga->name}}"  placeholder="Local Government" class="form-control required" id="lga" name="lga" type="text" disabled>
 			</div>
 		</div>
         <div class="form-group clearfix">

@@ -4,6 +4,8 @@ namespace Modules\Marriage\Register\Marriage\RegisterValid;
 
 use Modules\Marriage\Register\Marriage\RegisterValid\VerifyWife;
 
+Use App\User;
+
 class ValidWife extends VerifyWife
 {
 

@@ -10,7 +10,7 @@ class Profile extends Model
 
     public function child()
     {
-    	return $this->hasOne(Children::class);
+    	return $this->hasOne('Modules\Birth\Entities\Children');
     }
     public function admin()
     {
@@ -61,7 +61,7 @@ class Profile extends Model
 
     public function wife()
     {
-    	return $this->hasOne(Wife::class);
+    	return $this->hasOne('Modules\Marriage\Entities\Wife');
     }
     
     public function husband()
@@ -71,7 +71,7 @@ class Profile extends Model
 
     public function user()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo('App\User');
     }
 
     public function businessUndergoes()

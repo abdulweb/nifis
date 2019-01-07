@@ -11,28 +11,28 @@ trait ProfileHandle
     
     public $wifeProfile;
 
-	
 	public function handleWifeProfile()
 	{
-		if(empty($this->data['wfamily'])){
-            $user= User::create(['first_name'=>$this->data['wife_first_name'],'last_name'=>$this->data['wife_last_name'],'date_of_birth'=>$this->date['wife_date']]);
-            $this->wifeProfile = $user->profile()->create(['gender_id'=>2,'marital_status_id'=>2]);
+		if(empty($this->data['wife_family'])){
+            $user= User::create(['first_name'=>$this->data['wife_first_name'],'last_name'=>$this->data['wife_last_name']]);
+            $this->wifeProfile = $user->profile()->create(['gender_id'=>2,'marital_status_id'=>2,'date_of_birth'=>$this->data['wife_date']]);
 		}else{
-            $user = User::where('email',$this->data['wife_email']);
-            $this->wifeProfile = $user->profile();
+            $user = User::where('email',$this->data['wife_email'])->get();
+            $this->wifeProfile = $user->profile;
 		}
 	}
 
     public function handleHusbandProfile()
 	{
-		$this->husbandProfile = User::find($this->data['user_id'])->profile();
+		$this->husbandProfile = User::find($this->data['user_id'])->profile;
 		$this->updateHusbandProfile();
 	}
 
 	public function updateHusbandProfile()
 	{
+
 		if($this->husbandProfile->marital_status_id != 2){
-			$this->husbandProfile->update(['marital_status_id'=>2])->save();
+			$this->husbandProfile->update(['marital_status_id'=>2]);
 		}
 	}
 
@@ -41,5 +41,5 @@ trait ProfileHandle
         $this->handleWifeProfile();
         $this->handleHusbandProfile();
 	}
-	
+
 }
