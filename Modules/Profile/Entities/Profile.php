@@ -43,7 +43,10 @@ class Profile extends Model
     {
     	return $this->belongsTo('Modules\Family\Entities\Family');
     }
-
+    public function leave()
+    {
+        return $this->belongsTo('Modules\Address\Entities\LiveIn');
+    }
     public function message()
     {
     	return $this->hasMany(Message::class);

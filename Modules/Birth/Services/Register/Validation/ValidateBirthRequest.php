@@ -5,6 +5,7 @@ namespace Modules\Services\Register\Validation;
 use Modules\Services\Register\Parent\ParentInit;
 use Modules\Services\Register\Validation\VerifyBirth;
 use Modules\Services\Register\Parent\VerifyMother;
+use Modules\Services\Register\Parent\VerifyChild;
 
 trait ValidateBirthRequest
 
@@ -18,7 +19,7 @@ trait ValidateBirthRequest
     
     public $error = []
 
-    use VerifyMother, VerifyBirth, ParentInit;
+    use VerifyMother, VerifyBirth, VerifyChild, ParentInit;
 
 	public function Validate(){
 
@@ -30,7 +31,9 @@ trait ValidateBirthRequest
         	$this->firstBirthAuth();
         }
         if($this->error == null){
+		    $this->createUser();
         	$this->handleParent();
+        	$this->handleChildProfile();
         }
 
 	}
