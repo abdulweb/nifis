@@ -13,6 +13,8 @@ trait MarriageInitiate
 
     public $wife;
 
+    public $address;
+
     public function createWife(Profile $profile)
     {
         if($this->wifeProfile->wife == null){
@@ -36,5 +38,17 @@ trait MarriageInitiate
     public function createMarriage(Husband $husband)
     {
         $husband->marriages()->create(['wife_id'=>$this->wife->id,'date'=>strtotime($this->data['marriage_date'])]);
+    }
+
+    public function Address()
+    {
+        $address = new LivingAddress($this->data);
+        $this->address = $address->id;
+    }
+    public function marriageAddress()
+    {
+        $this->Address();
+        $this->husbandProfile->leave()->create(['address_id'=>$this->address]);
+        $this->wifeProfile->leave()->create(['address_id'=>$this->address]);
     }
 }
