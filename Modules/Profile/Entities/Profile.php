@@ -45,7 +45,7 @@ class Profile extends Model
     }
     public function leave()
     {
-        return $this->belongsTo('Modules\Address\Entities\LiveIn');
+        return $this->belongsTo('Modules\Address\Entities\LivesIn');
     }
     public function message()
     {

@@ -16,6 +16,6 @@ trait RegisterThisMarriage
         $this->createHusband($this->husbandProfile);
         $this->createWife($this->wifeProfile);
         $this->createMarriage($this->husband);
-        $this->marraigeAddress();
+        $this->marriageAddress();
     }
 }

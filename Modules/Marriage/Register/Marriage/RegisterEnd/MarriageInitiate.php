@@ -5,6 +5,8 @@ use Modules\Marriage\Register\Marriage\RegisterEnd\ProfileHandle;
 
 use Modules\Profile\Entities\Profile;
 
+use Modules\Address\Services\LivingAddress;
+
 use Modules\Marriage\Entities\Husband;
 
 trait MarriageInitiate
@@ -48,6 +50,7 @@ trait MarriageInitiate
     public function marriageAddress()
     {
         $this->Address();
+
         $this->husbandProfile->leave()->create(['address_id'=>$this->address]);
         $this->wifeProfile->leave()->create(['address_id'=>$this->address]);
     }
