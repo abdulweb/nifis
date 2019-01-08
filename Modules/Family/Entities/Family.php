@@ -36,9 +36,9 @@ class Family extends Model
     	return $this->belongsTo(Tribe::class);
     }
 
-    public function profile()
+    public function profiles()
     {
-    	return $this->hasMany(Profile::class);
+    	return $this->hasMany('Modules\Profile\Entities\Profile');
     }
 
     public function image()

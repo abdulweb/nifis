@@ -4,12 +4,14 @@ namespace Modules\Family\Services\Birth;
 
 use Modules\Family\Entities\Family;
 
+use Modules\Family\Services\Family\ValidFamilies;
+
 class birthCore
 
 {
 	public $father =  [];
 	public $mothers = [];
-	public $families =  [];
+	public $families;
 	public function __construct()
 	{
         $this->birthInfo(); 
@@ -34,7 +36,8 @@ class birthCore
                 ];
             }
         }else{
-        	$this->families = Family::all();
+        	$family = new ValidFamilies;
+        	$this->families = $family->getAllFamilies();
         }      
 	}
 }
