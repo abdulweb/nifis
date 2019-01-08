@@ -4,8 +4,14 @@ namespace Modules\Birth\Services\Register;
 
 use Modules\Family\Services\Birth\birthCore;
 
+use Modules\Birth\Services\Register\Validation\ValidateBirthRequest as ValidateRequest;
+
+use Modules\Birth\Services\Register\NewBirth;
+
 trait RegisterBirth
 {
+	use ValidateRequest;
+
 	public function index(birthCore $birth)
     {
         return view('birth::Birth.new_birth',['father'=>$birth->father,'mothers'=>$birth->mothers,'families'=>$birth->families]);
@@ -27,7 +33,17 @@ trait RegisterBirth
      */
     public function store(Request $request)
     {
-        dd($request->all());
+
+        try {
+            $birth = new NewBirth($request->all());
+            dd($birth->data);
+            broadcast(new NewBirthEvent($birth->data))->toOthers();
+            return redirect()->route('birth.index')->with('message','Birth is registered successfully');
+        } catch (\Exception $exception) {
+            return back()->withInput()
+                ->withErrors(['error' => 'Unexpected error occurred while trying to process your request!']);
+        }
+
     }
 
     public function verify(Request $request)
