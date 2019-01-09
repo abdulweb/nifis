@@ -10,10 +10,10 @@ class Mother extends Model
 
     public function wife()
     {
-        return $this->belongTo(Wife::class);
+        return $this->belongsTo('Modules\Marriage\Entities\Wife');
     }
     
-    public function birth()
+    public function births()
     {
         return $this->hasMany(Birth::class);
     }

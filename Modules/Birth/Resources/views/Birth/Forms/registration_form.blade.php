@@ -26,7 +26,7 @@
 				<select name="mother_first_name" class= form-control>
 					<option values="">Mother First Name</option>
 					@foreach($mothers as $mother)
-                        <option value="$mother['name']">{{$mother['name']}}</option>
+                        <option value="{{$mother['name']}}">{{$mother['name']}}</option>
 					@endforeach
 				</select>
 			</div>
@@ -37,7 +37,7 @@
 				<select name="mother_last_name" class= form-control>
 					<option values="">Mother Last Name</option>
 					@foreach($mothers as $mother)
-                        <option value="$mother['surname']">{{$mother['surname']}}</option>
+                        <option value="{{$mother['surname']}}">{{$mother['surname']}}</option>
 					@endforeach
 				</select>
 			</div>
@@ -103,6 +103,12 @@
 			<label class="col-lg-4 control-label " for="town">Date Of Birth</label>
 			<div class="col-lg-8">
 				<input value="{{old('date')}}" class="form-control required" id="date" name="date" type="date">
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="house_no">Place Of Birth</label>
+			<div class="col-lg-8">
+				<input value="{{old('place')}}"  placeholder="Place of birth" class="form-control required"  name="place" type="text">
 			</div>
 		</div>
 		<div class="form-group clearfix">

@@ -26,7 +26,7 @@ class Wife extends Model
 
     public function mother()
     {
-        return $this->belongsTo('Modules\Birth\Entities\Mother');
+        return $this->hasOne('Modules\Birth\Entities\Mother');
     }
     
 }

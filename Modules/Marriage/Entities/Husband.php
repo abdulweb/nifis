@@ -18,4 +18,8 @@ class Husband extends Model
     {
     	return $this->belongsTo(Profile::class);
     }
+    public function father()
+    {
+    	return $this->hasOne('Modules\Birth\Entities\Father');
+    }
 }

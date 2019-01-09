@@ -4,7 +4,7 @@ namespace Modules\Birth\Services\Register;
 
 use Modules\Birth\Services\Register\Validation\ValidateBirthRequest;
 
-use Modules\Birth\Events\NewBirthEvent;
+
 
 class NewBirth
 
@@ -27,23 +27,23 @@ class NewBirth
         if($this->error == null){
         	$this->registerBirth();
         }else{
-        	return redirect()->route('birth.index');
+        	session()->flash('error',$this->error);
         }
     }
 
     public function registerBirth()
     {
+    	
         $birth = $this->mother->births()->create([
         	'child_id'=>$this->child->id,
         	'father_id'=>$this->father->id,
-        	'date'=>$this->data['date'],
-        	'weight' => $data['weight'],
-        	'place' => $data['place'],
-            'deliver_at' =>$data['deliver_at']
-
+        	'date'=>strtotime($this->data['date']),
+        	'weight' => $this->data['weight'],
+        	'place' => $this->data['place'],
+            'deliver_at' =>$this->data['deliver_at']
         ]);
         $address = $this->mother->wife->profile->leave->address_id;
-        $this->child->profile->leave->create(['address_id'=>$address]);
+        $this->child->profile->leave()->create(['address_id'=>$address]);
           
     }
 

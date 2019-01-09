@@ -10,12 +10,12 @@ trait VerifyBirth
 	{
 
         $date = [];
-
+     
         foreach($this->mother->births as $birth){
             $date[] = $birth->data;
         }
 
-        if(strtotime($this->data['data']) - last($data) < 15778476){
+        if(strtotime($this->data['date']) - last($date) < 15778476){
 
         	$this->error[] = "Birth authentication fails depending of the registered previous birth father and mother are too early to give another birth";
         }

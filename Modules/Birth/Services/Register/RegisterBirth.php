@@ -41,8 +41,11 @@ trait RegisterBirth
         // try {
 
             $birth = new NewBirth($request->all());
-            broadcast(new NewBirthEvent($birth->data))->toOthers();
-            session()->flash('message','Birth is registered successfully');
+            if(session('error') == null){
+            	broadcast(new NewBirthEvent($birth->data))->toOthers();
+	            session()->foreget('family');
+	            session()->flash('message','Birth is registered successfully');
+            }
             return redirect()->route('birth.index');
 
         // } catch (\Exception $exception) {

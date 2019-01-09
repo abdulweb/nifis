@@ -15,7 +15,7 @@ class CreateMothersTable extends Migration
     {
         Schema::create('mothers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('wife_id')->unsigned()->nullable()->foreign()->refernces('id')->on('wives')->delete('restrict')->update('cascade');
+            $table->integer('wife_id')->unsigned()->foreign()->refernces('id')->on('wives')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }
