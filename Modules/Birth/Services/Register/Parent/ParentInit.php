@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Services\Register\Parent;
+namespace Modules\Birth\Services\Register\Parent;
 
 trait ParentInit
 {

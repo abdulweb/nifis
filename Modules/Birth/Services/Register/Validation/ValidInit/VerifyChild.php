@@ -1,5 +1,7 @@
 <?php
 
+namespace Modules\Birth\Services\Register\Validation\ValidInit;
+
 trait VerifyChild
 
 {
@@ -21,7 +23,7 @@ trait VerifyChild
 
 	public function createChild()
 	{
-        $this->child = $this->profile()->child->create([])
+        $this->child = $this->profile()->child->create([]);
 	}
 
 	public function handleChildProfile()

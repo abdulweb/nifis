@@ -9,9 +9,9 @@ class Wife extends Model
 
     protected $guarded = [];
 
-    public function marriages()
+    public function marriage()
     {
-    	return $this->hasMany(Married::class);
+    	return $this->hasOne(Married::class);
     }
 
     public function profile()
@@ -21,7 +21,12 @@ class Wife extends Model
 
     public function status()
     {
-    	return $this->belongsTo(Profile::class);
+    	return $this->belongsTo(Status::class);
+    }
+
+    public function mother()
+    {
+        return $this->belongsTo('Modules\Birth\Entities\Mother');
     }
     
 }

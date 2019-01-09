@@ -64,6 +64,17 @@
 			</div>
 		</div>
 		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="child-name">Child Gender</label>
+			<div class="col-lg-8">
+				<select class="form-control" name="gender">
+					<option value="">Gender</option>
+					<option value="1">Male</option>
+					<option value="2">Female</option>
+					<option value="3">Others</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="child-name">Child Health Status</label>
 			<div class="col-lg-8">
 				<select class="form-control" name="health_status">

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Services\Register\Validation;
+namespace Modules\Birth\Services\Register\Validation;
 
-use Modules\Services\Register\Parent\ParentInit;
-use Modules\Services\Register\Validation\VerifyBirth;
-use Modules\Services\Register\Parent\VerifyMother;
-use Modules\Services\Register\Parent\VerifyChild;
+use Modules\Birth\Services\Register\Parent\ParentInit;
+use Modules\Birth\Services\Register\Validation\ValidInit\VerifyBirth;
+use Modules\Birth\Services\Register\Validation\ValidInit\VerifyMother;
+use Modules\Birth\Services\Register\Validation\ValidInit\VerifyChild;
 
 trait ValidateBirthRequest
 
@@ -17,7 +17,7 @@ trait ValidateBirthRequest
 
 	public $mother;
     
-    public $error = []
+    public $error = [];
 
     use VerifyMother, VerifyBirth, VerifyChild, ParentInit;
 

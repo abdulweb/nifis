@@ -8,6 +8,10 @@ use Modules\Birth\Services\Register\Validation\ValidateBirthRequest as ValidateR
 
 use Modules\Birth\Services\Register\NewBirth;
 
+use Modules\Birth\Events\NewBirthEvent;
+
+use Illuminate\Http\Request;
+
 trait RegisterBirth
 {
 	use ValidateRequest;
@@ -34,15 +38,17 @@ trait RegisterBirth
     public function store(Request $request)
     {
 
-        try {
+        // try {
+
             $birth = new NewBirth($request->all());
-            dd($birth->data);
             broadcast(new NewBirthEvent($birth->data))->toOthers();
-            return redirect()->route('birth.index')->with('message','Birth is registered successfully');
-        } catch (\Exception $exception) {
-            return back()->withInput()
-                ->withErrors(['error' => 'Unexpected error occurred while trying to process your request!']);
-        }
+            session()->flash('message','Birth is registered successfully');
+            return redirect()->route('birth.index');
+
+        // } catch (\Exception $exception) {
+        //     return back()->withInput()
+        //         ->withErrors(['error' => 'Unexpected error occurred while trying to process your request!']);
+        // }
 
     }
 

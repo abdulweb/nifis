@@ -4,6 +4,8 @@ namespace Modules\Birth\Services\Register\Validation\ValidInit;
 
 use Modules\Marriage\Entities\Status;
 
+use App\User;
+
 trait VerifyMother
 
 {
@@ -27,8 +29,8 @@ trait VerifyMother
     public function motherUserIds()
     {
     	$id = [];
-        foreach(User::where(['mother_first_name'=>$this->data['mother_first_name'],
-    		'mother_last_name'=>$this->data['mother_last_name']])->get() as $user){
+        foreach(User::where(['first_name'=>$this->data['mother_first_name'],
+    		'last_name'=>$this->data['mother_last_name']])->get() as $user){
         	$id[] = $user->id;
         }
         return $id;

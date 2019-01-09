@@ -2,10 +2,9 @@
 
 namespace Modules\Birth\Services\Register;
 
-use Modules\Services\Register\Validation\ValidateBirthRequest;
-use Modules\Birth\Entities\Father;
-use Modules\Birth\Entities\Mother;
-use Modules\Birth\Entities\Children;
+use Modules\Birth\Services\Register\Validation\ValidateBirthRequest;
+
+use Modules\Birth\Events\NewBirthEvent;
 
 class NewBirth
 
