@@ -41,9 +41,12 @@ class Profile extends Model
     
     public function family()
     {
-    	return $this->belongsTo(Family::class);
+    	return $this->belongsTo('Modules\Family\Entities\Family');
     }
-
+    public function leave()
+    {
+        return $this->belongsTo('Modules\Address\Entities\LivesIn');
+    }
     public function message()
     {
     	return $this->hasMany(Message::class);

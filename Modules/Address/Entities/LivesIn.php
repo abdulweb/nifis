@@ -10,7 +10,7 @@ class LivesIn extends Model
 
     public function profile()
     {
-        return $this->belongTo(Profile::class);
+        return $this->belongTo('Modules\Profile\Entities\Profile');
     }
 
     public function address()

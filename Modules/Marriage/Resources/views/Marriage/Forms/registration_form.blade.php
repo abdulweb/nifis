@@ -7,13 +7,13 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
 			<div class="col-lg-8">
-				<input value="{{$husbands['name']}}" placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" value="{{old('husband_first_name')}}" disabled>
+				<input value="{{$husbands['name']}}" placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" value="{{old('husband_first_name')}}" >
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_last_name">Husband Last Name</label>
 			<div class="col-lg-8">
-				<input value="{{$husbands['surname']}}" value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control" disabled>
+				<input value="{{$husbands['surname']}}" value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control" >
 			</div>
 		</div>
 		@elseif(session('register')['status'] == 'son')
@@ -85,19 +85,19 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="country">Country</label>
 			<div class="col-lg-8">
-				<input value="{{$family->location->lga->state->country->name}}"  placeholder="Country" class="form-control required" id="country" name="country" type="text" disabled>
+				<input value="{{$family->location->lga->state->country->name}}"  placeholder="Country" class="form-control required" id="country" name="country" type="text" >
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="state">State</label>
 			<div class="col-lg-8">
-				<input value="{{$family->location->lga->state->name}}" placeholder="State"  class="form-control required" id="state" name="state" type="text" disabled>
+				<input value="{{$family->location->lga->state->name}}" placeholder="State"  class="form-control required" id="state" name="state" type="text" >
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="lga">Local Government</label>
 			<div class="col-lg-8">
-				<input value="{{$family->location->lga->name}}"  placeholder="Local Government" class="form-control required" id="lga" name="lga" type="text" disabled>
+				<input value="{{$family->location->lga->name}}"  placeholder="Local Government" class="form-control required" id="lga" name="lga" type="text" >
 			</div>
 		</div>
         <div class="form-group clearfix">

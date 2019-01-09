@@ -4,13 +4,16 @@ namespace Modules\Family\Services\Marriage;
 
 use Modules\Family\Entities\Family;
 
+use Modules\Family\Services\Family\ValidFamilies;
+
 class marriageCore
 
 {
 	public $husbands = [];
 	public $wives = [];
 	public $family = [];
-	public $families = [];
+	public $families;
+
 	public function __construct()
 	{
         $this->marriageInfo(); 
@@ -58,7 +61,8 @@ class marriageCore
                     break;
             }
         }else{
-            $this->families = Family::all();
+        	$family = new ValidFamilies();
+            $this->families = $family->getAllFamilies();
         }
 	}
 }

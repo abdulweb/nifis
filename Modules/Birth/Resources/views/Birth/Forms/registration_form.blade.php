@@ -4,15 +4,16 @@
 	<h3>Father Info</h3>
 	<section>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_first_name">Father First Name</label>
+			<input type="hidden" name="user_id" value="{{$father['user_id']}}">
+			<label class="col-lg-4 control-label " for="father_first_name">Father First Name</label>
 			<div class="col-lg-8">
-				<input value="{{$father['name']}}" placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" disabled>
+				<input value="{{$father['name']}}" class="form-control required" id="userName1" name="father_first_name" type="text">
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_last_name">Father Last Name</label>
 			<div class="col-lg-8">
-				<input value="{{$father['surname']}}" value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control" disabled>
+				<input value="{{$father['surname']}}" value="{{old('father_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="father_last_name" type="text" class="required form-control" >
 			</div>
 		</div>
 	</section>
@@ -22,7 +23,7 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="wife_first_name">Mother First Name</label>
 			<div class="col-lg-8">
-				<select name="mother_last_name" class= form-control>
+				<select name="mother_first_name" class= form-control>
 					<option values="">Mother First Name</option>
 					@foreach($mothers as $mother)
                         <option value="$mother['name']">{{$mother['name']}}</option>
@@ -60,6 +61,17 @@
 			<label class="col-lg-4 control-label " for="child-name">Child First Name</label>
 			<div class="col-lg-8">
 				<input class="form-control required" id="marriage_date" name="child_name" type="text" value="{{old('child_name')}}" placeholder="Child First Name">
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="child-name">Child Gender</label>
+			<div class="col-lg-8">
+				<select class="form-control" name="gender">
+					<option value="">Gender</option>
+					<option value="1">Male</option>
+					<option value="2">Female</option>
+					<option value="3">Others</option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group clearfix">

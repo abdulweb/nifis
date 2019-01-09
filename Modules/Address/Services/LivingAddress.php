@@ -8,7 +8,7 @@ use Modules\Address\Entities\Area;
 
 use Modules\Address\Services\BasAddress;
 
-class LivingAddress extends BasAddress
+class LivingAddress extends BaseAddress
 {
  
     public $town;
