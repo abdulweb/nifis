@@ -56,7 +56,7 @@ trait LivingAddress
         $this->newTown($this->lga);
         $this->newArea($this->town);
         $this->newHouse($this->area);
-        $this->newAddress($this->house);
+        return $this->newAddress($this->house);
     }
 
 }
