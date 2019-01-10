@@ -12,23 +12,23 @@ trait Admin
 
 {
 
-	public $admin;
+	private $admin;
 
-    public $profile;
+    private $profile;
 
-    public $user;
+    private $user;
 
-	public function newAdmin(Profile $profile, Family $family){
+	private function newAdmin(Profile $profile, Family $family){
 
     	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id]);
         $profile->update(['family_id'=>$family->id]);
 
     }
 
-    public function newUser()
+    private function newUser()
     {
         if(empty($this->data['date'])){
-            $this->user = Auth()->User();
+            $this->user = $this->registerer;
         }else{
             $this->user = User::firstOrCreate([
                 'first_name'=>$this->data['name'],
@@ -41,7 +41,7 @@ trait Admin
         
     }
    
-    public function newProfile(User $user)
+    private function newProfile(User $user)
     {
         if(empty($this->data['date'])){
             $this->data['date'] = $this->data['mdate'];
@@ -57,7 +57,7 @@ trait Admin
     public function newAdminHandle()
     {
     	$this->newUser();
-        $this->newProfile($this->registerer);
+        $this->newProfile($this->user);
         $this->newAdmin($this->profile, $this->family);
     }
 }

@@ -12,9 +12,9 @@ trait Family
 
 {
 
-	use Admin, FamilyLocation;
+	use FamilyLocation, Admin;
 
-    public $tribe;
+    private $tribe;
 
     public $family;
 
@@ -26,7 +26,7 @@ trait Family
         $this->newAdminHandle();
 	}
 
-    public function newFamily(Location $location){
+    private function newFamily(Location $location){
         $this->family = $this->location->families()->create([
             'name'=>$this->data['family'],
             'title' => $this->data['title'],
@@ -35,7 +35,7 @@ trait Family
         ]);
     }
 
-    public function newTribe(){
+    private function newTribe(){
         $this->tribe = Tribe::firstOrCreate(['name'=>$this->data['tribe']]);
     }
 }

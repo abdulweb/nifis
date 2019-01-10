@@ -30,7 +30,7 @@ trait RegisterFamily
     {
         try {
             if($family = new NewFamily($request->all())){
-                broadcast(new NewFamilyEvent($family))->toOthers();
+                broadcast(new NewFamilyEvent($family->family))->toOthers();
                 session()->flash('message','Family account crated successfully');
                 return redirect()->route('family.create');
             }
