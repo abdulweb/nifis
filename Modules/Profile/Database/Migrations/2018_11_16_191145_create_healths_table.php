@@ -13,7 +13,7 @@ class CreateUserHealthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_healths', function (Blueprint $table) {
+        Schema::create('healths', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('profile_id')->unsigned()->nullable()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
             $table->integer('desease_id')->unsigned()->nullable()->foreign()->refernces('id')->on('deseaseses')->delete('restrict')->update('cascade');
@@ -28,6 +28,6 @@ class CreateUserHealthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_healths');
+        Schema::dropIfExists('healths');
     }
 }

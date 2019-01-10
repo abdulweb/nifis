@@ -22,7 +22,7 @@ class CreateBirthsTable extends Migration
             $table->char('weight');
             $table->integer('date');
             $table->string('deliver_at');
-            $table->integer('delivery_id')->default(0);
+            $table->integer('deliver_id')->default(0)->unsigned()->foreign()->refernces('id')->on('delivers')->delete('restrict')->update('cascade');
             $table->timestamps();
         });
     }

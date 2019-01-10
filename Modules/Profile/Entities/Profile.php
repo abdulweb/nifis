@@ -117,9 +117,9 @@ class Profile extends Model
     	return $this->hasMany(UserDetail::class);
     }
     
-    public function UserHealth()
+    public function health()
     {
-    	return $this->belongsTo(UserHealth::class);
+    	return $this->hasOne(Health::class);
     }
 
     public function workHistory()

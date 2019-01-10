@@ -10,16 +10,21 @@ class Birth extends Model
 
     public function father()
     {
-        return $this->belongTo(Father::class);
+        return $this->belongsTo(Father::class);
     }
 
     public function child()
     {
-        return $this->belongTo(Children::class);
+        return $this->belongsTo(Children::class);
     }
 
     public function mother()
     {
-        return $this->belongTo(Mother::class);
+        return $this->belongsTo(Mother::class);
+    }
+
+    public function deliver()
+    {
+        return $this->belongsTo(Deliver::class);
     }
 }

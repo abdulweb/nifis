@@ -46,7 +46,7 @@ class CreateProfilesTable extends Migration
             ->on('life_statuses')
             ->delete('restrict')
             ->update('cascade');;
-            $table->integer('user_health_id')->unsigned()
+            $table->integer('health_id')->unsigned()
             ->nullable()
             ->foreign()
             ->refernces('id')

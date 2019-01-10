@@ -10,6 +10,8 @@ trait VerifyChild
 
 	private $profile;
 
+    private $health;
+
 	public $child;
 
 	public function createUser()
@@ -27,10 +29,22 @@ trait VerifyChild
         $this->child = $this->profile->child()->firstOrCreate([]);
 	}
 
+	public function createHealth()
+	{
+		$this->createHealth();
+
+		$this->health = Desease::firstOrcreate(['name'=>$this->data['health_status']]);
+	}
+    
+    public function profileHealth()
+    {
+    	$this->profile->health()->firstOrcreate(['desease_id'=>$this->helth->id]);
+    }
 	public function handleChildProfile()
 	{
 		$this->createUser();
 		$this->childProfile();
+		$this->profileHealth();
 		$this->createChild();
 	}
 }
