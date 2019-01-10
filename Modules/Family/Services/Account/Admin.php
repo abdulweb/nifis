@@ -8,24 +8,26 @@ use Modules\Profile\Entities\Profile;
 
 use Modules\Family\Entities\Family;
 
+use App\User;
+
 trait Admin 
 
 {
 
-	private $admin;
+	public $admin;
 
-    private $profile;
+    public $profile;
 
-    private $user;
+    public $user;
 
-	private function newAdmin(Profile $profile, Family $family){
+	public function newAdmin(Profile $profile, Family $family){
 
     	$this->admin = $family->admin()->create(['profile_id'=>$this->profile->id]);
         $profile->update(['family_id'=>$family->id]);
 
     }
 
-    private function newUser()
+    public function newUser()
     {
         if(empty($this->data['date'])){
             $this->user = $this->registerer;
@@ -41,8 +43,9 @@ trait Admin
         
     }
    
-    private function newProfile(User $user)
+    public function newProfile(User $user)
     {
+
         if(empty($this->data['date'])){
             $this->data['date'] = $this->data['mdate'];
         }

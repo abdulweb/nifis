@@ -2,7 +2,9 @@
 
 namespace Modules\Address\Services;
 
-class WorkAddress extends BasAddress
+use  Modules\Address\Services\BaseAddress;
+
+trait WorkAddress
 {
 
 }

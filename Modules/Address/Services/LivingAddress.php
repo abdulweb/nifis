@@ -2,54 +2,61 @@
 
 namespace Modules\Address\Services;
 
+use Modules\Address\Entities\Lga;
+
 use Modules\Address\Entities\Town;
 
 use Modules\Address\Entities\Area;
 
-use Modules\Address\Services\BasAddress;
+use Modules\Address\Entities\House;
 
-class LivingAddress extends BaseAddress
+use Modules\Address\Services\BaseAddress;
+
+trait LivingAddress
 {
  
+    use BaseAddress;
+
     public $town;
 
-    public function newTown(Lga $lga, $data)
+    public function newTown(Lga $lga)
     {
-    	$this->town = $lga->towns()->firstOrCreate(['name'=>$data['town']]);
+    	$this->town = $lga->towns()->firstOrCreate(['name'=>$this->data['town']]);
     }
     
     public $area;
 
-    public function newArea(Town $town, $data)
+    public function newArea(Town $town)
     {
-    	$this->area = $town->towns()->firstOrCreate(['name'=>$data['area']]);
+       
+    	$this->area = $town->areas()->firstOrCreate(['name'=>$this->data['area']]);
     }
 
     public $house;
 
-    public function newHouse(Area $area, $data)
+    public function newHouse(Area $area)
     {
     	$this->house = $area->houses()->firstOrCreate([
-    		'house_no'=>$data['house_no'],
-    		'house_desc'=>$data['house_desc']
+    		'house_no'=>$this->data['house_no'],
+    		'house_desc'=>$this->data['house_desc']
     	]);
     }
 
-    public $id;
-
-    public function newAddress(House $house, $data)
+    public function newAddress(House $house)
     {
-    	$this->id = $house->address()->firstOrCreate([]);
+    	$address = $house->address()->firstOrCreate([]);
+        return $address->id;
     }
 
-    public function address($data)
+    public function address()
     {
-        newCountry($data);
-        newState($this->country, $data);
-        newLga($this->state, $data);
-        newTown($this->lga, $data);
-        newHouse($this->town, $data);
-        newAddress($this->house, $data);
+        $this->newCountry();
+        $this->newState($this->country);
+        $this->newLga($this->state);
+        $this->newTown($this->lga);
+        $this->newArea($this->town);
+        $this->newHouse($this->area);
+        $this->newAddress($this->house);
     }
 
 }

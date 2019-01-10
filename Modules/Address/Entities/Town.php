@@ -15,6 +15,6 @@ class Town extends Model
 
     public function areas()
     {
-        return $this->hasMany(State::class);
+        return $this->hasMany(Area::class);
     }
 }

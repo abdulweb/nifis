@@ -11,11 +11,9 @@ use Modules\Marriage\Entities\Husband;
 
 trait MarriageInitiate
 {
-    use ProfileHandle;
+    use ProfileHandle, LivingAddress;
 
     public $wife;
-
-    public $address;
 
     public function createWife(Profile $profile)
     {
@@ -42,16 +40,9 @@ trait MarriageInitiate
         $husband->marriages()->create(['wife_id'=>$this->wife->id,'date'=>strtotime($this->data['marriage_date'])]);
     }
 
-    public function Address()
-    {
-        $address = new LivingAddress($this->data);
-        $this->address = $address->id;
-    }
     public function marriageAddress()
     {
-        $this->Address();
-
-        $this->husbandProfile->leave()->create(['address_id'=>$this->address]);
-        $this->wifeProfile->leave()->create(['address_id'=>$this->address]);
+        $this->husbandProfile->leave()->create(['address_id'=>$this->address()]);
+        $this->wifeProfile->leave()->create(['address_id'=>$this->address()]);
     }
 }
