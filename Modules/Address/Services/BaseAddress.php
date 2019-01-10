@@ -8,7 +8,7 @@ use Modules\Address\Entities\State;
 
 use Modules\Address\Entities\Lga;
 
-class BaseAddress
+trait BaseAddress
 {
 	public $country;
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserHealthsTable extends Migration
+class CreateHealthsTable extends Migration
 {
     /**
      * Run the migrations.

@@ -3,6 +3,9 @@
 namespace Modules\Birth\Services\Register\Validation\ValidInit;
 
 use App\User;
+
+use Modules\Profile\Entities\Desease;
+
 trait VerifyChild
 
 {

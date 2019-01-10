@@ -4,17 +4,24 @@ namespace Modules\Address\Services;
 
 use Modules\Address\Services\BasAddress;
 
-class FamilyLocation extends BasAddress
+use Modules\Address\Entities\Lga;
+
+trait FamilyLocation
 {
-    public function location($array){
-        $this->newCountry($array);
-        $this->newState($this->country, $array);
-        $this->newLga($this->state,$array);
-        $this->newLocation($this->lga,$array);
+   
+    use BaseAddress;
+
+    public $location;
+
+    public function location(){
+        $this->newCountry($this->data);
+        $this->newState($this->country, $this->data);
+        $this->newLga($this->state,$this->data);
+        $this->newLocation($this->lga,$this->data);
     }
 
-    public function newLocation(Lga $lga, $data)
+    public function newLocation(Lga $lga)
     {
-        $this->location = $lga->locations()->firstOrCreate(['location'=>$data['location']]);
+        $this->location = $lga->locations()->firstOrCreate(['location'=>$this->data['location']]);
     }
 }

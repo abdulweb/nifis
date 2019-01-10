@@ -26,12 +26,15 @@ trait RegisterFamily
      * @param  Request $request
      * @return Response
      */
-    public function store(FamilyFormRequest $request, NewFamily $newfamily)
+    public function store(FamilyFormRequest $request)
     {
         try {
-            $newfamily->register($request->all());
-            broadcast(new NewFamilyEvent($newfamily->family))->toOthers();
-            return redirect()->route('family.create')->with('message','Family account crated successfully');
+            if($family = new NewFamily($request->all())){
+                broadcast(new NewFamilyEvent($family))->toOthers();
+                session()->flash('message','Family account crated successfully');
+                return redirect()->route('family.create');
+            }
+            
         } catch (\Exception $exception) {
             return back()->withInput()
                 ->withErrors(['error' => 'Unexpected error occurred while trying to process your request!']);
