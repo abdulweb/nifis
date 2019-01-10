@@ -34,14 +34,13 @@ trait VerifyChild
 
 	public function createHealth()
 	{
-		$this->createHealth();
-
 		$this->health = Desease::firstOrcreate(['name'=>$this->data['health_status']]);
 	}
     
     public function profileHealth()
     {
-    	$this->profile->health()->firstOrcreate(['desease_id'=>$this->helth->id]);
+    	$this->createHealth();
+    	$this->profile->health()->firstOrcreate(['desease_id'=>$this->health->id]);
     }
 	public function handleChildProfile()
 	{

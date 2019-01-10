@@ -6,28 +6,19 @@ use Modules\Marriage\Register\Marriage\RegisterValid\VerifyWife;
 
 Use App\User;
 
-class ValidWife extends VerifyWife
+trait ValidWife
 {
-
-    public $user;
-
-    public $data;
-
-    public function __construct(User $user, $data)
-    {
-        $this->data = $data;
-        $this->user = $user;
-    }
+    use VerifyWife;
 
     public function validateWife()
     {
         
         if($this->data['wife_email']){
-            $this->birthAuth($this->user);
-            $this->marriageAuth($this->user);
-            $this->genderAuth($this->user);
+            $this->birthAuth($this->wifeUser);
+            $this->marriageAuth($this->wifeUser);
+            $this->genderAuth($this->wifeUser);
         }
-        $this->wifeMarriageDateAuth($this->data);
+        $this->wifeMarriageDateAuth($this->wifeUser);
 
     }
 }

@@ -6,10 +6,14 @@ use Modules\Family\Entities\Family;
 
 use App\User;
 
-class VerifyHusbandInWifeFamily extends VerifyHusband
+use Modules\Marriage\Register\Marriage\RegisterValid\VerifyHusband;
+
+trait VerifyHusbandInWifeFamily
 {
 
-	public function familyAuth($data)
+    use VerifyHusband;
+
+	public function familyAuth()
 	{
 		if($user = User::where('email',$data['wife_email'])->get()->isNotEmpty()){
             if($user->profile->family_id == null){
@@ -21,10 +25,10 @@ class VerifyHusbandInWifeFamily extends VerifyHusband
         
 	}
 
-    public function husbandAuth(User $user, $data)
+    public function husbandAuth(User $user)
     {
         foreach($user->profile->husband->marriages as $marriage){
-        	if($marriage->is_active == 1 && $marriage->wife->profile->family_id == Family::where(User::where('email',$data['wife_email'])->id->get)->id){
+        	if($marriage->is_active == 1 && $marriage->wife->profile->family_id == Family::where(User::where('email',$this->data['wife_email'])->id->get)->id){
         		if(blank(Family::where('title',$data['wfamily'])->get())){
 		        	$this->error = "Sorry the husband authentication in wife family fails the he has already married in the family";
 		        }

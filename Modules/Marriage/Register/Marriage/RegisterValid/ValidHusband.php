@@ -6,42 +6,31 @@ use Modules\Marriage\Register\Marriage\RegisterValid\VerifyHusbandInWifeFamily;
 
 use App\User;
 
-class ValidHusband extends VerifyHusbandInWifeFamily
+trait ValidHusband 
 {
-    public $user;
-
-    public $data;
-
-    public function __construct(User $user, $data)
-    {
-
-        $this->user = $user;
-
-        $this->data = $data;
-
-    }
+    use VerifyHusbandInWifeFamily;
 
     public function validateHusband()
     {
         if(filled($this->data['wife_email'])){
 
-            if(filled($this->user->profile->husband)){
-                $this->familyAuth($this->data);
-                $this->husbandAuth($this->user,$this->data);
+            if(filled($this->husbandUser->profile->husband)){
+                $this->familyAuth();
+                $this->husbandAuth($this->husbandUser);
             }
 
         }
-        if($this->married($this->user)){
+        if($this->married($this->husbandUser)){
 
-            $this->canMarryAgain($this->user);
+            $this->canMarryAgain($this->husbandUser);
 
-        }else if(filled($this->user->profile->child)){
+        }else if(filled($this->husbandUser->profile->child)){
 
-            $this->canMarry($this->user);
-            $this->validBirth($this->user,$this->data);
+            $this->canMarry($this->husbandUser);
+            $this->validBirth($this->husbandUser);
 
         }
-        $this->husbandMarriageDateAuth($this->user);
+        $this->husbandMarriageDateAuth($this->husbandUser);
 
     }
 }

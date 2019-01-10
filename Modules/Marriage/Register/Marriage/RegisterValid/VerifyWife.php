@@ -5,7 +5,7 @@ namespace Modules\Marriage\Register\Marriage\RegisterValid;
 use Modules\Marriage\Register\Marriage\RegisterValid\VerifyHusband;
 use App\User;
 
-class VerifyWife
+trait VerifyWife
 {
     public $error = [];
 

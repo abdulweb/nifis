@@ -25,7 +25,7 @@ trait ValidateBirthRequest
 
         $this->nameAuth();
         $this->parent();
-        if($this->mother->births != null){
+        if($this->mother != null){
             $this->nextBirthAuth();
         }else{
         	$this->firstBirthAuth();

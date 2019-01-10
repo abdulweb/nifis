@@ -6,7 +6,7 @@ use App\User;
 
 use Modules\Marriage\Entities\Wife;
 
-class VerifyHusband
+trait VerifyHusband
 {
     public $error = [];
 
@@ -40,9 +40,9 @@ class VerifyHusband
         }
     }
     
-    public function validBirth(User $user, $data)
+    public function validBirth(User $user)
     {
-        if($user->profile->child->birth->mother_id != Wife::where('status_id',$data['mstatus'])->get()->mother->id){
+        if($user->profile->child->birth->mother_id != Wife::where('status_id',$this->data['mstatus'])->get()->mother->id){
             $this->error = "husband birth authentication fails and his mother information";
         }
     }

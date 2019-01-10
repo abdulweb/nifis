@@ -4,7 +4,7 @@ namespace Modules\Birth\Services\Register;
 
 use Modules\Birth\Services\Register\Validation\ValidateBirthRequest;
 
-use Modules\Birth\Entities\Deliveer;
+use Modules\Birth\Entities\Deliver;
 
 class NewBirth
 
@@ -48,7 +48,7 @@ class NewBirth
         	'weight' => $this->data['weight'],
         	'place' => $this->data['place'],
             'deliver_at' =>$this->data['deliver_at'],
-            'deliver_id' =>$this->deliver_id
+            'deliver_id' =>$this->deliveredBy()
         ]);
         $address = $this->mother->wife->profile->leave->address_id;
         $this->child->profile->leave()->create(['address_id'=>$address]);
@@ -56,7 +56,7 @@ class NewBirth
     }
     public function deliveredBy()
     {
-    	$deliver = Deliver::firstOrCreate(['fisrt_name'=>$this->data['midwifery_name'],'last_name'=>$this->midwifery_surname]);
+    	$deliver = Deliver::firstOrCreate(['first_name'=>$this->data['midwifery_name'],'last_name'=>$this->data['midwifery_surname']]);
     	return $deliver->id;
     }
 

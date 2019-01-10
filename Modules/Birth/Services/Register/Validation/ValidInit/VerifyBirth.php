@@ -25,7 +25,11 @@ trait VerifyBirth
 	public function firstBirthAuth()
 	{
         if(strtotime($this->data['date']) - $this->status->wife[0]->marriage->date < 15778476){
-            $this->error[] = "Birth authentication fails depending of the marriage registration date husband and wife are too early to give birth";
+            $this->error[] = "Birth authentication fails depending of the marriage registration date and birth registration date husband and wife are too early to give birth";
+        }
+
+        if(strtotime($this->data['date']) > time()){
+            $this->error[] = "Birth authentication fails you are using the date ahead of today you must use todays date or prviouse date ";
         }
 	}
 

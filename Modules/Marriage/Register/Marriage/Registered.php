@@ -28,7 +28,6 @@ class Registered
         	switch (session('register')['status']) {
 	        	case 'father':
 	        		$this->registerMarriage($this->data);
-	        		session()->flash('message','marriage is successfully registered');
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
