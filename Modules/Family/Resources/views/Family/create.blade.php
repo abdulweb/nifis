@@ -43,7 +43,7 @@
                                 <div class="form-group clearfix">
                                     <label class="col-lg-2 control-label " for="location">Town / Villag / Street</label>
                                     <div class="col-lg-10">
-                                        <input placeholder="Family Location" id="confirm2" value="{{ old('location') }}" name="location" type="text" class="required form-control">
+                                        <input placeholder="Family Location" id="confirm2" value="{{ old('town') }}" name="town" type="text" class="required form-control">
                                     </div>
                                 </div>
                             </div>
@@ -71,11 +71,19 @@
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="tribe">Tribe</label>
+                                    <label class="col-lg-2 control-label " for="tribe">Family Tribe</label>
                                     <div class="col-lg-10">
-                                        <input placeholder="Family Tribe" id="tribe" value="{{ old('tribe') }}" name="tribe" type="text" class="required form-control">
+                                        <select class="form-control" name="tribe">
+                                            <option value=""></option>
+                                            @if($tribes)
+                                                @foreach($tribes as $tribe)
+                                                    <option value="{{$tribe->id}}">{{$tribe->name}}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </section>

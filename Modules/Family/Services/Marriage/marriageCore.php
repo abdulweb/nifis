@@ -60,15 +60,18 @@ class marriageCore
 			            }
                     break;
                 case 'son':
-                    foreach($admin->profile->husband->father->births as $birth){
-                        if($birth->child->profile->gender_id == 1 && $birth->child->profile->marital_status_id == 1){
-                            $this->husbands[] = [
-                            'name'=>$child->first_name,
-                            'surname'=>$child->last_name,
-                            'user_id' => $child->id
-                            ];
-                        }
-                    }
+	                if($admin->profile->husband){
+	                	foreach($admin->profile->husband->father->births as $birth){
+	                        if($birth->child->profile->gender_id == 1 && $birth->child->profile->marital_status_id == 1){
+	                            $this->husbands[] = [
+	                            'name'=>$birth->child->profile->user->first_name,
+	                            'surname'=>$birth->child->profile->user->last_name,
+	                            'user_id' => $birth->child->profile->user->id
+	                            ];
+	                        }
+	                    }
+	                }
+                    
                     $this->status = Status::all();
                     break;
                 case 'daughter':
