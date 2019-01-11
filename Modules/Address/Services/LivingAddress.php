@@ -17,13 +17,6 @@ trait LivingAddress
  
     use BaseAddress;
 
-    public $town;
-
-    public function newTown(Lga $lga)
-    {
-    	$this->town = $lga->towns()->firstOrCreate(['name'=>$this->data['town']]);
-    }
-    
     public $area;
 
     public function newArea(Town $town)

@@ -28,17 +28,18 @@ trait RegisterFamily
      */
     public function store(FamilyFormRequest $request)
     {
-        try {
+        // try {
             if($family = new NewFamily($request->all())){
-                broadcast(new NewFamilyEvent($family->family))->toOthers();
-                session()->flash('message','Family account crated successfully');
+                if(session('error') == null){
+                    //broadcast(new NewFamilyEvent($family->family))->toOthers();
+                    session()->flash('message','Family account crated successfully');
+                }
                 return redirect()->route('family.create');
             }
-            
-        } catch (\Exception $exception) {
-            return back()->withInput()
-                ->withErrors(['error' => 'Unexpected error occurred while trying to process your request!']);
-        }
+        // } catch (\Exception $exception) {
+        //     return back()->withInput()
+        //         ->withErrors(['error' => 'Unexpected error occurred while trying to process your request!']);
+        // }
     }
 }
 

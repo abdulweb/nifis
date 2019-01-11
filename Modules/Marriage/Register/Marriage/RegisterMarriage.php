@@ -17,6 +17,7 @@ trait RegisterMarriage
 {
     public function index(marriageCore $marriage)
     {
+        
         return view('marriage::Marriage.new_marriage',['family'=>$marriage->family,'families'=>$marriage->families,'husbands'=>$marriage->husbands,'wives'=>$marriage->wives,'status'=>$marriage->status]);
     }
 
@@ -41,7 +42,7 @@ trait RegisterMarriage
 
         $marriage = new Registered($request->all()); 
         if($marriage->register() && session('error') == null){
-            broadcast(new NewMarriageEvent($marriage))->toOthers();
+            //broadcast(new NewMarriageEvent($marriage))->toOthers();
             session()->forget('register');
         }
         return redirect()->route('marriage.index');

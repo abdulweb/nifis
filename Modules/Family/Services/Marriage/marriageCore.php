@@ -6,6 +6,8 @@ use Modules\Family\Entities\Family;
 
 use Modules\Family\Services\Family\ValidFamilies;
 
+use Modules\Marriage\Entities\Status;
+
 class marriageCore
 
 {
@@ -60,21 +62,31 @@ class marriageCore
                     # code...
                     break;
             }
-            $status_ids = [];
-            foreach(Status::all() as $status){
-            	foreach ($admin->profile->husband->marriages as $marriage) {
-	            	if($marriage->is_active == 0){
-	            		$status_ids[] = $marriage->wife->status->id;
+            //create array that will hold valid wife statuses
+            $valid_status = [];
+            $invalid_status = [];
+            //if admin has married
+            if($admin->profile->husband){
+            	//get all his valid wife status and put in the array valid status
+        		foreach ($admin->profile->husband->marriages as $marriage) {
+	            	if($marriage->is_active == 1){
+	            		$valid_status[] = $marriage->wife->status->id;
 	            	}
 	            }
-	            if(!in_array($status->id)){
-	            	$status_ids[]= $status->id;
-	            }
-            }
-            foreach($status_ids  $status_id){
-            	$this->status = Status::find($status_id);
             }
             
+            foreach(Status::all() as $status){
+            	if(!in_array($status->id,$valid_status)){
+                    $invalid_status[] = $status->id;
+            	}
+            }
+           
+            foreach($invalid_status as $status_id){
+               
+            	$this->status[] = Status::find($status_id);
+           
+            }
+         
         }else{
         	$family = new ValidFamilies();
             $this->families = $family->getAllFamilies();

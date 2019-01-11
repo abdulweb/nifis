@@ -10,11 +10,16 @@ class Town extends Model
 
     public function lga()
     {
-        return $this->belongTo(Lga::class);
+        return $this->belongsTo(Lga::class);
     }
 
     public function areas()
     {
         return $this->hasMany(Area::class);
+    }
+
+    public function locations()
+    {
+    	return $this->hasMany(Location::class);
     }
 }

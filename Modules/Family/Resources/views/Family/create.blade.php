@@ -41,7 +41,7 @@
                                 </div>
                                 
                                 <div class="form-group clearfix">
-                                    <label class="col-lg-2 control-label " for="location">Location / address</label>
+                                    <label class="col-lg-2 control-label " for="location">Town / Villag / Street</label>
                                     <div class="col-lg-10">
                                         <input placeholder="Family Location" id="confirm2" value="{{ old('location') }}" name="location" type="text" class="required form-control">
                                     </div>

@@ -86,25 +86,25 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="country">Country</label>
 			<div class="col-lg-8">
-				<input value="{{$family->location->lga->state->country->name}}"  placeholder="Country" class="form-control required" id="country" name="country" type="text" >
+				<input value="{{$family->location->town->lga->state->country->name}}"  placeholder="Country" class="form-control required" id="country" name="country" type="text" >
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="state">State</label>
 			<div class="col-lg-8">
-				<input value="{{$family->location->lga->state->name}}" placeholder="State"  class="form-control required" id="state" name="state" type="text" >
+				<input value="{{$family->location->town->lga->state->name}}" placeholder="State"  class="form-control required" id="state" name="state" type="text" >
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="lga">Local Government</label>
 			<div class="col-lg-8">
-				<input value="{{$family->location->lga->name}}"  placeholder="Local Government" class="form-control required" id="lga" name="lga" type="text" >
+				<input value="{{$family->location->town->lga->name}}"  placeholder="Local Government" class="form-control required" id="lga" name="lga" type="text" >
 			</div>
 		</div>
         <div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="town">Town/Village</label>
 			<div class="col-lg-8">
-				<input value="{{old('town')}}"  placeholder="Town/Village" class="form-control required" id="town" name="town" type="text">
+				<input value="{{$family->location->town->name}}"  placeholder="Town/Village" class="form-control required" id="town" name="town" type="text">
 			</div>
 		</div>
 		<div class="form-group clearfix">

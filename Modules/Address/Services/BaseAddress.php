@@ -6,6 +6,8 @@ use Modules\Address\Entities\Country;
 
 use Modules\Address\Entities\State;
 
+use Modules\Address\Entities\Lga;
+
 
 trait BaseAddress
 {
@@ -28,5 +30,12 @@ trait BaseAddress
     public function newLga(State $state)
     {
     	$this->lga = $state->lgas()->firstOrCreate(['name'=>$this->data['lga']]);
+    }
+
+    public $town;
+
+    public function newTown(Lga $lga)
+    {
+        $this->town = $lga->towns()->firstOrCreate(['name'=>$this->data['town']]);
     }
 }

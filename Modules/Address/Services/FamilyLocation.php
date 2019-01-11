@@ -4,7 +4,7 @@ namespace Modules\Address\Services;
 
 use Modules\Address\Services\BasAddress;
 
-use Modules\Address\Entities\Lga;
+use Modules\Address\Entities\Town;
 
 trait FamilyLocation
 {
@@ -17,11 +17,12 @@ trait FamilyLocation
         $this->newCountry($this->data);
         $this->newState($this->country);
         $this->newLga($this->state);
-        $this->newLocation($this->lga);
+        $this->newTown($this->lga);
+        $this->newLocation($this->town);
     }
 
-    public function newLocation(Lga $lga)
+    public function newLocation(Town $town)
     {
-        $this->location = $lga->locations()->firstOrCreate(['location'=>$this->data['location']]);
+        $this->location = $town->locations()->firstOrCreate([]);
     }
 }
