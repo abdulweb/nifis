@@ -16,7 +16,7 @@ class Registered
 
 	public function __construct($data)
 	{
-		$this->data = $data;
+		$this->data = $this->preparedData($data);
 	}
 
     public function registered()
