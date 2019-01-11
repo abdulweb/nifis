@@ -12,6 +12,7 @@ class birthCore
 	public $father =  [];
 	public $mothers = [];
 	public $families;
+	public $status = [];
 	public function __construct()
 	{
         $this->birthInfo(); 
@@ -34,6 +35,11 @@ class birthCore
 	                'surname' => $mother->last_name,
 	                'user_id' =>$mother->id
                 ];
+            }
+            foreach ($admin->profile->husband->marriages as $marriage) {
+            	if($marriage->is_active == 1){
+            		$this->status[] = $marriage->wife->status;
+            	}
             }
         }else{
         	$family = new ValidFamilies;

@@ -18,7 +18,7 @@ trait RegisterBirth
 
 	public function index(birthCore $birth)
     {
-        return view('birth::Birth.new_birth',['father'=>$birth->father,'mothers'=>$birth->mothers,'families'=>$birth->families]);
+        return view('birth::Birth.new_birth',['father'=>$birth->father,'mothers'=>$birth->mothers,'families'=>$birth->families,'status'=>$birth->status]);
     }
 
     /**
