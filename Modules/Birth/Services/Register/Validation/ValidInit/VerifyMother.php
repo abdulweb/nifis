@@ -12,7 +12,7 @@ trait VerifyMother
 	
     public function nameAuth()
     {
-    	$this->status = Status::find($this->data['mother_status']);
+    	$this->status = $this->wifeStatus();
         $user_id = $this->motherUserIds();
         
         $flag = false;
@@ -26,7 +26,14 @@ trait VerifyMother
         }
     	
     }
-
+    private function wifeStatus()
+    {
+    	foreach(Family::find(session('family')['family'])->admin->prifile->husband->marriages as $marriage){
+            if($marriage->is_active == 1 && $marriage->wife->status_id == Status::find($this->data['mother_status'])->id){
+            	return $marriage->status;
+            }
+    	}
+    }
     public function motherUserIds()
     {
     	$id = [];
