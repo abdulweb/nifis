@@ -9,9 +9,9 @@ class Wife extends Model
 
     protected $guarded = [];
 
-    public function marriage()
+    public function marriages()
     {
-    	return $this->hasOne(Married::class);
+    	return $this->hasMany(Marriage::class);
     }
 
     public function profile()

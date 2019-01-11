@@ -11,7 +11,7 @@ class Husband extends Model
 
     public function marriages()
     {
-    	return $this->hasMany(Married::class);
+    	return $this->hasMany(Marriage::class);
     }
 
     public function profile()

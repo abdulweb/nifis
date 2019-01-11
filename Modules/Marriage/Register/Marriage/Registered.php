@@ -21,13 +21,13 @@ class Registered
 
     public function registered()
     {
-    	$validate = $this->validateMarriageRequest($this->data);
+    	$validate = $this->validateMarriageRequest();
 
-        if(empty($this->h_errors) && empty($this->w_errors)){
+        if(empty($this->error)){
          
         	switch (session('register')['status']) {
 	        	case 'father':
-	        		$this->registerMarriage($this->data);
+	        		$this->registerMarriage();
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
@@ -40,7 +40,8 @@ class Registered
 	        		break;
 	        }
         }else{
-        	session()->flash('error', array_collapse([$this->h_errors,$this->w_errors]));
+        	session()->flash('error', $this->error);
+
         	return redirect('/marriage');
         } 
         

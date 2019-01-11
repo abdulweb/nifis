@@ -19,12 +19,12 @@ trait ValidateRequest
 
     use ValidWife, ValidHusband;
 
-    public function validateMarriageRequest($data){
+    public function validateMarriageRequest(){
     	 
         $this->husbandUser = User::find($this->data['user_id']);
         $this->validateHusband();
         
-        $this->wifeUser = User::where('email',$data['wife_email'])->get();
+        $this->wifeUser = User::where('email',$this->data['wife_email'])->get();
         $this->validateWife();
     }
 }

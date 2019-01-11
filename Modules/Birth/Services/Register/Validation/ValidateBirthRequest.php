@@ -11,7 +11,6 @@ trait ValidateBirthRequest
 
 {
 
-	public $status;
 
 	public $father;
 
