@@ -10,7 +10,7 @@ class Address extends Model
 
     public function leaves()
     {
-        return $this->hasOne(LivesIn::class);
+        return $this->hasMany(LivesIn::class);
     }
 
     public function work_in()

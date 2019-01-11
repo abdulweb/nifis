@@ -20,13 +20,27 @@
         <div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
 			<div class="col-lg-8">
-				<input placeholder="Husband First Name" class="form-control required" id="userName1" name="husband_first_name" type="text" value="{{old('husband_first_name')}}">
+				<select class="form-control" name="husband_first_name">
+					<option value=""></option>
+					@if($husbands)
+                        @foreach($husbands as $husband)
+                            <option value="{{$husband['user_id']}}">{{$husband['name']}}</option>
+                        @endforeach
+					@endif
+				</select>
 			</div>
 		</div>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_last_name">Husband Last Name</label>
 			<div class="col-lg-8">
-				<input value="{{old('husband_last_name')}}" placeholder="Husband Last Name"  id="husband_last_name" name="husband_last_name" type="text" class="required form-control">
+				<select class="form-control" name="husband_last_name">
+					<option value=""></option>
+					@if($husbands)
+                        @foreach($husbands as $husband)
+                            <option value="{{$husband['user_id']}}">{{$husband['surname']}}</option>
+                        @endforeach
+					@endif
+				</select>
 			</div>
 		</div>
 		@else

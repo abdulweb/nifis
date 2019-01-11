@@ -40,7 +40,7 @@ class NewBirth
 
     public function registerBirth()
     {
-    	
+  
         $birth = $this->mother->births()->create([
         	'child_id'=>$this->child->id,
         	'father_id'=>$this->father->id,

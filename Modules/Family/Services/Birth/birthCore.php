@@ -20,8 +20,9 @@ class birthCore
 
 	public function birthInfo()
 	{
+		
 		if(session('family')){
-            $this->family = Family::find(session('register')['family']);
+            $this->family = Family::find(session('family')['family']);
             $admin = $this->family->admin;
             $this->father = [
                 'name'=>$this->family->admin->profile->user->first_name,

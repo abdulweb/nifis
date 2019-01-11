@@ -52,7 +52,7 @@ trait Admin
     	$this->profile = $user->profile()->create([
             'gender_id'         => 1,
             'marital_status_id' => 1,
-            'date_of_birth' => $this->data['date'],
+            'date_of_birth' => strtotime($this->data['date']),
             'family_id' =>$this->family->id
         ]);
     }

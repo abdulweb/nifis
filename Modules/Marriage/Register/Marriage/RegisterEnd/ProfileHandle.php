@@ -15,7 +15,7 @@ trait ProfileHandle
 	{
 		if(empty($this->data['wife_family'])){
             $user= User::create(['first_name'=>$this->data['wife_first_name'],'last_name'=>$this->data['wife_last_name']]);
-            $this->wifeProfile = $user->profile()->create(['gender_id'=>2,'marital_status_id'=>2,'date_of_birth'=>$this->data['wife_date']]);
+            $this->wifeProfile = $user->profile()->create(['gender_id'=>2,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['wife_date'])]);
 		}else{
             $user = User::where('email',$this->data['wife_email'])->get();
             $this->wifeProfile = $user->profile;

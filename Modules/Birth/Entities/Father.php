@@ -12,7 +12,7 @@ class Father extends Model
     {
         return $this->belongTo('Modules\Marriage\Entities\Husband');
     }
-    public function birth()
+    public function births()
     {
         return $this->hasMany(Birth::class);
     }

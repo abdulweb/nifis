@@ -6,13 +6,12 @@ trait ParentInit
 {
 	public function mother()
 	{
-		
         $this->mother = $this->status->wife[0]->mother()->firstOrCreate([]);
 	}
 
 	public function father()
 	{
-        $this->father = $this->status->wife[0]->marriage->husband->father()->firstOrCreate([]);
+        $this->father = $this->status->wife[0]->marriages[0]->husband->father()->firstOrCreate([]);
 	}
 
 	public function handleParent()

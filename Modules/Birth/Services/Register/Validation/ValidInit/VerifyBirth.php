@@ -24,7 +24,7 @@ trait VerifyBirth
 
 	public function firstBirthAuth()
 	{
-        if(strtotime($this->data['date']) - $this->status->wife[0]->marriage->date < 15778476){
+        if(strtotime($this->data['date']) - $this->status->wife[0]->marriages[0]->date < 15778476){
             $this->error[] = "Birth authentication fails depending of the marriage registration date and birth registration date husband and wife are too early to give birth";
         }
 
@@ -35,10 +35,8 @@ trait VerifyBirth
 
 	public function parent()
 	{
-
 		$this->mother = $this->status->wife[0]->mother;
-
-        $this->father = $this->status->wife[0]->marriage->husband->father;
+        $this->father = $this->status->wife[0]->marriages[0]->husband->father;
 
 	}
 }
