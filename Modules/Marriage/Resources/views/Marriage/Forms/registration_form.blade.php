@@ -62,11 +62,12 @@
 			<label class="col-lg-4 control-label " for="userName1">Wife Status</label>
 			<div class="col-lg-8">
 				<select name="wife_status" class="form-control" value="{{old('wife_status')}}" >
-					<option value="">Wife Status</option>
-					<option value="1">First Wife</option>
-					<option value="2">Second Wife</option>
-					<option value="3">Third Wife</option>
-					<option value="4">Forth Wife</option>
+					<option value=""></option>
+					@if($status)
+                        @foreach($status as $status)
+                            <option value="{{$status->id}}">{{$status->name}}</option>
+                        @endforeach
+					@endif
 				</select>
 			</div>
 		</div>

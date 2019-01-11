@@ -13,7 +13,7 @@ class marriageCore
 	public $wives = [];
 	public $family = [];
 	public $families;
-
+    public $status = [];
 	public function __construct()
 	{
         $this->marriageInfo(); 
@@ -60,6 +60,21 @@ class marriageCore
                     # code...
                     break;
             }
+            $status_ids = [];
+            foreach(Status::all() as $status){
+            	foreach ($admin->profile->husband->marriages as $marriage) {
+	            	if($marriage->is_active == 0){
+	            		$status_ids[] = $marriage->wife->status->id;
+	            	}
+	            }
+	            if(!in_array($status->id)){
+	            	$status_ids[]= $status->id;
+	            }
+            }
+            foreach($status_ids  $status_id){
+            	$this->status = Status::find($status_id);
+            }
+            
         }else{
         	$family = new ValidFamilies();
             $this->families = $family->getAllFamilies();

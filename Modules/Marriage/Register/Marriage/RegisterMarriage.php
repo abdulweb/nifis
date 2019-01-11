@@ -17,7 +17,6 @@ trait RegisterMarriage
 {
     public function index(marriageCore $marriage)
     {
-        
         return view('marriage::Marriage.new_marriage',['family'=>$marriage->family,'families'=>$marriage->families,'husbands'=>$marriage->husbands,'wives'=>$marriage->wives,'status'=>$marriage->status]);
     }
 
