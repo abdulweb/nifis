@@ -8,12 +8,14 @@ use Modules\Family\Entities\Family;
 
 use Modules\Address\Entities\Address;
 
-use Modules\Services\LivingAddress;
+use Modules\Address\Services\LivingAddress;
+
+use App\User;
 
 trait RegisterThisMarriage
 {
    
-    use MarriageInitiate LivingAddress;
+    use MarriageInitiate, LivingAddress;
 
     public function register()
     {
@@ -31,19 +33,18 @@ trait RegisterThisMarriage
     		case 'father':
 
     			//data was already prepared
-    		    $data['address'] = $this->newAddress($data)
+    		    $data['address'] = $this->address($data);
     			break;
 
     		case 'son':
     		    //prepare family data
-
-		        $data['address'] = $this->newAddress($data)
+		        $data['address'] = $this->address($data);
 		        $family = Family::find(session('register')['family']);
 		        $user = User::find($data['husband_first_name']);
                 $data['family'] = $user->first_name.'_'.$family->name.$user->id;
-                $data['title'] = $family->name.$data['user_id'];
+                $data['title'] = $family->name.$data['husband_first_name'];
                 $data['tribe'] = $family->tribe_id;
-                $data['location'] = $this->getLocation($data['address']);
+                $data['location'] = $this->getLocation(Address::find($data['address']));
                     
     			break;
     		case 'daughter':
@@ -53,10 +54,10 @@ trait RegisterThisMarriage
     			# code...
     			break;
     	}
-    	return $datas
+    	return $data;
    }
 
-   public function getLocation(Address $address, $data)
+   public function getLocation(Address $address)
    {
    	   return $address->house->area->town->name;
    }

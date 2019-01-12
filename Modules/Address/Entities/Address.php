@@ -17,4 +17,14 @@ class Address extends Model
     {
         return $this->hasOne(WorkIn::class);
     }
+
+     public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
+
+     public function house()
+    {
+        return $this->belongsTo(House::class);
+    }
 }

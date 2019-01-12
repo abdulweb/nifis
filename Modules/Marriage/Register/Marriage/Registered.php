@@ -16,7 +16,9 @@ class Registered
 
 	public function __construct($data)
 	{
-		$this->data = $this->preparedData($data);
+		$this->data = $data;
+		$this->data = $this->prepareData($data);
+		dd($this->data);
 	}
 
     public function registered()
@@ -39,6 +41,7 @@ class Registered
 	        		session()->flash('message','Unknown marriage');
 	        		break;
 	        }
+
         }else{
         	session()->flash('error', $this->error);
 
