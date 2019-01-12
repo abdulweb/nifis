@@ -4,6 +4,8 @@ namespace Modules\Family\Services\Account;
 
 use Modules\Family\Services\Account\Family;
 
+use Modules\Address\Services\FamilyLocation;
+
 use Modules\Family\Services\Account\Validate;
 
 class NewFamily 
@@ -14,14 +16,21 @@ class NewFamily
 
     public $registerer;
 
-    use Family;
+    use Family, FamilyLocation;
 
     public function __construct($data)
     {
         $this->data = $data;
+        $this->data = $this->prepareData($data);
         $this->registerer = Auth()->User();
         $this->validateFamilyRequest(); 
         $this->error == null ? $this->registerFamily() : session()->flash('error',$this->error);
+    }
+
+    private function prepareData($data)
+    {
+        $data['location'] = $this->location($data);
+        
     }
 
 }

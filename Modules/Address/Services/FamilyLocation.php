@@ -14,14 +14,15 @@ trait FamilyLocation
     public $location;
 
     public function location(){
-        if(session('register') == 'father'){
-            
-        }
-        $this->newCountry($this->data);
-        $this->newState($this->country);
-        $this->newLga($this->state);
-        $this->newTown($this->lga);
-        $this->newLocation($this->town);
+    
+            $this->newCountry($this->data);
+            $this->newState($this->country);
+            $this->newLga($this->state);
+            $this->newTown($this->lga);
+            $this->newLocation($this->town);
+        
+        
+        
     }
 
     public function newLocation(Town $town)

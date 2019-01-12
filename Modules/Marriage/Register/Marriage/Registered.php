@@ -6,11 +6,13 @@ use Modules\Marriage\Register\Marriage\RegisterEnd\RegisterThisMarriage;
 
 use Modules\Marriage\Register\Marriage\RegisterValid\ValidateRequest;
 
+use Modules\Family\Services\Account\Family as NewChildFamily;
+
 class Registered
 
 {
 
-	use ValidateRequest, RegisterThisMarriage;
+	use ValidateRequest, RegisterThisMarriage, NewChildFamily;
 
     public $data;
 
@@ -18,7 +20,7 @@ class Registered
 	{
 		$this->data = $data;
 		$this->data = $this->prepareData($data);
-		dd($this->data);
+		
 	}
 
     public function registered()
@@ -33,6 +35,8 @@ class Registered
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
+                    $this->registerFamily();
+                    $this->registerMarriage();
 	        		break;
 	        	case 'daughter':
 	        		//create family account for the husband then register the marriage

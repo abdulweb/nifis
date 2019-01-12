@@ -12,14 +12,13 @@ trait Family
 
 {
 
-	use FamilyLocation, Admin;
+	use Admin;
 
     public $family;
 
 	public function registerFamily(){
         
-        $this->location();
-        $this->newFamily($this->location);
+        $this->newFamily($this->data['location']);
         $this->newAdminHandle();
 	}
 

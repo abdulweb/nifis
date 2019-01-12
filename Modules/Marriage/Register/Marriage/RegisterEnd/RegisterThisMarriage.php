@@ -59,6 +59,6 @@ trait RegisterThisMarriage
 
    public function getLocation(Address $address)
    {
-   	   return $address->house->area->town->name;
+   	   return $address->house->area->town->location()->firstOrCreate([]);
    }
 }
