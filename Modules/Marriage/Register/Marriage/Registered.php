@@ -15,18 +15,20 @@ class Registered
 	use ValidateRequest, RegisterThisMarriage, NewChildFamily;
 
     public $data;
+    
 
 	public function __construct($data)
 	{
 		$this->data = $data;
 		$this->data = $this->prepareData($data);
+		$this->registeredNewMarriage();
 	}
-
-    public function registered()
+      
+    public function registeredNewMarriage()
     {
 
     	$validate = $this->validateMarriageRequest();
-        dd('here');
+       
         if(empty($this->error)){
          
         	switch (session('register')['status']) {
@@ -35,7 +37,6 @@ class Registered
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
-                    
                     $this->registerFamily();
                     $this->registerMarriage();
 	        		break;
@@ -48,9 +49,8 @@ class Registered
 	        }
 
         }else{
+        	
         	session()->flash('error', $this->error);
-
-        	return redirect('/marriage');
         } 
         
     }

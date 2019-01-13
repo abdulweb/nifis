@@ -8,7 +8,7 @@ use Modules\Marriage\Entities\Wife;
 
 trait VerifyHusband
 {
-    public $error = [];
+    
 
     public function married(User $user)
     {
@@ -20,10 +20,10 @@ trait VerifyHusband
     public function canMarry(User $user)
     {
         
-        if($user->profile->data_of_birth >= 567648000){
+        if($user->profile->data_of_birth < 567648000){
             return true;
         }else{
-            $this->error = "marriage authentication fails too early to marry";
+            $this->error[] = "marriage authentication fails too early to marry";
         }
     }
 
@@ -36,14 +36,14 @@ trait VerifyHusband
         if($wife < 4){
             return true;
         }else{
-            $this->error = "family authentication fails can not marry more than 4 wives";
+            $this->error[] = "family authentication fails can not marry more than 4 wives";
         }
     }
     
     public function validBirth(User $user)
     {
         if($user->profile->child->birth->mother_id != Wife::where('status_id',$this->data['mstatus'])->get()->mother->id){
-            $this->error = "husband birth authentication fails and his mother information";
+            $this->error[] = "husband birth authentication fails and his mother information";
         }
     }
 
@@ -51,7 +51,7 @@ trait VerifyHusband
     {
        
         if(strtotime($this->data['marriage_date']) - strtotime($user->profile->date_of_birth) < 567648000){
-            $this->error = "Sorry the husband marriage date authentication fails there must be the interval of atleast 15 years between husband date of birth and marriage date";
+            $this->error[] = "Sorry the husband marriage date authentication fails there must be the interval of atleast 15 years between husband date of birth and marriage date";
         }
     }
 }

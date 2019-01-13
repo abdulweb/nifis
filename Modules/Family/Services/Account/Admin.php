@@ -43,6 +43,7 @@ trait Admin
 	        }
         }else{
         	$this->user = User::find($this->data['husband_first_name']);
+        	$this->registerer = Auth()->User();
         }
         
     }

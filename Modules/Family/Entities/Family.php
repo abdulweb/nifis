@@ -17,6 +17,10 @@ class Family extends Model
     {
     	return $this->hasMany(FamilyEvent::class);
     }
+    public function subFamilies()
+    {
+        return $this->hasMany(SubFamily::class);
+    }
     public function location()
     {
         return $this->belongsTo('Modules\Address\Entities\Location');

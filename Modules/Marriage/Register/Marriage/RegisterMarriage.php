@@ -38,11 +38,8 @@ trait RegisterMarriage
      */
     public function store(Request $request)
     {
-
-        $marriage = new Registered($request->all());
-       
-        if(session('error') == null && $marriage->register()){
-            //broadcast(new NewMarriageEvent($marriage))->toOthers();
+        if(new Registered($request->all()) && session('error') == null){
+            //broadcast(new NewMarriageEvent($this->marriage))->toOthers();
             session()->forget('register');
         }
         return redirect()->route('marriage.index');
