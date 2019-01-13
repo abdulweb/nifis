@@ -34,11 +34,13 @@ class Registered
         	switch (session('register')['status']) {
 	        	case 'father':
 	        		$this->registerMarriage();
+	        		$message = "Congratulation your Marriage was register successfully";
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
                     $this->registerFamily();
                     $this->registerMarriage();
+                    $message = 'Congratulation the child marriage was register successfully he now has the family account which is part of your family';
 	        		break;
 	        	case 'daughter':
 	        		//create family account for the husband then register the marriage
@@ -47,6 +49,7 @@ class Registered
 	        		session()->flash('message','Unknown marriage');
 	        		break;
 	        }
+	        session()->flash('message', $message);
 
         }else{
         	
