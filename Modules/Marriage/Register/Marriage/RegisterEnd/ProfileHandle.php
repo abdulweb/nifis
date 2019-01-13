@@ -25,7 +25,7 @@ trait ProfileHandle
     public function handleHusbandProfile()
 	{
 	
-		if(session('register') == 'father'){
+		if(session('register')['status'] == 'father'){
 			$this->husbandProfile = User::find($this->data['user_id'])->profile;
 		}else{
 			$this->husbandProfile = User::find($this->data['husband_first_name'])->profile;

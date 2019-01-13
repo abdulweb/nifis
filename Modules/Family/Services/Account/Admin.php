@@ -29,7 +29,7 @@ trait Admin
 
     public function newUser()
     {
-        if(session('register') == 'father'){
+        if(session('register') == 'father' || session('register') == null){
         	if(empty($this->data['date'])){
 	            $this->user = $this->registerer;
 	        }else{
@@ -50,7 +50,7 @@ trait Admin
    
     public function newProfile(User $user)
     {
-        if(session('register') == 'father'){
+        if(session('register') == 'father' || session('register') == null){
 	        if(empty($this->data['date'])){
 	            $this->data['date'] = $this->data['mdate'];
 	        }
