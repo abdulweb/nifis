@@ -231,6 +231,7 @@
 			</div>
 		</div>
 	</section>
+	@if(session('register')['status'] == 'father' || session('register')['status'] == 'son')
 	<h3>Wife Family Info</h3>
 	<section>
 		<div class="widget widget-tabs widget-tabs-gray border-bottom-none">
@@ -278,6 +279,7 @@
         </div>
     </div>
 	</section>
+	@endif
 	<h3>Be Notify</h3>
 	<section>
 		<div class="form-group clearfix">
