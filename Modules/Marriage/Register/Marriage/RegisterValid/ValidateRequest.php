@@ -20,8 +20,13 @@ trait ValidateRequest
     use ValidWife, ValidHusband;
 
     public function validateMarriageRequest(){
-    	 
-        $this->husbandUser = User::find($this->data['user_id']);
+       
+    	if(session('register')['status']== 'father'){
+            $this->husbandUser = User::find($this->data['user_id']);
+        }else{
+            $this->husbandUser = User::find($this->data['husband_first_name']);
+        }
+
         $this->validateHusband();
         
         $this->wifeUser = User::where('email',$this->data['wife_email'])->get();

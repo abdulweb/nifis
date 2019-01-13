@@ -24,10 +24,11 @@ trait ProfileHandle
 
     public function handleHusbandProfile()
 	{
+	
 		if(session('register') == 'father'){
 			$this->husbandProfile = User::find($this->data['user_id'])->profile;
 		}else{
-			$this->husbandProfile = $this->profile;
+			$this->husbandProfile = User::find($this->data['husband_first_name'])->profile;
 		}
 		$this->updateHusbandProfile();
 
@@ -35,7 +36,7 @@ trait ProfileHandle
 
 	public function updateHusbandProfile()
 	{
-
+        
 		if($this->husbandProfile->marital_status_id != 2){
 			$this->husbandProfile->update(['marital_status_id'=>2]);
 		}
@@ -43,8 +44,9 @@ trait ProfileHandle
 
 	public function handle()
 	{
-        $this->handleWifeProfile();
+		
         $this->handleHusbandProfile();
+        $this->handleWifeProfile();
 	}
 
 }

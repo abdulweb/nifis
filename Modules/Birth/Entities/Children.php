@@ -15,7 +15,7 @@ class Children extends Model
 
     public function birth()
     {
-        return $this->hasOne(Birth::class);
+        return $this->hasOne(Birth::class,'child_id');
     }
     
 }

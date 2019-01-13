@@ -1,7 +1,7 @@
 <?php
 namespace Modules\Marriage\Register\Marriage;
 
-use Modules\Marriage\Register\Marriage\Register;
+use Modules\Marriage\Register\Marriage\Registered;
 
 use Modules\Family\Entities\Family;
 
@@ -39,8 +39,9 @@ trait RegisterMarriage
     public function store(Request $request)
     {
 
-        $marriage = new Registered($request->all()); 
-        if($marriage->register() && session('error') == null){
+        $marriage = new Registered($request->all());
+       
+        if(session('error') == null && $marriage->register()){
             //broadcast(new NewMarriageEvent($marriage))->toOthers();
             session()->forget('register');
         }

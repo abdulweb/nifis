@@ -19,6 +19,7 @@ trait RegisterThisMarriage
 
     public function register()
     {
+    
         $this->handle();
         $this->createHusband($this->husbandProfile);
         $this->createWife($this->wifeProfile);
@@ -41,8 +42,8 @@ trait RegisterThisMarriage
 		        $data['address'] = $this->address($data);
 		        $family = Family::find(session('register')['family']);
 		        $user = User::find($data['husband_first_name']);
-                $data['family'] = $user->first_name.'_'.$family->name.$user->id;
-                $data['title'] = $family->name.$data['husband_first_name'];
+                $data['family'] = $user->first_name.'_'.$family->name.'_child_'.$user->profile->child->birth->id;
+                $data['title'] = $family->name.'_child_'.$user->profile->child->birth->id;
                 $data['tribe'] = $family->tribe_id;
                 $data['location'] = $this->getLocation(Address::find($data['address']));
                     
@@ -59,6 +60,6 @@ trait RegisterThisMarriage
 
    public function getLocation(Address $address)
    {
-   	   return $address->house->area->town->location()->firstOrCreate([]);
+   	   return $address->house->area->town->locations()->firstOrCreate([]);
    }
 }

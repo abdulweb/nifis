@@ -20,13 +20,13 @@ class Registered
 	{
 		$this->data = $data;
 		$this->data = $this->prepareData($data);
-		
 	}
 
     public function registered()
     {
-    	$validate = $this->validateMarriageRequest();
 
+    	$validate = $this->validateMarriageRequest();
+        dd('here');
         if(empty($this->error)){
          
         	switch (session('register')['status']) {
@@ -35,6 +35,7 @@ class Registered
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
+                    
                     $this->registerFamily();
                     $this->registerMarriage();
 	        		break;
@@ -55,6 +56,7 @@ class Registered
     }
 
     public function registerMarriage(){
+
         $this->register();
     }
 
