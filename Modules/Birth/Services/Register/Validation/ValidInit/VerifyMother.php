@@ -6,13 +6,15 @@ use Modules\Marriage\Entities\Status;
 
 use App\User;
 
+use Modules\Family\Entities\Family;
+
 trait VerifyMother
 
 {
 	
     public function nameAuth()
     {
-    	$this->status = $this->wifeStatus();
+    	$this->wifeStatus();
         $user_id = $this->motherUserIds();
         
         $flag = false;
@@ -28,11 +30,12 @@ trait VerifyMother
     }
     private function wifeStatus()
     {
-    	foreach(Family::find(session('family')['family'])->admin->prifile->husband->marriages as $marriage){
+    	foreach(Family::find(session('family')['family'])->admin->profile->husband->marriages as $marriage){
             if($marriage->is_active == 1 && $marriage->wife->status_id == Status::find($this->data['mother_status'])->id){
-            	return $marriage->status;
+            	$this->status = $marriage->wife->status;
             }
     	}
+
     }
     public function motherUserIds()
     {

@@ -16,7 +16,7 @@ trait Validate
 
 	public function familyNameAuth()
 	{
-		foreach(Town::where('name',$this->data['location'])->get() as $location){
+		foreach(Town::where('name',$this->data['town'])->get() as $location){
 			if($location->family && $location->family->name == $this->data['family']){
 				$this->error[] = "Family Name Authentication fails the family name was already used in your specify location";
 			}

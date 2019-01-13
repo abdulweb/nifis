@@ -10,7 +10,7 @@ class House extends Model
 
     public function area()
     {
-        return $this->belongTo(Area::class);
+        return $this->belongsTo(Area::class);
     }
 
     public function address()

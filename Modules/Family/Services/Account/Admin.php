@@ -29,36 +29,46 @@ trait Admin
 
     public function newUser()
     {
-        if(empty($this->data['date'])){
-            $this->user = $this->registerer;
+        if(session('register') == 'father'){
+        	if(empty($this->data['date'])){
+	            $this->user = $this->registerer;
+	        }else{
+	            $this->user = User::firstOrCreate([
+	                'first_name'=>$this->data['name'],
+	                'last_name'=>$this->data['sname'],
+	                'email'=>$this->data['email'],
+	                'password'=>Hash::make($this->data['password']),
+	                'phone'=>'',
+	            ]); 
+	        }
         }else{
-            $this->user = User::firstOrCreate([
-                'first_name'=>$this->data['name'],
-                'last_name'=>$this->data['sname'],
-                'email'=>$this->data['email'],
-                'password'=>Hash::make($this->data['password']),
-                'phone'=>'',
-            ]); 
+        	$this->user = User::find($this->data['husband_first_name']);
+        	$this->registerer = Auth()->User();
         }
         
     }
    
     public function newProfile(User $user)
     {
-
-        if(empty($this->data['date'])){
-            $this->data['date'] = $this->data['mdate'];
+        if(session('register') == 'father'){
+	        if(empty($this->data['date'])){
+	            $this->data['date'] = $this->data['mdate'];
+	        }
+	    	$this->profile = $user->profile()->create([
+	            'gender_id'         => 1,
+	            'marital_status_id' => 1,
+	            'date_of_birth' => strtotime($this->data['date']),
+	            'family_id' =>$this->family->id
+	        ]);
+        }else{
+            $this->profile = $this->user->profile;
         }
-    	$this->profile = $user->profile()->create([
-            'gender_id'         => 1,
-            'marital_status_id' => 1,
-            'date_of_birth' => $this->data['date'],
-            'family_id' =>$this->family->id
-        ]);
+        
     }
 
     public function newAdminHandle()
-    {
+    {   
+    	
     	$this->newUser();
         $this->newProfile($this->user);
         $this->newAdmin($this->profile, $this->family);

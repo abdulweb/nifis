@@ -15,9 +15,8 @@ class FamilyFormRequest extends FormRequest
     {
         $rules = [
             'family' => 'required|string|min:3|max:25|',
-            'title' => 'required|string|min:3|max:25|unique:families',
-            'tribe' => 'required|string|min:4|max:15',
-            'location' => 'required|string|min:5|max:255',
+            'tribe' => 'required|integer',
+            'town' => 'required|string|min:5|max:255',
             'country' => 'required|string|max:255',
             'state' => 'required|string|max:255',
             'lga' => 'required|string|'

@@ -1,7 +1,7 @@
 <?php
 namespace Modules\Marriage\Register\Marriage;
 
-use Modules\Marriage\Register\Marriage\Register;
+use Modules\Marriage\Register\Marriage\Registered;
 
 use Modules\Family\Entities\Family;
 
@@ -17,7 +17,6 @@ trait RegisterMarriage
 {
     public function index(marriageCore $marriage)
     {
-        
         return view('marriage::Marriage.new_marriage',['family'=>$marriage->family,'families'=>$marriage->families,'husbands'=>$marriage->husbands,'wives'=>$marriage->wives,'status'=>$marriage->status]);
     }
 
@@ -39,10 +38,8 @@ trait RegisterMarriage
      */
     public function store(Request $request)
     {
-
-        $marriage = new Registered($request->all()); 
-        if($marriage->register() && session('error') == null){
-            //broadcast(new NewMarriageEvent($marriage))->toOthers();
+        if(new Registered($request->all()) && session('error') == null){
+            //broadcast(new NewMarriageEvent($this->marriage))->toOthers();
             session()->forget('register');
         }
         return redirect()->route('marriage.index');

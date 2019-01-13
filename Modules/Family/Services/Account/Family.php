@@ -12,30 +12,33 @@ trait Family
 
 {
 
-	use FamilyLocation, Admin;
-
-    private $tribe;
+	use Admin;
 
     public $family;
 
 	public function registerFamily(){
         
-        $this->location();
-        $this->newTribe();
-        $this->newFamily($this->location);
+        $this->newFamily($this->data['location']);
         $this->newAdminHandle();
+
+        if(session('register')['status'] == 'son'){
+            $this->createSubFamily();
+        }
+
 	}
 
     private function newFamily(Location $location){
-        $this->family = $this->location->families()->create([
+
+        $this->family = $location->families()->create([
             'name'=>$this->data['family'],
             'title' => $this->data['title'],
-            'tribe_id'=>$this->tribe->id,
-            'user_id'=>$this->registerer->id,
+            'tribe_id'=>$this->data['tribe'],
+            'user_id'=>Auth()->User()->id,
         ]);
     }
 
-    private function newTribe(){
-        $this->tribe = Tribe::firstOrCreate(['name'=>$this->data['tribe']]);
+    private function createSubFamily()
+    {
+    	$this->user->profile->family->subFamilies()->create(['sub_family_id'=>$this->family->id]);
     }
 }

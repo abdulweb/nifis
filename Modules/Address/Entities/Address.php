@@ -10,11 +10,21 @@ class Address extends Model
 
     public function leaves()
     {
-        return $this->hasOne(LivesIn::class);
+        return $this->hasMany(LivesIn::class);
     }
 
     public function work_in()
     {
         return $this->hasOne(WorkIn::class);
+    }
+
+     public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
+
+     public function house()
+    {
+        return $this->belongsTo(House::class);
     }
 }
