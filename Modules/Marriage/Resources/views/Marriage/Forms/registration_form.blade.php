@@ -93,7 +93,7 @@
                      <div class="form-group clearfix">
                         <label class="col-lg-4 control-label " for="name">Husband Email</label>
                         <div class="col-lg-8">
-                            <input placeholder="Husband Family E-mail Address" class="form-control" value="{{ old('wife_email') }}" id="name" name="husband_email" type="email">
+                            <input placeholder="Husband Family E-mail Address" class="form-control" value="{{ old('husband_email') }}" id="name" name="husband_email" type="email">
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
         <div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="userName1">Wife First Name</label>
 			<div class="col-lg-8">
-				<select name="wife_status" class="form-control"  >
+				<select name="wife_first_name" class="form-control"  >
 					<option value=""></option>
 					@if($wives)
                         @foreach($wives as $wife)
@@ -124,7 +124,7 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="userName1">Wife Last Name</label>
 			<div class="col-lg-8">
-				<select name="wife_status" class="form-control"  >
+				<select name="wife_last_name" class="form-control"  >
 					<option value=""></option>
 					@if($wives)
                         @foreach($wives as $wife)

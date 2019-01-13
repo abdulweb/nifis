@@ -22,6 +22,7 @@ class Registered
 		$this->data = $data;
 		$this->data = $this->prepareData($data);
 		$this->registeredNewMarriage();
+		dd($this->data);
 	}
       
     public function registeredNewMarriage()
