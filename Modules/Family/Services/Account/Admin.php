@@ -41,9 +41,21 @@ trait Admin
 	                'phone'=>'',
 	            ]); 
 	        }
-        }else{
+        }elseif(session('register') == 'son'){
         	$this->user = User::find($this->data['husband_first_name']);
         	$this->registerer = Auth()->User();
+        }else{
+        	if(filled($this->data['husband_email'])){
+	            $this->user = User::where('email',$this->data['husband_email'])->get();
+	        }else{
+	            $this->user = User::firstOrCreate([
+	                'first_name'=>$this->data['husband_first_name'],
+	                'last_name'=>$this->data['husband_last_name'],
+	                'email'=>$this->data['new_husband_email'],
+	                'password'=>Hash::make($this->data['new_husband_email']),
+	                'phone'=>'',
+	            ]); 
+	        }
         }
         
     }
