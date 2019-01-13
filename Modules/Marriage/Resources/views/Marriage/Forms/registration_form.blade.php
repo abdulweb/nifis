@@ -59,6 +59,49 @@
 		@endif
 	</section>
 	<h3>Wife Info</h3>
+	@if(session('register')['status'] == 'daughter')
+	<section>
+        <div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="userName1">Wife First Name</label>
+			<div class="col-lg-8">
+				<select name="wife_status" class="form-control"  >
+					<option value=""></option>
+					@if($wives)
+                        @foreach($wives as $wife)
+                            <option value="{{$wife['user_id']}}">{{$wife['name']}}</option>
+                        @endforeach
+					@endif
+				</select>
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="userName1">Wife Last Name</label>
+			<div class="col-lg-8">
+				<select name="wife_status" class="form-control"  >
+					<option value=""></option>
+					@if($wives)
+                        @foreach($wives as $wife)
+                            <option value="{{$wife['user_id']}}">{{$wife['surname']}}</option>
+                        @endforeach
+					@endif
+				</select>
+			</div>
+		</div>
+		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="userName1">Wife Status</label>
+			<div class="col-lg-8">
+				<select name="wife_status" class="form-control" value="{{old('wife_status')}}" >
+					<option value=""></option>
+					@if($status)
+                        @foreach($status as $status)
+                            <option value="{{$status->id}}">{{$status->name}}</option>
+                        @endforeach
+					@endif
+				</select>
+			</div>
+		</div>
+	</section>
+	@else
 	<section>
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="wife_first_name">Wife First Name</label>
@@ -86,6 +129,7 @@
 			</div>
 		</div>
 	</section>
+	@endif
 	<h3>Marriage Info</h3>
 	<section>
 		<div class="form-group clearfix">
