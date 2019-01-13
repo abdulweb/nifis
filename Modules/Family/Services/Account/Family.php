@@ -14,10 +14,12 @@ trait Family
 
 	use Admin;
 
+    public $location;
+
     public $family;
 
 	public function registerFamily(){
-        
+		
         $this->newFamily($this->data['location']);
         $this->newAdminHandle();
 
@@ -28,7 +30,7 @@ trait Family
 	}
 
     private function newFamily(Location $location){
-
+        
         $this->family = $location->families()->create([
             'name'=>$this->data['family'],
             'title' => $this->data['title'],
