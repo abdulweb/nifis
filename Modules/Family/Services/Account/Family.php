@@ -21,6 +21,7 @@ trait Family
 	public function registerFamily(){
 		
         $this->newFamily($this->data['location']);
+       
         $this->newAdminHandle();
 
         if(session('register')['status'] == 'son'){
@@ -31,7 +32,7 @@ trait Family
 
     private function newFamily(Location $location){
         
-        $this->family = $location->families()->create([
+        $this->family = $location->families()->firstOrCreate([
             'name'=>$this->data['family'],
             'title' => $this->data['title'],
             'tribe_id'=>$this->data['tribe'],

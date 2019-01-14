@@ -38,6 +38,7 @@ class Registered
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
+	        	 
                     $this->registerFamily();
                     $this->registerMarriage();
                     $message = 'Congratulation the child marriage was register successfully he now has the family account which is part of your family';

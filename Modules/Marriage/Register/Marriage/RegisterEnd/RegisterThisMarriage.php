@@ -44,6 +44,8 @@ trait RegisterThisMarriage
 		        $user = User::find($data['husband_first_name']);
                 $data['family'] = $user->first_name.'_'.$family->name.'_child_'.$user->profile->child->birth->id;
                 $data['title'] = $family->name.'_child_'.$user->profile->child->birth->id;
+                $data['husband_email'] = $user->email;
+                $data['new_husband_email'] = '';
                 $data['tribe'] = $family->tribe_id;
                 $data['location'] = $this->getLocation(Address::find($data['address']));
                     
