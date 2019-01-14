@@ -8,6 +8,9 @@ use Modules\Family\Services\Family\ValidFamilies;
 
 use Modules\Marriage\Entities\Status;
 
+use Modules\Family\Entities\Tribe;
+
+
 class marriageCore
 
 {
@@ -16,6 +19,7 @@ class marriageCore
 	public $family = [];
 	public $families;
     public $status = [];
+    public $tribes;
 	public function __construct()
 	{
         $this->marriageInfo(); 
@@ -75,17 +79,18 @@ class marriageCore
                     $this->status = Status::all();
                     break;
                 case 'daughter':
-                    foreach($admin->profile->husband->father->births->child->user as $child){
-                        if($child->profile->gender_id == 2 && $child->profile->marital_status_id == 1){
-                            $this->wives = [
-                            'name'=>$child->first_name,
-                            'surname'=>$child->last_name,
-                            'user_id' => $child->id
+                    foreach($admin->profile->husband->father->births as $birth){
+                        if($birth->child->profile->gender_id == 2 && $birth->child->profile->marital_status_id == 1){
+                            $this->wives[] = [
+                            'name'=>$birth->child->profile->user->first_name,
+                            'surname'=>$birth->child->profile->user->last_name,
+                            'user_id' => $birth->child->profile->user->id
                             ];
                         }
                     }
+                    $this->status = Status::all();
+                    $this->tribes = Tribe::all();
                     break;
-                
                 default:
                     # code...
                     break;

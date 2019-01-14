@@ -20,9 +20,7 @@ trait FamilyLocation
             $this->newLga($this->state);
             $this->newTown($this->lga);
             $this->newLocation($this->town);
-        
-        
-        
+          
     }
 
     public function newLocation(Town $town)

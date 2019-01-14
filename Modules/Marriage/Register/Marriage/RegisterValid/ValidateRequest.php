@@ -20,16 +20,26 @@ trait ValidateRequest
     use ValidWife, ValidHusband;
 
     public function validateMarriageRequest(){
-       
-    	if(session('register')['status']== 'father'){
-            $this->husbandUser = User::find($this->data['user_id']);
-        }else{
-            $this->husbandUser = User::find($this->data['husband_first_name']);
-        }
+        switch (session('register')['status']) {
+            case 'father':
+                $this->husbandUser = User::find($this->data['user_id']);
+                break;
+            case 'son':
+                $this->husbandUser = User::find($this->data['husband_first_name']);
+                break; 
+            default:
+                if(filled($this->data['new_husband_email'])){
+                    $this->husbandUser = User::where('email',$this->data['new_husband_email'])->get();
+                }else{
+                    $this->husbandUser = User::where('email',$this->data['husband_email'])->get();
+                }
+                break;
+         } 
 
         $this->validateHusband();
         
         $this->wifeUser = User::where('email',$this->data['wife_email'])->get();
+
         $this->validateWife();
     }
 }

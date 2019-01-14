@@ -50,6 +50,14 @@ trait RegisterThisMarriage
     			break;
     		case 'daughter':
     			//need to prepare the data
+    		    $data['address'] = $this->address($data);
+		        $family = Family::find(session('register')['family']);
+		        $user = User::find($data['wife_first_name']);
+                $data['wife_email'] = $user->email;
+                $data['wife_date'] = date('Y-m-d',$user->profile->child->birth->date);
+                $data['family'] = $data['husband_first_name'].'_'.$family->name.'_inlaw_'.$user->profile->child->birth->id;
+                $data['title'] = $family->name.'_inlaw_'.$user->profile->child->birth->id;
+                $data['location'] = $this->getLocation(Address::find($data['address']));
     			break;
     		default:
     			# code...

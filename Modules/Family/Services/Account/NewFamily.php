@@ -21,6 +21,7 @@ class NewFamily
     public function __construct($data)
     {
         $this->data = $data;
+        $this->location();
         $this->data = $this->prepareData($data);
         $this->registerer = Auth()->User();
         $this->validateFamilyRequest(); 
@@ -29,8 +30,8 @@ class NewFamily
 
     private function prepareData($data)
     {
-        $data['location'] = $this->location($data);
-        
+        $data['location'] = $this->location;
+        return $data;
     }
 
 }
