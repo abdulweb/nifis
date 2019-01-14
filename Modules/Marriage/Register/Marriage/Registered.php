@@ -22,7 +22,6 @@ class Registered
 		$this->data = $data;
 		$this->data = $this->prepareData($data);
 		$this->registeredNewMarriage();
-		dd($this->data);
 	}
       
     public function registeredNewMarriage()
@@ -45,6 +44,9 @@ class Registered
 	        		break;
 	        	case 'daughter':
 	        		//create family account for the husband then register the marriage
+	        	    $this->registerFamily();
+                    $this->registerMarriage();
+                    $message = 'Congratulation the child marriage was register successfully he now has the family account which is part of your family';
 	        		break;
 	        	default:
 	        		session()->flash('message','Unknown marriage');

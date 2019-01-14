@@ -8,6 +8,9 @@ use Modules\Family\Services\Family\ValidFamilies;
 
 use Modules\Marriage\Entities\Status;
 
+use Modules\Family\Entities\Tribe;
+
+
 class marriageCore
 
 {
@@ -16,6 +19,7 @@ class marriageCore
 	public $family = [];
 	public $families;
     public $status = [];
+    public $tribes;
 	public function __construct()
 	{
         $this->marriageInfo(); 
@@ -85,6 +89,7 @@ class marriageCore
                         }
                     }
                     $this->status = Status::all();
+                    $this->tribes = Tribe::all();
                     break;
                 default:
                     # code...

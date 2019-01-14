@@ -16,7 +16,16 @@ trait VerifyHusband
            return true; 
         }
     }
-
+    public function emailAuth()
+    {
+        if(empty($this->husbandUser)){
+            $this->error[] = "Husband Email authentication fails it does not exist in our record";
+        }elseif(empty($this->husbandUser->profile)){
+            $this->error[] = "Husband Email authentication fails it does not belongs to any family member in our families record";
+        }elseif($this->husbandUser->profile->gender_id == 2){
+            $this->error[] = "Husband Email authentication fails this email belongs to female, you cannot use femail email";
+        }
+    }
     public function canMarry(User $user)
     {
         
