@@ -21,20 +21,23 @@ trait ValidHusband
             }
 
         }
-        if(!empty($this->husbandUser)){
-
+        
+        if($this->husbandUser == null){
             if($this->married($this->husbandUser)){
                 $this->canMarryAgain($this->husbandUser);
             }
 
-        }else if(empty($this->husbandUser->profile->child)){
+        }
+        if($this->husbandUser == null && $this->husbandUser->profile->child == null){
 
             $this->canMarry($this->husbandUser);
             $this->validBirth($this->husbandUser);
 
         }
-        //$this->emailAuth();
-        if(!empty($this->husbandUser)){
+        if(session('register')['status'] == 'son'){
+            $this->emailAuth();
+        }
+        if($this->husbandUser == null){
             $this->husbandMarriageDateAuth($this->husbandUser);
         }
 

@@ -41,14 +41,21 @@ trait Admin
 	                'phone'=>'',
 	            ]); 
 	        }
-        }else{
+        }elseif(session('register')['status'] == 'son'){
         	$this->user = $this->husbandUser;
+        }else{
+        	$this->user = User::firstOrCreate([
+        		'first_name'=>$this->data['husband_first_name'],
+        		'last_name'=>$this->data['husband_last_name'], 
+        		'email'=>$this->data['husband_email']
+        	]);
         }
         
     }
    
     public function newProfile(User $user)
     {
+
         if(session('register') == null){
 	        if(empty($this->data['date'])){
 	            $this->data['date'] = $this->data['mdate'];
@@ -59,18 +66,13 @@ trait Admin
 	            'date_of_birth' => strtotime($this->data['date']),
 	            'family_id' =>$this->family->id
 	        ]);
+        }elseif($this->husbandUser->isNotEmpty()){	
+            $this->profile = $this->husbandUser->profile;
         }else{
-        	if(session('register')['status'] == 'daughter'){
-        		
-				if(!empty($this->husbandUser)){
-				    $this->husbandProfile = $this->husbandUser->profile;
-				}else{
-	                $this->husbandUser = User::create(['first_name'=>$this->data['husband_first_name'],'last_name'=>$this->data['husband_last_name'], 'email'=>['husband_email']]);
-	                $this->husbandProfile = $this->husbandUser->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
-				}
-        	}
-            $this->profile = $this->husbandProfile;
-        }
+        	$this->husbandUser = $this->user;
+            $this->profile = $this->user->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
+            $this->husbandProfile = $this->profile;
+		}
         
     }
 

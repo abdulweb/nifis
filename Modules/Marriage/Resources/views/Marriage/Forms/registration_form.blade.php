@@ -95,7 +95,7 @@
 					<div class="form-group clearfix">
 						<label class="col-lg-4 control-label " for="husband_last_name">Husband Tribe</label>
 						<div class="col-lg-8">
-							<select class="form-control">
+							<select class="form-control" name="tribe">
 								<option value=""></option>
 			   					@if($tribes)
                                     @foreach($tribes as $tribe)
