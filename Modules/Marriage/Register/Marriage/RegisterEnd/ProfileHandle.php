@@ -25,10 +25,15 @@ trait ProfileHandle
     public function handleHusbandProfile()
 	{
 	
-		if(session('register')['status'] == 'father'){
-			$this->husbandProfile = User::find($this->data['user_id'])->profile;
+		if(session('register')['status'] == 'father' || session('register')['status'] == 'son'){
+			$this->husbandProfile = $this->husbandUser->profile;
 		}else{
-			$this->husbandProfile = User::find($this->data['husband_first_name'])->profile;
+			if(!empty($this->husbandUser)){
+			    $this->husbandProfile = $this->husbandUser->profile;
+			}else{
+                $this->husbandUser = User::create(['first_name'=>$this->data['husband_first_name'],'last_name'=>$this->data['husband_last_name'], 'email'=>['husband_email']]);
+                $this->husbandProfile = $this->husbandUser->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
+			}
 		}
 		$this->updateHusbandProfile();
 

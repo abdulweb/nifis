@@ -31,16 +31,17 @@ trait Family
 
     private function newFamily(Location $location){
         
-        $this->family = $location->families()->create([
+        $this->family = $location->families()->firstOrCreate([
             'name'=>$this->data['family'],
             'title' => $this->data['title'],
             'tribe_id'=>$this->data['tribe'],
             'user_id'=>Auth()->User()->id,
         ]);
+
     }
 
     private function createSubFamily()
     {
-    	$this->user->profile->family->subFamilies()->create(['sub_family_id'=>$this->family->id]);
+    	$this->user->profile->child->birth->father->husband->profile->family->subFamilies()->create(['sub_family_id'=>$this->family->id]);
     }
 }

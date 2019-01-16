@@ -29,7 +29,7 @@ trait Admin
 
     public function newUser()
     {
-        if(session('register') == 'father' || session('register') == null){
+        if(session('register') == null){
         	if(empty($this->data['date'])){
 	            $this->user = $this->registerer;
 	        }else{
@@ -49,7 +49,7 @@ trait Admin
    
     public function newProfile(User $user)
     {
-        if(session('register') == 'father' || session('register') == null){
+        if(session('register') == null){
 	        if(empty($this->data['date'])){
 	            $this->data['date'] = $this->data['mdate'];
 	        }
@@ -60,6 +60,15 @@ trait Admin
 	            'family_id' =>$this->family->id
 	        ]);
         }else{
+        	if(session('register')['status'] == 'daughter'){
+        		
+				if(!empty($this->husbandUser)){
+				    $this->husbandProfile = $this->husbandUser->profile;
+				}else{
+	                $this->husbandUser = User::create(['first_name'=>$this->data['husband_first_name'],'last_name'=>$this->data['husband_last_name'], 'email'=>['husband_email']]);
+	                $this->husbandProfile = $this->husbandUser->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
+				}
+        	}
             $this->profile = $this->husbandProfile;
         }
         
@@ -69,6 +78,7 @@ trait Admin
     {   
     	$this->newUser();
         $this->newProfile($this->user);
+
         $this->newAdmin($this->profile, $this->family);
     }
 }
