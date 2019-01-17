@@ -40,8 +40,6 @@ trait ProfileHandle
 	}
     public function handleHusbandProfile()
 	{
-<<<<<<< HEAD
-	
 		if(session('register')['status'] == 'father' || session('register')['status'] == 'son'){
 			
 			$this->husbandProfile = $this->husbandUser->profile;
@@ -51,13 +49,13 @@ trait ProfileHandle
 			}else{
                 $this->husbandProfile = $this->husbandUser->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
 			}
-=======
+
 
 		if(!empty($husbandUser)){
 			$this->husbandProfile = $this->husbandUser->profile;
 		}else{
 			$this->husbandProfile = $this->createHusbandProfile();
->>>>>>> master
+
 		}
 		$this->updateHusbandProfile();
 

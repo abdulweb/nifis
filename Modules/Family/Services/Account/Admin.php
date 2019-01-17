@@ -80,7 +80,6 @@ trait Admin
     {   
     	$this->newUser();
         $this->newProfile($this->user);
-
         $this->newAdmin($this->profile, $this->family);
     }
 }
