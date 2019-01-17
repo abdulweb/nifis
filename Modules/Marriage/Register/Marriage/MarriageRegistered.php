@@ -38,6 +38,7 @@ class MarriageRegistered
 	        		break;
 	        	case 'son':
 	        		//create family account then register marriage
+	        	 
                     $this->registerFamily();
                     $this->registerMarriage();
                     $message = 'Congratulation the child marriage was register successfully and the new family account is creted for the child which is subling of the selected family of your family';

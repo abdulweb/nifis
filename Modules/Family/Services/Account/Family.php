@@ -21,6 +21,7 @@ trait Family
 	public function registerFamily(){
 		
         $this->newFamily($this->data['location']);
+       
         $this->newAdminHandle();
 
         if(session('register')['status'] == 'son'){

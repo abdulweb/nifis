@@ -40,7 +40,9 @@ trait VerifyHusband
     {
         $wife = 0;
         foreach($user->profile->husband->marriages as $marriage){
-            $wife++;
+            if($marriage->is_active == 1){
+                $wife++;
+            }
         }
         if($wife < 4){
             return true;
@@ -61,6 +63,10 @@ trait VerifyHusband
        
         if(strtotime($this->data['marriage_date']) - strtotime($user->profile->date_of_birth) < 567648000){
             $this->error[] = "Sorry the husband marriage date authentication fails there must be the interval of atleast 15 years between husband date of birth and marriage date";
+        }
+
+        if(session('register')['status'] == 'son' && empty($this->husbandUser->email)){
+            $this->error[] = "Profile authentication fails husband did not update his email to his profile";
         }
     }
 }

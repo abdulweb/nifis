@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\Marriage\Register\Marriage\RegisterEnd;
+use Illuminate\Support\Facades\Hash;
 
 use App\User;
 
@@ -27,9 +28,19 @@ trait ProfileHandle
 		}
 		
 	}
+    public function createHusbandProfile()
+	{
 
+        $user= User::create(['first_name'=>$this->data['husband_first_name'],
+        'last_name'=>$this->data['husband_last_name'],
+        'email'=>$this->data['husband_email'],
+        'password' => Hash::make($this->data['husband_email'])]);
+        $this->wifeProfile = $user->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
+		
+	}
     public function handleHusbandProfile()
 	{
+<<<<<<< HEAD
 	
 		if(session('register')['status'] == 'father' || session('register')['status'] == 'son'){
 			
@@ -40,6 +51,13 @@ trait ProfileHandle
 			}else{
                 $this->husbandProfile = $this->husbandUser->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
 			}
+=======
+
+		if(!empty($husbandUser)){
+			$this->husbandProfile = $this->husbandUser->profile;
+		}else{
+			$this->husbandProfile = $this->createHusbandProfile();
+>>>>>>> master
 		}
 		$this->updateHusbandProfile();
 
