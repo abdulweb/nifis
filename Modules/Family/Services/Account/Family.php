@@ -38,10 +38,11 @@ trait Family
             'tribe_id'=>$this->data['tribe'],
             'user_id'=>Auth()->User()->id,
         ]);
+
     }
 
     private function createSubFamily()
     {
-    	$this->user->profile->family->subFamilies()->create(['sub_family_id'=>$this->family->id]);
+    	$this->user->profile->child->birth->father->husband->profile->family->subFamilies()->create(['sub_family_id'=>$this->family->id]);
     }
 }

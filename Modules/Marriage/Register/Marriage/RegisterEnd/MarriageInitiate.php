@@ -18,10 +18,11 @@ trait MarriageInitiate
     public function createWife(Profile $profile)
     {
         if($this->wifeProfile->wife == null){
-        	$this->wife = $this->wifeProfile->wife()->create(['status_id'=>$this->data['wife_status']]);
+        	$this->wife = $this->wifeProfile->wife()->firstOrCreate(['status_id'=>$this->data['wife_status']]);
         }else{
         	$this->wife = $this->wifeProfile->wife;
-        }	
+        }
+        $this->wifeProfile->update(['marital_status_id'=>2]);	
     }
 
     public $husband;
@@ -32,7 +33,8 @@ trait MarriageInitiate
         	$this->husband = $this->husbandProfile->husband()->create([]);
         }else{
         	$this->husband = $this->husbandProfile->husband;
-        }	
+        }
+        $this->husbandProfile->update(['marital_status_id'=>2]);   	
     }
 
     public function createMarriage(Husband $husband)
@@ -42,7 +44,7 @@ trait MarriageInitiate
 
     public function marriageAddress()
     {
-        $this->husbandProfile->leave()->create(['address_id'=>$this->data['address']]);
-        $this->wifeProfile->leave()->create(['address_id'=>$this->data['address']]);
+        $this->husbandProfile->leave()->firstOrCreate(['address_id'=>$this->data['address']]);
+        $this->wifeProfile->leave()->firstOrCreate(['address_id'=>$this->data['address']]);
     }
 }

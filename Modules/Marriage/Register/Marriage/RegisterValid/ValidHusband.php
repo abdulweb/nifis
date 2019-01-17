@@ -12,6 +12,19 @@ trait ValidHusband
 
     public function validateHusband()
     {
+<<<<<<< HEAD
+        
+        if(filled($this->data['wife_email'])){
+
+            if(filled($this->husbandUser->profile->husband)){
+                $this->familyAuth();
+                $this->husbandAuth($this->husbandUser);
+            }
+
+        }
+        
+        if($this->husbandUser == null){
+=======
 
         if(filled($this->husbandUser->profile->husband)){
             $this->familyAuth();
@@ -20,18 +33,26 @@ trait ValidHusband
      
         if(!empty($this->husbandUser)){
 
+>>>>>>> master
             if($this->married($this->husbandUser)){
                 $this->canMarryAgain($this->husbandUser);
             }
 
+<<<<<<< HEAD
+        }
+        if($this->husbandUser == null && $this->husbandUser->profile->child == null){
+=======
         }else if(!empty($this->husbandUser->profile->child)){
+>>>>>>> master
 
             $this->canMarry($this->husbandUser);
             $this->validBirth($this->husbandUser);
 
         }
-        //$this->emailAuth();
-        if(empty($this->husbandUser)){
+        if(session('register')['status'] == 'son'){
+            $this->emailAuth();
+        }
+        if($this->husbandUser == null){
             $this->husbandMarriageDateAuth($this->husbandUser);
         }
 

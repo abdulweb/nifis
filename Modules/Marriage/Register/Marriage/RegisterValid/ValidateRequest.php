@@ -37,7 +37,6 @@ trait ValidateRequest
          } 
 
         $this->validateHusband();
-        
         $this->wifeUser = User::where('email',$this->data['wife_email'])->get();
 
         $this->validateWife();

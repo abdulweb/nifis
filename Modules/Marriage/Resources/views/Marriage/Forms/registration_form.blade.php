@@ -18,7 +18,7 @@
 		</div>
 		@elseif(session('register')['status'] == 'son')
         <div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
+		Husband In	<label class="col-lg-4 control-label " for="husband_first_name">Husband First Name</label>
 			<div class="col-lg-8">
 				<select class="form-control" name="husband_first_name">
 					<option value=""></option>
@@ -87,9 +87,15 @@
 						</div>
 					</div>
 					<div class="form-group clearfix">
+						<label class="col-lg-4 control-label " for="husband_last_name">Date Of Birth</label>
+						<div class="col-lg-8">
+							<input value="{{old('husband_date')}}" id="husband_date" name="husband_date" type="date" class="required form-control">
+						</div>
+					</div>
+					<div class="form-group clearfix">
 						<label class="col-lg-4 control-label " for="husband_last_name">Husband Tribe</label>
 						<div class="col-lg-8">
-							<select class="form-control">
+							<select class="form-control" name="tribe">
 								<option value=""></option>
 			   					@if($tribes)
                                     @foreach($tribes as $tribe)

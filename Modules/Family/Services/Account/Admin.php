@@ -29,7 +29,7 @@ trait Admin
 
     public function newUser()
     {
-        if(session('register') == 'father' || session('register') == null){
+        if(session('register') == null){
         	if(empty($this->data['date'])){
 	            $this->user = $this->registerer;
 	        }else{
@@ -41,28 +41,22 @@ trait Admin
 	                'phone'=>'',
 	            ]); 
 	        }
-        }elseif(session('register') == 'son'){
-        	$this->user = User::find($this->data['husband_first_name']);
-        	$this->registerer = Auth()->User();
+        }elseif(session('register')['status'] == 'son'){
+        	$this->user = $this->husbandUser;
         }else{
-        	if(filled($this->data['husband_email'])){
-	            $this->user = User::where('email',$this->data['husband_email'])->get();
-	        }else{
-	            $this->user = User::firstOrCreate([
-	                'first_name'=>$this->data['husband_first_name'],
-	                'last_name'=>$this->data['husband_last_name'],
-	                'email'=>$this->data['new_husband_email'],
-	                'password'=>Hash::make($this->data['new_husband_email']),
-	                'phone'=>'',
-	            ]); 
-	        }
+        	$this->user = User::firstOrCreate([
+        		'first_name'=>$this->data['husband_first_name'],
+        		'last_name'=>$this->data['husband_last_name'], 
+        		'email'=>$this->data['husband_email']
+        	]);
         }
         
     }
    
     public function newProfile(User $user)
     {
-        if(session('register') == 'father' || session('register') == null){
+
+        if(session('register') == null){
 	        if(empty($this->data['date'])){
 	            $this->data['date'] = $this->data['mdate'];
 	        }
@@ -72,17 +66,21 @@ trait Admin
 	            'date_of_birth' => strtotime($this->data['date']),
 	            'family_id' =>$this->family->id
 	        ]);
+        }elseif($this->husbandUser->isNotEmpty()){	
+            $this->profile = $this->husbandUser->profile;
         }else{
-            $this->profile = $this->user->profile;
-        }
+        	$this->husbandUser = $this->user;
+            $this->profile = $this->user->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
+            $this->husbandProfile = $this->profile;
+		}
         
     }
 
     public function newAdminHandle()
     {   
-    	
     	$this->newUser();
         $this->newProfile($this->user);
+
         $this->newAdmin($this->profile, $this->family);
     }
 }

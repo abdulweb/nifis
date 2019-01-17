@@ -10,7 +10,7 @@ class Father extends Model
 
     public function husband()
     {
-        return $this->belongTo('Modules\Marriage\Entities\Husband');
+        return $this->belongsTo('Modules\Marriage\Entities\Husband');
     }
     public function births()
     {

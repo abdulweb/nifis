@@ -16,7 +16,6 @@ trait VerifyMother
     {
     	$this->wifeStatus();
         $user_id = $this->motherUserIds();
-        
         $flag = false;
         foreach($user_id as $id){
 			if($this->status->wife[0]->profile->user->id == $id){
@@ -40,6 +39,7 @@ trait VerifyMother
     public function motherUserIds()
     {
     	$id = [];
+
         foreach(User::where(['first_name'=>$this->data['mother_first_name'],
     		'last_name'=>$this->data['mother_last_name']])->get() as $user){
         	$id[] = $user->id;

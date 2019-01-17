@@ -8,7 +8,7 @@ use Modules\Marriage\Register\Marriage\RegisterValid\ValidateRequest;
 
 use Modules\Family\Services\Account\Family as NewChildFamily;
 
-class Registered
+class MarriageRegistered
 
 {
 
@@ -41,13 +41,13 @@ class Registered
 	        	 
                     $this->registerFamily();
                     $this->registerMarriage();
-                    $message = 'Congratulation the child marriage was register successfully he now has the family account which is part of your family';
+                    $message = 'Congratulation the child marriage was register successfully and the new family account is creted for the child which is subling of the selected family of your family';
 	        		break;
 	        	case 'daughter':
 	        		//create family account for the husband then register the marriage
 	        	    $this->registerFamily();
                     $this->registerMarriage();
-                    $message = 'Congratulation the child marriage was register successfully he now has the family account which is part of your family';
+                    $message = "Congratulation the daughter's marriage was register successfully and the new family account was created for the husband which is related to your family by marriage of your family";
 	        		break;
 	        	default:
 	        		session()->flash('message','Unknown marriage');
