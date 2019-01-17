@@ -29,12 +29,21 @@
     <script src="assets/js/jquery.core.js"></script>
     <script src="assets/js/jquery.app.js"></script>
 
+    
+
+
     <!--Form Wizard-->
     <script src="../plugins/jquery.steps/js/jquery.steps.min.js"></script>
     <script src="../plugins/jquery-validation/js/jquery.validate.min.js"></script>
+
+    <!-- knob js -->
+    <script src="../plugins/jquery-knob/jquery.knob.js"></script>
+
     <!--wizard initialization-->
     <script src="assets/pages/jquery.wizard-init.js"></script>
     <script src="{{ asset('js/app.js') }}"> </script>
+
+    
     @yield('footer')
     <footer class="footer text-right">
         2017 - 2018 © Nigerian family innformation system

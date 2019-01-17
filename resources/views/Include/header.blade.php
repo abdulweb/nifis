@@ -27,7 +27,7 @@
         <link rel="stylesheet" type="text/css" href="../plugins/jquery.steps/css/jquery.steps.css" />
 
         <script src="assets/js/modernizr.min.js"></script>
-
+         
         @yield('header')
 
     </head>
