@@ -18,7 +18,9 @@
                             </div>
                             <div class="text-left">
                                 <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">{{$user->first_name.' '.$user->last_name}}</span></p>
-
+                                
+                                <p class="text-muted font-13"><strong>Family :</strong> <span class="m-l-15">{{'Not available'}}</span></p>
+                                
                                 <p class="text-muted font-13"><strong>Father Name :</strong> <span class="m-l-15">{{'Not Available'}}</span></p>
 
                                 <p class="text-muted font-13"><strong>Mother Name :</strong> <span class="m-l-15">{{'Not available'}}</span></p>
@@ -208,6 +210,7 @@
                 <div class="col-md-8 col-lg-9">
                     <h4 class="m-t-30">Recent Works</h4>
                     <div class="row">
+
                         <div class="col-md-4 col-sm-6">
                             <div class=" thumb">
                                 <a href="#" class="image-popup" title="Screenshot-1">
@@ -226,17 +229,6 @@
                                 </a>
                                 <div class="gal-detail">
                                     <h4>Interval timer (app concept)</h4>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class=" thumb">
-                                <a href="#" class="image-popup" title="Screenshot-3">
-                                    <img src="assets/images/shots/shot-3.png" class="thumb-img" alt="work-thumbnail">
-                                </a>
-                                <div class="gal-detail">
-                                    <h4>Ecommerce app</h4>
                                 </div>
                             </div>
                         </div>
