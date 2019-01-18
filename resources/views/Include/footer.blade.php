@@ -12,39 +12,41 @@
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="plugins/switchery/switchery.min.js"></script>
+    <script src="../plugins/switchery/switchery.min.js"></script>
     
     <!-- Counter js  -->
-    <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
-    <script src="plugins/counterup/jquery.counterup.min.js"></script>
+    <script src="../plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="../plugins/counterup/jquery.counterup.min.js"></script>
 
     <!--Morris Chart-->
-	<script src="plugins/morris/morris.min.js"></script>
-	<script src="plugins/raphael/raphael-min.js"></script>
+	<script src="../plugins/morris/morris.min.js"></script>
+	<script src="../plugins/raphael/raphael-min.js"></script>
 
     <!-- Dashboard init -->
     <script src="assets/pages/jquery.dashboard.js"></script>
+    <!-- KNOB JS -->
+        <!--[if IE]>
+        <script type="text/javascript" src="../plugins/jquery-knob/excanvas.js"></script>
+        <![endif]-->
+    <script src="../plugins/jquery-knob/jquery.knob.js"></script>
 
     <!-- App js -->
     <script src="assets/js/jquery.core.js"></script>
     <script src="assets/js/jquery.app.js"></script>
 
-    
-
-
     <!--Form Wizard-->
+
     <script src="../plugins/jquery.steps/js/jquery.steps.min.js"></script>
     <script src="../plugins/jquery-validation/js/jquery.validate.min.js"></script>
 
-    <!-- knob js -->
-    <script src="../plugins/jquery-knob/jquery.knob.js"></script>
+   
 
     <!--wizard initialization-->
     <script src="assets/pages/jquery.wizard-init.js"></script>
     <script src="{{ asset('js/app.js') }}"> </script>
 
-    
     @yield('footer')
+    
     <footer class="footer text-right">
         2017 - 2018 © Nigerian family innformation system
     </footer>
