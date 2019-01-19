@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'hasFamily' => \Modules\Family\Http\Middleware\HasFamilyMiddleware::class,
         'used' => \Modules\Family\Http\Middleware\IsUsedMiddleware::class,
+        'hasProfile' => \Modules\Profile\Http\Middleware\HasProfileMiddleware::class,
     ];
 }

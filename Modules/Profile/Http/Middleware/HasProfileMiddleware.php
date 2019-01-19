@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Family\Http\Middleware;
+namespace Modules\Profile\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class HasFamilyMiddleware
+class HasProfileMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class HasFamilyMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth()->User()->profile()->get()->isNotEmpty()){
-            return redirect('/home');
+        if(!Auth()->User()->profile){
+            return redirect()->route('home');
         }
         return $next($request);
     }

@@ -17,16 +17,16 @@ trait ValidHusband
         if(filled($this->data['wife_email'])){
 
             if(filled($this->husbandUser->profile->husband)){
+                dd($this->data);
                 $this->familyAuth();
                 $this->husbandAuth($this->husbandUser);
             }
 
         }
         
-        if($this->husbandUser == null){
 
 
-        if(filled($this->husbandUser->profile->husband)){
+        if(filled($this->husbandUser->profile->husband) && $this->data['wife_email'] != null){
             $this->familyAuth();
             $this->husbandAuth($this->husbandUser);
         }
