@@ -21,11 +21,7 @@ class ProfileController extends Controller
      * Show the form for creating a new resource.
      * @return Response
      */
-    public function create()
-    {
-        return view('profile::create');
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      * @param  Request $request
@@ -39,9 +35,9 @@ class ProfileController extends Controller
      * Show the specified resource.
      * @return Response
      */
-    public function show()
+    public function setting()
     {
-        return view('profile::show');
+        return view('profile::Forms.profile_setting');
     }
 
     /**
@@ -50,7 +46,7 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('profile::edit');
+        return view('profile::Forms.user_detail');
     }
 
     /**
