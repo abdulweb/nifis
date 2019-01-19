@@ -13,7 +13,7 @@ class Address extends Model
         return $this->hasMany(LivesIn::class);
     }
 
-    public function work_in()
+    public function work()
     {
         return $this->hasOne(WorkIn::class);
     }
