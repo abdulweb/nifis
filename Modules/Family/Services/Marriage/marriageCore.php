@@ -25,7 +25,7 @@ class marriageCore
         $this->marriageInfo(); 
 	} 
 
-	public function marriageInfo()
+	public function marriageInfo(ValidFamilies $family)
 
 	{
 		if(session('register')){
@@ -98,8 +98,7 @@ class marriageCore
            
          
         }else{
-        	$family = new ValidFamilies();
-            $this->families = $family->getAllFamilies();
+            $this->families = $family->families;
         }
 	}
 }

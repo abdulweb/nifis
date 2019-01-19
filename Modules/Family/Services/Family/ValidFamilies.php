@@ -20,11 +20,12 @@ class ValidFamilies
 	public function __construct(){
 
         $this->user = Auth()->User();
+        $this->getAllFamilies();
+
 	}
     
-    public function getAllFamilies()
+    protected function getAllFamilies()
     {
-
         $this->myFamily();
         // if($this->my_family != null && $this->hasSubFamily($this->my_family)){
         //     $this->mySonFamilies();
@@ -47,7 +48,6 @@ class ValidFamilies
         //     $this->myGrandFatherFamily();
         //     $this->myFatherBrotherFamilies();
         // }
-        return $this->families;
 
     }
     private function hasSubFamily(Family $family)

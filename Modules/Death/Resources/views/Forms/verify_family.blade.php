@@ -7,6 +7,9 @@
 			<div class="col-lg-8">
 				<select name="family" class="form-control">
 					<option value=""></option>
+					@foreach($families as $family)
+                        <option value="{{$family->id}}">{{$family->name}}</option>
+					@endforeach
 				</select>
 			</div>
 		</div>
