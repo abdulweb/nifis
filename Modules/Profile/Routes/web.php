@@ -11,8 +11,8 @@
 |
 */
 
-Route::prefix('profile')->group(function() {
-    Route::get('/', 'ProfileController@index');
+Route::prefix('profile')->middleware(['auth','hasFamily'])->group(function() {
+    Route::get('/', 'ProfileController@index')->name('profile');
     Route::get('/setting', 'ProfileController@setting')->name('profile.setting');
     Route::get('/details', 'ProfileController@userDetail')->name('user.detail');
 });

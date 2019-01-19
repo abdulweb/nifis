@@ -21,15 +21,7 @@ class ProfileController extends Controller
      * Show the form for creating a new resource.
      * @return Response
      */
-    
-    /**
-     * Store a newly created resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-    }
+   
 
     /**
      * Show the specified resource.
@@ -37,14 +29,14 @@ class ProfileController extends Controller
      */
     public function setting()
     {
-        return view('profile::Forms.profile_setting');
+        return view('profile::Forms.profile_setting',['user'=>Auth()->User()]);
     }
 
     /**
      * Show the form for editing the specified resource.
      * @return Response
      */
-    public function edit()
+    public function userDetail()
     {
         return view('profile::Forms.user_detail');
     }
@@ -58,11 +50,5 @@ class ProfileController extends Controller
     {
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @return Response
-     */
-    public function destroy()
-    {
-    }
+    
 }
