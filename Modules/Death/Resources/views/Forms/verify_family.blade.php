@@ -1,4 +1,4 @@
-<form id="wizard-vertical" action="marriage/verify" method="POST">
+<form id="wizard-vertical" action="death/verify" method="POST">
 	@csrf
 	
 	<section>

@@ -22,9 +22,10 @@ class DeathController extends Controller
      * Show the form for creating a new resource.
      * @return Response
      */
-    public function create()
+    public function verify(Request $request)
     {
-        return view('death::create');
+        session(['death'=>$request->all()]);
+        return redirect('/death');
     }
 
     /**
