@@ -14,7 +14,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile::index',['user'=>Auth()->User()]);
+        return view('profile::Forms.profile_setting',['user'=>Auth()->User()]);
     }
 
     /**

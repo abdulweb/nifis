@@ -61,7 +61,7 @@
 		                    		<table>
 		                    			<tr>
 		                    				<td>Country</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave->address->house->area->town->lga->state->country->name}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>State</td>

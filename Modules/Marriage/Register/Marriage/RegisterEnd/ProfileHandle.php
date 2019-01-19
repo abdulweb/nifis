@@ -49,9 +49,9 @@ trait ProfileHandle
 			}else{
                 $this->husbandProfile = $this->husbandUser->profile()->create(['gender_id'=>1,'marital_status_id'=>2,'date_of_birth'=>strtotime($this->data['husband_date'])]);
 			}
+        }
 
-
-		if(!empty($husbandUser)){
+		if($this->husbandUser != null){
 			$this->husbandProfile = $this->husbandUser->profile;
 		}else{
 			$this->husbandProfile = $this->createHusbandProfile();

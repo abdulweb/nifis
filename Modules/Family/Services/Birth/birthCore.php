@@ -20,7 +20,6 @@ class birthCore
 
 	public function birthInfo()
 	{
-		
 		if(session('family')){
             $this->family = Family::find(session('family')['family']);
             $admin = $this->family->admin;

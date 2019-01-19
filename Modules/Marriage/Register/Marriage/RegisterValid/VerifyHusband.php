@@ -6,6 +6,8 @@ use App\User;
 
 use Modules\Marriage\Entities\Wife;
 
+use Modules\Family\Entities\Family;
+
 trait VerifyHusband
 {
     
@@ -53,7 +55,13 @@ trait VerifyHusband
     
     public function validBirth(User $user)
     {
-        if($user->profile->child->birth->mother_id != Wife::where('status_id',$this->data['mstatus'])->get()->mother->id){
+        $flag = false;
+        foreach(Family::find(session('register')['family'])->admin->profile->husband->marriages as $marriage){
+            if($marriage->wife->mother->id == $user->profile->child->birth->mother_id){
+                $flag = true;
+            }
+        }
+        if($flag == false){
             $this->error[] = "husband birth authentication fails and his mother information";
         }
     }
