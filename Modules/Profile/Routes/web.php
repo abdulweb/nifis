@@ -13,4 +13,7 @@
 
 Route::prefix('profile')->group(function() {
     Route::get('/', 'ProfileController@index');
+    Route::get('/setting', 'ProfileController@setting');
+    Route::get('/details', 'ProfileController@editUser');
+    Route::get('/edit', 'ProfileController@edit');
 });
