@@ -5,6 +5,10 @@ namespace Modules\Death\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Family\Services\Family\ValidFamilies;
+use Modules\Family\Services\Family\ValidDeathNames;
+use Modules\Death\Services\Registration\NewDeath as RegisterDeath;
+use Modules\Death\Events\NewDeathEvent;
 
 class DeathController extends Controller
 {
@@ -12,18 +16,21 @@ class DeathController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+
+    public function index(ValidFamilies $family, ValidDeathNames $names)
     {
-        return view('death::index');
+
+        return view('death::index',['families' => $family->families, 'names' => $names->names]);
     }
 
     /**
      * Show the form for creating a new resource.
      * @return Response
      */
-    public function create()
+    public function verify(Request $request)
     {
-        return view('death::create');
+        session(['death'=>$request->all()]);
+        return redirect('/death');
     }
 
     /**
@@ -33,25 +40,12 @@ class DeathController extends Controller
      */
     public function store(Request $request)
     {
+        if($death = new RegisterDeath($request->all())){
+            broadcast(new NewDeathEvent($death))->toOthers();
+        }
+        return redirect('/death');
     }
 
-    /**
-     * Show the specified resource.
-     * @return Response
-     */
-    public function show()
-    {
-        return view('death::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
-    {
-        return view('death::edit');
-    }
 
     /**
      * Update the specified resource in storage.
@@ -60,13 +54,6 @@ class DeathController extends Controller
      */
     public function update(Request $request)
     {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @return Response
-     */
-    public function destroy()
-    {
+        //
     }
 }

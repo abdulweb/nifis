@@ -25,7 +25,7 @@ class marriageCore
         $this->marriageInfo(); 
 	} 
 
-	public function marriageInfo()
+	public function marriageInfo(ValidFamilies $family)
 
 	{
 		if(session('register')){
@@ -66,7 +66,7 @@ class marriageCore
                 case 'son':
 	                if($admin->profile->husband){
 	                	foreach($admin->profile->husband->father->births as $birth){
-	                        if($birth->child->profile->gender_id == 1 && $birth->child->profile->marital_status_id == 1){
+	                        if($birth->child->profile->gender_id == 1 && $birth->child->profile->marital_status_id == 1 && $birth->child->profile->life_status_id == 1){
 	                            $this->husbands[] = [
 	                            'name'=>$birth->child->profile->user->first_name,
 	                            'surname'=>$birth->child->profile->user->last_name,
@@ -80,7 +80,7 @@ class marriageCore
                     break;
                 case 'daughter':
                     foreach($admin->profile->husband->father->births as $birth){
-                        if($birth->child->profile->gender_id == 2 && $birth->child->profile->marital_status_id == 1){
+                        if($birth->child->profile->gender_id == 2 && $birth->child->profile->marital_status_id == 1 && $birth->child->profile->life_status_id == 1){
                             $this->wives[] = [
                             'name'=>$birth->child->profile->user->first_name,
                             'surname'=>$birth->child->profile->user->last_name,
@@ -98,8 +98,7 @@ class marriageCore
            
          
         }else{
-        	$family = new ValidFamilies();
-            $this->families = $family->getAllFamilies();
+            $this->families = $family->families;
         }
 	}
 }

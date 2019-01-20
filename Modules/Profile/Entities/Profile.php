@@ -28,6 +28,11 @@ class Profile extends Model
     {
     	return $this->hasMany(Envet::class);
     }
+
+    public function death()
+    {
+        return $this->hasOne('Modules\Death\Entities\Death');
+    }
     
     public function attendEvent()
     {

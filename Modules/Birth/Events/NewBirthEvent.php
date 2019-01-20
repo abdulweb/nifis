@@ -2,9 +2,16 @@
 
 namespace Modules\Birth\Events;
 
+use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class NewBirthEvent
+class NewBirthEvent implements ShouldBroadcastNow
 {
     use SerializesModels;
 
@@ -13,7 +20,7 @@ class NewBirthEvent
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
         //
     }

@@ -42,8 +42,8 @@ class birthCore
             	}
             }
         }else{
-        	$family = new ValidFamilies;
-        	$this->families = $family->getAllFamilies();
+        	
+        	$this->families = $family->families;
         }      
 	}
 }

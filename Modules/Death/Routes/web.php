@@ -11,6 +11,8 @@
 |
 */
 
-Route::prefix('death')->group(function() {
-    Route::get('/', 'DeathController@index');
+Route::prefix('death')->middleware(['auth'])->group(function() {
+    Route::get('/', 'DeathController@index')->name('death.index');
+    Route::post('/verify', 'DeathController@verify')->name('death.family');
+    Route::post('/register', 'DeathController@store')->name('death.register');
 });
