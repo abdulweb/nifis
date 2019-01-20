@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Family\Services\Family\ValidFamilies;
 use Modules\Family\Services\Family\ValidDeathNames;
 use Modules\Death\Services\Registration\NewDeath as RegisterDeath;
+use Modules\Death\Events\NewDeathEvent;
 
 class DeathController extends Controller
 {
@@ -39,25 +40,12 @@ class DeathController extends Controller
      */
     public function store(Request $request)
     {
+        if($death = new(RegisterDeath($request->all())) && ){
+            broadcast(new NewDeathEvent($death))->toOthers();
+        }
+        return redirect('/death');
     }
 
-    /**
-     * Show the specified resource.
-     * @return Response
-     */
-    public function show()
-    {
-        return view('death::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
-    {
-        return view('death::edit');
-    }
 
     /**
      * Update the specified resource in storage.
@@ -66,18 +54,6 @@ class DeathController extends Controller
      */
     public function update(Request $request)
     {
-        if($death = new(RegisterDeath($request->all())) && $death->error == null){
-            broadcast(new NewDeathEvent($death))->toOthers();
-            session()->flash('message','Death was register successfully');
-            return redirect('/death');
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @return Response
-     */
-    public function destroy()
-    {
+        //
     }
 }
