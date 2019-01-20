@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
         'hasFamily' => \Modules\Family\Http\Middleware\HasFamilyMiddleware::class,
         'used' => \Modules\Family\Http\Middleware\IsUsedMiddleware::class,
         'hasProfile' => \Modules\Profile\Http\Middleware\HasProfileMiddleware::class,
+        'dead' => \Modules\Death\Http\Middleware\UserDeathMiddleware::class,
     ];
 }

@@ -76,7 +76,7 @@ Route::get('/get_token', function(){
 });
 
 Route::view('/room','room')->name('room');
-Route::get('/home', 'HomeController@index')->middleware(['auth'])->name('home');
+Route::get('/home', 'HomeController@index')->middleware(['auth','dead'])->name('home');
 
    Route::get('/sms','SubscriptionController@sms')->name('sms-subs');
    Route::get('/slack','SubscriptionController@slack')->name('slack-subs');
