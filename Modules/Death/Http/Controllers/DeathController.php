@@ -40,7 +40,7 @@ class DeathController extends Controller
      */
     public function store(Request $request)
     {
-        if($death = new(RegisterDeath($request->all())) && ){
+        if($death = new RegisterDeath($request->all())){
             broadcast(new NewDeathEvent($death))->toOthers();
         }
         return redirect('/death');

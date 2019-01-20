@@ -52,7 +52,10 @@ class NewDeath
 	}
 
 	protected function validate()
-	if(strtotime($this->data['date']) > time()){
-		$this->error[] = "Sorry you cannot use data ahead of todays date to register death"
+	{
+		if(strtotime($this->data['date']) > time()){
+			$this->error[] = "Sorry you cannot use data ahead of todays date to register death"
+		}
 	}
+	
 }
