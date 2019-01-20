@@ -1,5 +1,9 @@
 <?php
 
+namespace Modules\Death\Services\Registration;
+
+use App\User;
+
 class NewDeath
 
 {
@@ -41,6 +45,6 @@ class NewDeath
 				break;
 		}
 		$user->profile->death()->create(['date'=>$this->data['data'],'place'=>$this->data['place'],'death_at'=>$this->data['death_at']]);
-		$user->profile->update(['life_status_id'=>0]);
+		$user->profile->update(['life_status_id'=>0,'is_active'=>0]);
 	}
 }

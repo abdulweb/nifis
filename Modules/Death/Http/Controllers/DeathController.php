@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Family\Services\Family\ValidFamilies;
 use Modules\Family\Services\Family\ValidDeathNames;
+use Modules\Death\Services\Registration\NewDeath as RegisterDeath;
 
 class DeathController extends Controller
 {
@@ -17,7 +18,7 @@ class DeathController extends Controller
 
     public function index(ValidFamilies $family, ValidDeathNames $names)
     {
-   
+
         return view('death::index',['families' => $family->families, 'names' => $names->names]);
     }
 
@@ -65,6 +66,11 @@ class DeathController extends Controller
      */
     public function update(Request $request)
     {
+        if($death = new(RegisterDeath($request->all())) && $death->error == null){
+            broadcast(new NewDeathEvent($death))->toOthers();
+            session()->flash('message','Death was register successfully');
+            return redirect('/death');
+        }
     }
 
     /**
