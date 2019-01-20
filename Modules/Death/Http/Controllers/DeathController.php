@@ -2,7 +2,7 @@
 
 namespace Modules\Death\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Modules\Death\Http\Requests\DeathFormRequest;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Family\Services\Family\ValidFamilies;
@@ -37,7 +37,7 @@ class DeathController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(DeathFormRequest $request)
     {
         if($death = new RegisterDeath($request->all())){
             broadcast(new NewDeathEvent($death))->toOthers();

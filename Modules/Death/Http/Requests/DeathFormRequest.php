@@ -14,7 +14,12 @@ class DeathFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           'first_name' => 'required|integer',
+           'last_name' => 'required|string',
+           'palce' => 'required|string',
+           'date' => 'required',
+           'about_death' => 'required|string',
+           'death_at' => 'required|string'
         ];
     }
 
