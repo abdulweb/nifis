@@ -26,11 +26,13 @@ class ValidDeathNames
 	        switch (session('death')['status']) {
 				case 'husband':
 				    $user = $this->family->admin->profile->user;
-					$names[] = [
-						'first_name' => $user->first_name,
-						'last_name' => $user->last_name,
-						'user_id' => $user->id,
-				        ];
+				    if(Auth()->User()->id != $user->id){
+						$names[] = [
+							'first_name' => $user->first_name,
+							'last_name' => $user->last_name,
+							'user_id' => $user->id,
+					    ];
+				    }
 				        $this->names = $names;
 					break;
 				
@@ -38,11 +40,13 @@ class ValidDeathNames
 					foreach($this->family->admin->profile->husband->marriages as $marriage){
 	                    if($marriage->is_active == 1){
 	                    	$wife = $marriage->wife->profile->user;
-	                    	$names[] = [
-	                            'first_name' => $wife->first_name,
-	                            'last_name' => $wife->last_name,
-	                            'first_name' => $wife->id
-	                    	];
+	                    	if(Auth()->User()->id != $wife->id){
+		                    	$names[] = [
+		                            'first_name' => $wife->first_name,
+		                            'last_name' => $wife->last_name,
+		                            'user_id' => $wife->id
+		                    	];
+		                    }
 	                    }
 					}
 				    $this->names = $names;
@@ -53,11 +57,13 @@ class ValidDeathNames
 					foreach($this->family->admin->profile->husband->father->births as $birth){
 	                	$profile = $birth->child->profile;
 	                	if($profile->life_status_id ==1){
-	                		$names[] = [
-	                            'first_name' => $profile->user->first_name,
-	                            'last_name' => $profile->user->last_name,
-	                            'user_id' => $profile->user->id
-	                    	];
+	                		if(Auth()->User()->id != $profile->user->id){
+		                		$names[] = [
+		                            'first_name' => $profile->user->first_name,
+		                            'last_name' => $profile->user->last_name,
+		                            'user_id' => $profile->user->id
+		                    	];
+	                        }
 	                	}	
 					}
 				    $this->names = $names;
@@ -70,11 +76,13 @@ class ValidDeathNames
 	                		foreach ($profile->wife->marriages as $marriages) {
 	                			if($marriage->is_active == 1){
 	                				$husband = $marriage->husband->user;
-			                		$names[] = [
-			                            'first_name' => $husband->first_name,
-			                            'last_name' => $husband->last_name,
-			                            'user_id' => $husband->id
-			                    	];
+	                				if(Auth()->User()->id != $husband->id){
+	                					$names[] = [
+				                            'first_name' => $husband->first_name,
+				                            'last_name' => $husband->last_name,
+				                            'user_id' => $husband->id
+				                    	];
+	                				}
 	                			}
 	                		}
 	                	}	

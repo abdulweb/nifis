@@ -3,9 +3,9 @@
 	<h3>Personal Info</h3>
 	<section>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_first_name">First Name</label>
+			<label class="col-lg-4 control-label " for="first_name">First Name</label>
 			<div class="col-lg-8">
-				<select name="family" class="form-control">
+				<select name="first_name" class="form-control">
 					<option value="">First Name</option>
 					@if($names)
 						@foreach($names as $name)
@@ -16,9 +16,9 @@
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_last_name">Last Name</label>
+			<label class="col-lg-4 control-label " for="last_name">Last Name</label>
 			<div class="col-lg-8">
-				<select name="status" class="form-control">
+				<select name="last_name" class="form-control">
 					<option value="">Last name</option>
 					@if($names)
 						@foreach($names as $name)
@@ -34,7 +34,7 @@
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_last_name">Dead At</label>
 			<div class="col-lg-8">
-				<select name="status" class="form-control">
+				<select name="death_at" class="form-control">
 					<option value=""></option>
 	                <option value="Home">Home</option>
 	                <option value="Hospital">Hospital</option>
@@ -60,14 +60,14 @@
 			<div class="form-group clearfix">
 				<label class="col-lg-4 control-label " for="husband_last_name">Brief history of the death</label>
 				<div class="col-lg-8">
-					<textarea class="form-control" cols="4" rows="6" placeholder="Brief description about the death"></textarea>
+					<textarea name="about_death" class="form-control" cols="4" rows="6" placeholder="Brief description about the death"></textarea>
 				</div>
 			</div>
 		
 		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_last_name"></label>
 			<div class="col-lg-8">
-				<input type="submit" value="Chosen" class="btn btn-primary btn-block">
+				<input type="submit" value="Register Death" class="btn btn-primary btn-block">
 			</div>
 		</div>
 		

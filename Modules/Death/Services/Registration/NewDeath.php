@@ -46,15 +46,27 @@ class NewDeath
 					}
 					break;
 			}
-			$user->profile->death()->create(['date'=>$this->data['data'],'place'=>$this->data['place'],'death_at'=>$this->data['death_at']]);
-			$user->profile->update(['life_status_id'=>0,'is_active'=>0]);
+			$user->profile->death()->create([
+				'date'=>strtotime($this->data['date']),
+				'about_death'=>$this->data['about_death'],
+				'place'=>$this->data['place'],
+				'death_at'=>$this->data['death_at'],
+				'user_id'=>Auth()->User()->id
+			]);
+			$user->profile->update([
+				'life_status_id' => 0,
+				'is_active'=>0
+			]);
+		}else{
+			session()->flash('error',$this->error);
 		}
+
 	}
 
 	protected function validate()
 	{
 		if(strtotime($this->data['date']) > time()){
-			$this->error[] = "Sorry you cannot use data ahead of todays date to register death"
+			$this->error[] = "Sorry you cannot use data ahead of todays date to register death";
 		}
 	}
 	

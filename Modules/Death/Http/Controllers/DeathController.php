@@ -19,7 +19,6 @@ class DeathController extends Controller
 
     public function index(ValidFamilies $family, ValidDeathNames $names)
     {
-
         return view('death::index',['families' => $family->families, 'names' => $names->names]);
     }
 
