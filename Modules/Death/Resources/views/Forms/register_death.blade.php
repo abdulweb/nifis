@@ -7,14 +7,24 @@
 			<div class="col-lg-8">
 				<select name="family" class="form-control">
 					<option value="">First Name</option>
+					@if($names)
+						@foreach($names as $name)
+	                        <option value="{{$name['user_id']}}">{{$name['first_name']}}</option>
+						@endforeach
+					@endif
 				</select>
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_last_name">Who dead ? </label>
+			<label class="col-lg-4 control-label " for="husband_last_name">Last Name</label>
 			<div class="col-lg-8">
 				<select name="status" class="form-control">
-					<option value=""></option>
+					<option value="">Last name</option>
+					@if($names)
+						@foreach($names as $name)
+	                        <option value="{{$name['user_id']}}">{{$name['last_name']}}</option>
+						@endforeach
+					@endif
 				</select>
 			</div>
 		</div>

@@ -28,7 +28,7 @@ class ValidDeathNames
 				    $user = $this->family->admin->profile->user;
 					$names[] = [
 						'first_name' => $user->first_name,
-						'first_name' => $user->last_name,
+						'last_name' => $user->last_name,
 						'user_id' => $user->id,
 				        ];
 				        $this->names = $names;
@@ -42,7 +42,7 @@ class ValidDeathNames
 	                            'first_name' => $wife->first_name,
 	                            'last_name' => $wife->last_name,
 	                            'first_name' => $wife->id
-	                    	]
+	                    	];
 	                    }
 					}
 				    $this->names = $names;
@@ -57,7 +57,7 @@ class ValidDeathNames
 	                            'first_name' => $profile->user->first_name,
 	                            'last_name' => $profile->user->last_name,
 	                            'user_id' => $profile->user->id
-	                    	]
+	                    	];
 	                	}	
 					}
 				    $this->names = $names;

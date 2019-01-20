@@ -18,10 +18,10 @@
 			<div class="col-lg-8">
 				<select name="status" class="form-control">
 					<option value=""></option>
-					<option value="father">Husband</option>
-					<option value="son">Wife</option>
-					<option value="son">Child</option>
-					<option value="son">Inlaw</option>
+					<option value="husband">Husband</option>
+					<option value="wife">Wife</option>
+					<option value="child">Child</option>
+					<option value="inlaw">Inlaw</option>
 					
 				</select>
 			</div>

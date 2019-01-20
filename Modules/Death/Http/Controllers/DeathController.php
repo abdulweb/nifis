@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Family\Services\Family\ValidFamilies;
+use Modules\Family\Services\Family\ValidDeathNames;
 
 class DeathController extends Controller
 {
@@ -13,9 +14,11 @@ class DeathController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index(ValidFamilies $family)
+
+    public function index(ValidFamilies $family, ValidDeathNames $names)
     {
-        return view('death::index',['families'=>$family->families]);
+   
+        return view('death::index',['families' => $family->families, 'names' => $names->names]);
     }
 
     /**
