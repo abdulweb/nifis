@@ -1,0 +1,24 @@
+
+                                                                                              
+  Command "module:make-" is ambiguous.                                                        
+  Did you mean one of these?                                                                  
+      module:make-command      Generate new Artisan command for the specified module.         
+      module:make-controller   Generate new restful controller for the specified module.      
+      module:make-event        Create a new event class for the specified module              
+      module:make-job          Create a new job class for the specified module                
+      module:make-listener     Create a new event listener class for the specified module     
+      module:make-mail         Create a new email class for the specified module              
+      module:make-middleware   Create a new middleware class for the specified module.        
+      module:make-notification Create a new notification class for the specified module.      
+      module:make-provider     Create a new service provider class for the specified module.  
+      module:make-factory      Create a new model factory for the specified module.           
+      module:make-policy       Create a new policy class for the specified module.            
+      module:make-request      Create a new form request class for the specified module.      
+      module:make-rule         Create a new validation rule for the specified module.         
+      module:make-migration    Create a new migration for the specified module.               
+      module:make-model        Create a new model for the specified module.                   
+      module:make-seed         Generate new seeder for the specified module.                  
+      module:make-resource     Create a new resource class for the specified module.          
+      module:make-test         Create a new test class for the specified module.              
+                                                                                              
+

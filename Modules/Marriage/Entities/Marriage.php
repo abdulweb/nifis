@@ -17,4 +17,9 @@ class Marriage extends Model
     {
         return $this->belongsTo(Husband::class);
     }
+
+    public function divorce()
+    {
+        return $this->hasOne('Modules\Divorce\Entities\Divorce');
+    }
 }

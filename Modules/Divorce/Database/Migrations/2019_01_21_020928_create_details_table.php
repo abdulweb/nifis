@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDivorcesTable extends Migration
+class CreateDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateDivorcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('divorces', function (Blueprint $table) {
+        Schema::create('details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('marriage_id')->unsigned()->nullable()->foreign()->refernces('id')->on('marriages')->delete('restrict')->update('cascade');
-            $table->integer('counter');
-            $table->integer('is_active')->unsigned()->default(1)->nullable();
+            $table->integer('divorce_id')->unsigned()->nullable()->foreign()->refernces('id')->on('divorce')->delete('restrict')->update('cascade');
+            $table->integer('date');
+            $table->string('reason');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateDivorcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('divorces');
+        Schema::dropIfExists('details');
     }
 }

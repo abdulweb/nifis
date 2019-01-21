@@ -2,9 +2,11 @@
 
 namespace Modules\Divorce\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Divorce\Http\Requests\DivorceFormRequest;
+use Modules\Divorce\Services\Registration\ProcessWives;
+use Modules\Divorce\Services\Registration\DivorceWife;
 
 class DivorceController extends Controller
 {
@@ -12,27 +14,25 @@ class DivorceController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(ProcessWives $wives)
     {
-        return view('divorce::index');
+        return view('divorce::index',['wives'=>$wives->validWives]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('divorce::create');
-    }
+    
 
     /**
      * Store a newly created resource in storage.
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(DivorceFormRequest $request)
     {
+        $divorce = new DivorceWife($request->all());
+        if(empty($divorce->error)){
+            broadcast(new NewDivorceEvent($divorce));
+        }
+        return redirect('/divorce');
     }
 
     /**
