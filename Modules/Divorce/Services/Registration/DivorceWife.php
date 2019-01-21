@@ -28,7 +28,7 @@ class DivorceWife
 		        	    ]);
 	        		}else{
 	                    $marriage->divorce->update([
-		        			'counter' => $marriage->divorce->counter++
+		        			'counter' => $marriage->divorce->counter + 1
 		        	    ]);
 		        	    $divorce = $marriage->divorce;
 	        		}
@@ -52,6 +52,9 @@ class DivorceWife
         	if($marriage->is_active == 1 && $marriage->date > strtotime($this->data['date'])){
 			    $this->error[] = 'Divorce date Authentication fails : the marriage date is greater than divorce date';
         	}
+        }
+        if(strtotime($this->data['date']) > time()){
+        	$this->error[] = 'Divorce date Authentication fails : use previous date of today or todays date';
         }
 	}
 }
