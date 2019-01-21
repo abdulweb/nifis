@@ -8,9 +8,13 @@ class Divorce extends Model
 {
     protected $guarded = [];
 
-    public function married()
+    public function marriage()
     {
-        return $this->belongTo(Married::class);
+        return $this->belongsTo('Modules\Marriage\Entities\Marriage');
     }
-    
+
+    public function details()
+    {
+        return $this->belongsThasManyo(Details::class);
+    }
 }
