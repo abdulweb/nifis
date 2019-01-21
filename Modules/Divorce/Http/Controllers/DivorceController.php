@@ -2,7 +2,7 @@
 
 namespace Modules\Divorce\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Modules\Divorce\Http\Requests\DivorceFormRequest;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
@@ -31,8 +31,9 @@ class DivorceController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(DivorceFormRequest $request)
     {
+        dd($request->all());
     }
 
     /**

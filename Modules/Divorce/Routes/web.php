@@ -13,4 +13,5 @@
 
 Route::prefix('divorce')->middleware(['auth'])->group(function() {
     Route::get('/', 'DivorceController@index');
+    Route::post('/register', 'DivorceController@store')->name('divorce.register');
 });

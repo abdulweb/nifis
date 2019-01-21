@@ -4,7 +4,7 @@
 @endsection
 
 @section('page-content')
-<form id="wizard-vertical" action="death/verify" method="POST">
+<form id="wizard-vertical" action="{{route('divorce.register')}}" method="POST">
 	@csrf
 	<section>
 		<div class="form-group clearfix">
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		<div class="form-group clearfix">
-			<label class="col-lg-4 control-label " for="husband_last_name"></label>
+			<label class="col-lg-4 control-label " for="divorce"></label>
 			<div class="col-lg-8">
 				<input type="submit" value="Divorce" class="btn btn-primary btn-block">
 			</div>
