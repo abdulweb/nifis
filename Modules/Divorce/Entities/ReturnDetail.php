@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReturnDetail extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function divorceDetail()
+    {
+    	return $this->belongsTo(DivorceDetail::class);
+    }
 }

@@ -15,6 +15,6 @@ class Divorce extends Model
 
     public function details()
     {
-        return $this->belongsToMany(DivorceDetail::class);
+        return $this->hasMany(DivorceDetail::class);
     }
 }
