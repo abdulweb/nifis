@@ -9,7 +9,7 @@ class Status extends Model
 
     protected $guarded = [];
 
-    public function wife()
+    public function wives()
     {
     	return $this->hasMany(Wife::class);
     }

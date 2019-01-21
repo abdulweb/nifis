@@ -2,13 +2,14 @@
 
 namespace Modules\Divorce\Services\Registration;
 
+use App\User;
 /**
 * this class will take the husband and wife information and de activate their marriage
 */
 class DivorceWife 
 {
 	protected $wife;
-
+    public $error = [];
 	function __construct($data)
 	{
 		$this->data = $data;
@@ -27,7 +28,7 @@ class DivorceWife
 		        	    ]);
 	        		}else{
 	                    $divoce = $marriage->divorce()->firstOrCreate([
-		        			'counter' => $marriage->divorce->couter++;
+		        			'counter' => $marriage->divorce->couter++
 		        	    ]);
 	        		}
 	        		$marriage->update(['is_active'=>0]);
@@ -35,18 +36,21 @@ class DivorceWife
 	                    'date'=>strtotime($this->data['date']),
 	        			'reson'=>$this->data['reason'],
 	        	    ]);
+	        	    session()->flash('message','The divorce was register successfully');
 	        	}
 	        }
         }else{
-        	session()->flash('error',$this->erro)
+        	session()->flash('error',$this->error);
         }
 	}
 
 	protected function validate()
 	{
         $this->wife = User::find($this->data['first_name'])->profile->wife;
-		if($this->wife->marriage->date < strtotime($this->data['date'])){
-			$this->error = 'Divorce date Authentication fails : the marriage date is greater than divorce date';
-		}
+        foreach ($this->wife->marriages as $marriage) {
+        	if($marriage->is_active == 1 && $marriage->date > strtotime($this->data['date'])){
+			    $this->error[] = 'Divorce date Authentication fails : the marriage date is greater than divorce date';
+        	}
+        }
 	}
 }
