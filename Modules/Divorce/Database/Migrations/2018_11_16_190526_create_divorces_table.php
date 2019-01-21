@@ -15,9 +15,8 @@ class CreateDivorcesTable extends Migration
     {
         Schema::create('divorces', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('marriage_id')->unsigned()->nullable()->foreign()->refernces('id')->on('marriages')->delete('restrict')->update('cascade');
             $table->integer('counter');
-            $table->integer('married_id')->unsigned()->default(0)->nullable();
-            $table->integer('date')->nullable();
             $table->integer('is_active')->unsigned()->default(1)->nullable();
             $table->timestamps();
         });
