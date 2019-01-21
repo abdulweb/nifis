@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('divorce')->group(function() {
+Route::prefix('divorce')->middleware(['auth'])->group(function() {
     Route::get('/', 'DivorceController@index');
 });
