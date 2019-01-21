@@ -4,6 +4,7 @@ namespace Modules\Divorce\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Divorce\Events\NewDivorceEvent;
 use Modules\Divorce\Http\Requests\DivorceFormRequest;
 use Modules\Divorce\Services\Registration\ProcessWives;
 use Modules\Divorce\Services\Registration\DivorceWife;
@@ -30,7 +31,7 @@ class DivorceController extends Controller
     {
         $divorce = new DivorceWife($request->all());
         if(empty($divorce->error)){
-            broadcast(new NewDivorceEvent($divorce));
+            //broadcast(new NewDivorceEvent($divorce));
         }
         return redirect('/divorce');
     }

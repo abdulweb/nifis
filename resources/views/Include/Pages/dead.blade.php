@@ -1,0 +1,1 @@
+<h1>Sorry this user has register dead in that case his account is close</h1>

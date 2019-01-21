@@ -11,7 +11,7 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class NewDivorceEvent ShouldBroadcastNow
+class NewDivorceEvent implements ShouldBroadcastNow
 {
     use SerializesModels;
 

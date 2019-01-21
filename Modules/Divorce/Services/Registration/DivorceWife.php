@@ -23,18 +23,19 @@ class DivorceWife
         	foreach($this->wife->marriages as $marriage){
 	        	if($marriage->is_active == 1){
 	        		if($marriage->divorce == null){
-		        		$divoce = $marriage->divorce()->firstOrCreate([
+		        		$divorce = $marriage->divorce()->firstOrCreate([
 		        			'counter' => 1
 		        	    ]);
 	        		}else{
-	                    $divoce = $marriage->divorce()->firstOrCreate([
-		        			'counter' => $marriage->divorce->couter++
+	                    $marriage->divorce->update([
+		        			'counter' => $marriage->divorce->counter++
 		        	    ]);
+		        	  $divorce = $marriage->divorce;
 	        		}
 	        		$marriage->update(['is_active'=>0]);
 	        	    $divorce->details()->create([
 	                    'date'=>strtotime($this->data['date']),
-	        			'reson'=>$this->data['reason'],
+	        			'reason'=>$this->data['reason'],
 	        	    ]);
 	        	    session()->flash('message','The divorce was register successfully');
 	        	}
