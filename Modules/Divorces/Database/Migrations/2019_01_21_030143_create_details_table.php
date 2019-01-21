@@ -15,7 +15,9 @@ class CreateDetailsTable extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('divorce_id')->unsigned()->nullable()->foreign()->refernces('id')->on('divorces')->delete('restrict')->update('cascade');
+            $table->string('reason');
+            $table->integer('date');
             $table->timestamps();
         });
     }
