@@ -18,6 +18,7 @@ class DivorceFormRequest extends FormRequest
             'last_name' => 'required|string',
             'status' => 'required|integer',
             'reason' => 'required|string',
+            'date' => 'required',
         ];
     }
 

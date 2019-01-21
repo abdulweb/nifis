@@ -1,5 +1,7 @@
 <?php
 
+namespace Modules\Divorce\Services\Registration;
+
 /**
 * this class will take the husband and wife information and de activate their marriage
 */

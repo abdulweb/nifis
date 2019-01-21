@@ -1,17 +1,18 @@
 <?php
 
+namespace Modules\Divorce\Services\Registration;
 /**
 * this class will prcess currently logged in user
 */
 class ProcessWives
 {
-	public validWives;
+	public $validWives;
 
 	protected $user;
 
 	function __construct()
 	{
-		$this->user = $user;
+		$this->user = Auth()->User();
 		$this->processed();
 	}
 

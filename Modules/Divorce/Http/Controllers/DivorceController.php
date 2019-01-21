@@ -3,6 +3,7 @@
 namespace Modules\Divorce\Http\Controllers;
 
 use Modules\Divorce\Http\Requests\DivorceFormRequest;
+use Modules\Divorce\Services\Registration\ProcessWives;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
@@ -12,9 +13,10 @@ class DivorceController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(ProcessWives $wives)
     {
-        return view('divorce::index');
+        
+        return view('divorce::index',['wives'=>$wives->validWives]);
     }
 
     /**
