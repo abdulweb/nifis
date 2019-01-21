@@ -32,6 +32,12 @@
 			</div>
 		</div>
 		<div class="form-group clearfix">
+			<label class="col-lg-4 control-label " for="husband_last_name">Divorce Date</label>
+			<div class="col-lg-8">
+				<input type="date" name="date" class="form-control">
+			</div>
+		</div>
+		<div class="form-group clearfix">
 			<label class="col-lg-4 control-label " for="husband_first_name">Reason For Divorce</label>
 			<div class="col-lg-8">
 				<textarea cols="12" rows="3" name="reason" class="form-control" placeholder="Brief reason of the divorce"></textarea>
