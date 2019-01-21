@@ -15,7 +15,8 @@ class CreateReturnDetailsTable extends Migration
     {
         Schema::create('return_details', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('divorce_detail_id')->unsigned()->nullable()->foreign()->refernces('id')->on('divorce_details')->delete('restrict')->update('cascade');
+            $table->integer('date');
             $table->timestamps();
         });
     }

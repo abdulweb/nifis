@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class DivorceDetail extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
+
+    public function divorce()
+    {
+    	return $this->belongsTo(Divorce::class);
+    }
+    public function return()
+    {
+    	return $this->hasOne(ReturnDivorce::class);
+    }
 }
