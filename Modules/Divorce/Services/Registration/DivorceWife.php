@@ -37,7 +37,7 @@ class DivorceWife
 	                    'date'=>strtotime($this->data['date']),
 	        			'reason'=>$this->data['reason'],
 	        	    ]);
-	        	    session()->flash('message','The divorce was register successfully');
+	        	    session()->flash('message','The divorce was registered successfully');
 	        	}
 	        }
         }else{

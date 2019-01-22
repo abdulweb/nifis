@@ -12,8 +12,8 @@
 */
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/divorce_wife', 'DivorceController@index')->name('divorce.index');
-    Route::get('/return_wife', 'DivorceController@return')->name('return.index');
+    Route::get('/divorce_wife', 'DivorceController@divorce')->name('divorce.wife');
+    Route::get('/return_wife', 'DivorceController@return')->name('return.divorce');
     Route::post('/divorce_register', 'DivorceController@divorceStore')->name('divorce.register');
     Route::post('/return_divorce', 'DivorceController@returnStore')->name('divorce.return');
 });
