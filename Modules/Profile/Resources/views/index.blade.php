@@ -43,11 +43,7 @@
                 		<div class="col-md-8 col-sm-6">
                 			<h4 class="text-custom m-b-5">Biography</h4>
 		                    <div class="p-t-10">
-		                    	<p class="text-muted font-13">Lorem Ipsum is simply dummy text
-		                            of the printing and typesetting industry. Lorem Ipsum has
-		                            been the industry's standard dummy text ever since the
-		                            1500s, when an unknown printer took a galley of type and
-		                            scrambled it to make a type specimen book.
+		                    	<p class="text-muted font-13">{{$user->profile->about_me}}
 		                        </p>
 		                    </div>
                 		</div>
@@ -65,27 +61,27 @@
 		                    			</tr>
 		                    			<tr>
 		                    				<td>State</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave->address->house->area->town->lga->state->name}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Local Government</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave->address->house->area->town->lga->name}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Town / Village</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave->address->house->area->town->name}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Area</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave->address->house->area->name}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>House No</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave->address->house->house_no}}</td>
 		                    			</tr>
 		                    			<tr>
-		                    				<td>House Description</td>
-		                    				<td></td>
+		                    				<td width="200">House Description</td>
+		                    				<td>{{$user->profile->leave->address->house->house_desc}}</td>
 		                    			</tr>
 		                    		</table>
 		                        </p>

@@ -90,7 +90,7 @@
                         <li>
                             <h5>Hi, {{Auth()->User()->first_name.' '.Auth()->User()->last_name}}</h5>
                         </li>
-                        <li><a href="{{route('profile')}}"><i class="ti-user m-r-5"></i> Profile</a></li>
+                        <li><a href="{{route('profile.index')}}"><i class="ti-user m-r-5"></i>My Profile</a></li>
                         <li><a href="{{route('room')}}"><i class="ti-user m-r-5"></i> Join Room</a></li>
                         <li><a href="{{route('profile.setting')}}"><i class="ti-settings m-r-5"></i> Profile Settings</
                         <li><a href="{{ route('logout') }}"
