@@ -4,5 +4,5 @@
 @endsection
 
 @section('page-content')
-    @includes('divorce::Forms.divorce_wife_form')
+    @includes('divorce::Forms.return_wife_form')
 @endsection
