@@ -2,11 +2,11 @@
 
 namespace Modules\Address\Services;
 
-use  Modules\Address\Services\BaseAddress;
+use  Modules\Address\Services\WorkBaseAddress;
 
-trait WorkAddress 
+trait WorkAddress
 {
-   use BaseAddress;
+   use WorkBaseAddress;
    
    protected $company;
 
@@ -28,19 +28,19 @@ trait WorkAddress
     	]);
     }
 
-	protected function newAddress(Office $office)
+	protected function newWorkAddress(Office $office)
 	{
 		$this->address = $office->addresses()->create(['position'=>$this->data['position']]);
 	}
 
-    public function address()
+    public function workAddress()
     {
-    	$this->newCountry();
-        $this->newState($this->country);
-        $this->newLga($this->state);
-        $this->newTown($this->lga);
+    	$this->newCountryWork();
+        $this->newStateWork($this->country);
+        $this->newLgaWork($this->state);
+        $this->newTownWork($this->lga);
         $this->newCompany($this->town);
         $this->newOffice($this->company);
-        $this->newAddress($this->office);
+        $this->newWorkAddress($this->office);
     }
 }

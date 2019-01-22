@@ -447,7 +447,7 @@
                     <hr> 
                     <div class="row">
                         <div class="col-md-12">
-                                <strong>Update Home Address</strong>
+                            <strong>Update Home Address</strong>
                         </div>
                     </div> <hr>
                     <div class="row">

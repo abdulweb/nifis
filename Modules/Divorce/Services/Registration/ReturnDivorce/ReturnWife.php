@@ -32,7 +32,7 @@ class ReturnWife
 	        			    $detail->return()->create(['date'=>strtotime($this->data['date'])]);
 	        			}
 	        		}
-	        	    session()->flash('message','The divorce was register successfully');
+	        	    session()->flash('message','The divorce was returned successfully');
 	        	}
 	        }
         }else{

@@ -132,4 +132,9 @@ class Profile extends Model
     	return $this->hasMany(WorkHistory::class);
     }
 
+    public function work()
+    {
+        return $this->hasMany('Modules\Address\Entities\WorkIn');
+    }
+
 }

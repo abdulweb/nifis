@@ -1,2 +1,2 @@
-toast('Application has been submitted!','success','top-left')
+oast('Application has been submitted!','success','top-left')
 ->autoClose(10000);

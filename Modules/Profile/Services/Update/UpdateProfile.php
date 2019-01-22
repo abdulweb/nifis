@@ -21,7 +21,7 @@ class UpdateProfile
 		$this->user = $this->ValidUser();
 		$this->update();
 	}
-
+    use WorkAddress, LivingAddress;
     protected function ValidUser()
     {
     	return Auth()->User();
@@ -60,18 +60,18 @@ class UpdateProfile
                 # code...
                 break;
             case 'business_address':
-                use WorkAddress;
-                $this->user->profile->work->update(['address_id'=>$this->address()]);
+                
+                $this->user->profile->work->update(['address_id'=>$this->workAddress()]);
                 session()->flash('message','The profile business address updated');
                 break;
             case 'home_address':
-                use LivingAddress;
+                
                 $this->user->profile->leave->update(['address_id'=>$this->address()]);
                 session()->flash('message','The profile home address updated');
                 break;
             
             case 'new_biography':
-               $this->user->profile->update(['aboute_me'=>$this->data['about_me']]);
+               $this->user->profile->update(['about_me'=>$this->data['about_me']]);
                 session()->flash('message','The profile biography updated');
                 break;
             
