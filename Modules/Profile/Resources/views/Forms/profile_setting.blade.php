@@ -437,7 +437,7 @@
                             <textarea name="about_me"id="mustHaveId" class="wysihtml5 form-control" rows="5">{{'Biography'}}</textarea>
                             <!-- Form actions -->
                             <div class="separator top">
-                                <button type="submit" name="update_about_me" value="update_about_me" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Save changes</button>
+                                <button type="submit" name="submit" value="new_biography" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Save changes</button>
                                 <button type="button" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancel</button>
                             </div>
 
@@ -531,7 +531,7 @@
                             
                         </div>
 
-                        <button type="submit" name="update_address" value="update_address" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Update Address</button>
+                        <button type="submit" name="submit" value="home_address" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Update Address</button>
                        
 
                     </form>
@@ -625,7 +625,7 @@
                             
                         </div>
 
-                        <button type="submit" name="update_business_address" value="update_business_address" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Update Address</button>
+                        <button type="submit" name="submit" value="business_address" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Update Address</button>
                        
 
                     </form>
@@ -657,7 +657,7 @@
                                 </div>
                                 <div class="separator bottom"></div>
                                 <div class="form-actions" style="margin: 0;">
-                                    <button  type="submit" name="new_business" value="new business" class="btn btn-primary" /><i class="fa fa-check"></i> Add Business </button>
+                                    <button  type="submit" name="submit" value="new business" class="btn btn-primary" /><i class="fa fa-check"></i> Add Business </button>
                                 </div>
                             </form>
                         </div>
@@ -690,7 +690,7 @@
                                 </div>
                                 <div class="separator bottom"></div>
                                 <div class="form-actions" style="margin: 0;">
-                                    <button  type="submit" name="new_history" value="new history" class="btn btn-primary" /><i class="fa fa-check"></i> Add Work History </button>
+                                    <button  type="submit" name="submit" value="work_history" class="btn btn-primary" /><i class="fa fa-check"></i> Add Work History </button>
                                 </div>
                             </form>
                         </div>
@@ -722,7 +722,7 @@
                                 </div>
                                 <div class="separator bottom"></div>
                                 <div class="form-actions" style="margin: 0;">
-                                    <button  type="submit" class="btn btn-primary" /><i class="fa fa-check"></i> Add Skill </button>
+                                    <button  name="submit" value="new_skill" type="submit" class="btn btn-primary" /><i class="fa fa-check"></i> Add Skill </button>
                                 </div>
                             </form>
                         </div>
@@ -753,7 +753,7 @@
                             </div>
                             <div class="separator bottom"></div>
                             <div class="form-actions" style="margin: 0;">
-                                <button name="add_experience" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Add Experience</button>
+                                <button name="submit" value="new_experience" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Add Experience</button>
                             </div>
                             </form>
                         </div>
@@ -778,7 +778,7 @@
                                 </div>
                                 <div class="separator bottom"></div>
                                 <div class="form-actions" style="margin: 0;">
-                                    <button name="photo" value="photo"type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Upload Picture </button>
+                                    <button name="submit" value="profile_image"type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Upload Picture </button>
                                 </div>
                             </form>
                         </div>
@@ -814,7 +814,7 @@
                             </div>
                             <div class="separator bottom"></div>
                             <div class="form-actions" style="margin: 0;">
-                                <button name="upload_certificate" value="certificate"type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Add New Certificate</button>
+                                <button name="submit" value="new_certificate"type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Add New Certificate</button>
                             </div>
                             </form>
                         </div>
@@ -840,7 +840,7 @@
                             </div>
                             <div class="separator bottom"></div>
                             <div class="form-actions" style="margin: 0;">
-                                <button name="add_skill" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Upload Picture</button>
+                                <button name="submit" value="change_profile_image" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Upload Picture</button>
                             </div>
                         </div>
                     </div><hr />
@@ -904,7 +904,7 @@
                                     </div>
                                     <div class="separator bottom"></div>
                                     <div class="form-actions" style="margin: 0;">
-                                        <button name="save_contact" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Contact</button>
+                                        <button name="submit" value="new_contact" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Contact</button>
                                     </div>
                                 </div>
                             </form>
