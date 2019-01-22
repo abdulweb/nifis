@@ -20,20 +20,31 @@ class DivorceController extends Controller
         return view('divorce::index',['wives'=>$wives->validWives]);
     }
 
-    
-
     /**
      * Store a newly created resource in storage.
      * @param  Request $request
      * @return Response
      */
-    public function store(DivorceFormRequest $request)
+    public function returnStore(ReturnFormRequest $request)
+    {
+        $return = new ReturnWife($request->all());
+        if(empty($return->error)){
+            //broadcast(new NewDivorceEvent($divorce));
+        }
+        return redirect('/return_wife');
+    }
+    /**
+     * Store a newly created resource in storage.
+     * @param  Request $request
+     * @return Response
+     */
+    public function divorceStore(DivorceFormRequest $request)
     {
         $divorce = new DivorceWife($request->all());
         if(empty($divorce->error)){
             //broadcast(new NewDivorceEvent($divorce));
         }
-        return redirect('/divorce');
+        return redirect('/divorce_wife');
     }
 
     /**
