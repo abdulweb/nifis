@@ -11,14 +11,21 @@ use Modules\Address\Services\WorkAddress;
 */
 class UpdateProfile
 {
-	public $data
-	
+	public $data;
+
+	protected $user;
+
 	function __construct($data)
 	{
 		$this->data = $data;
-		$this->user = $data['user'];
+		$this->user = $this->ValidUser();
 		$this->update();
 	}
+
+    protected function ValidUser()
+    {
+    	return Auth()->User();
+    }
 
 	protected function update()
 	{
@@ -64,7 +71,8 @@ class UpdateProfile
                 break;
             
             case 'new_biography':
-               # code...
+               $this->user->profile->update(['aboute_me'=>$this->data['about_me']]);
+                session()->flash('message','The profile biography updated');
                 break;
             
             default:

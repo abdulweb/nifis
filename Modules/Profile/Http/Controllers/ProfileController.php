@@ -5,6 +5,7 @@ namespace Modules\Profile\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Profile\Services\Update\UpdateProfile;
 
 class ProfileController extends Controller
 {
@@ -48,51 +49,9 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        switch ($request->submit) {
-            case 'new_contact':
-                # code...
-                break;
-            case 'change_profile_image':
-                # code...
-                break;
-            
-            case 'new_certificate':
-                # code...
-                break;
-            
-            case 'profile_image':
-                # code...
-                break;
-            
-            case 'new_experience':
-                # code...
-                break;
-            
-            case 'new_skill':
-                # code...
-                break;
-            
-            case 'work_history':
-                # code...
-                break;
-            case 'new_business':
-                # code...
-                break;
-            case 'business_address':
-                # code...
-                break;
-            case 'home_address':
-                # code...
-                break;
-            
-            case 'new_biography':
-               # code...
-                break;
-            
-            default:
-                # code...
-                break;
-        }
+        new UpdateProfile($request->all());
+
+        return redirect()->route('profile.index');
     }
 
     
