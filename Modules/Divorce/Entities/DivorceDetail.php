@@ -14,6 +14,6 @@ class DivorceDetail extends Model
     }
     public function return()
     {
-    	return $this->hasOne(ReturnDivorce::class);
+    	return $this->hasOne(ReturnDetail::class);
     }
 }

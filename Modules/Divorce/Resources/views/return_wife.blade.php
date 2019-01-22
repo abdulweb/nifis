@@ -1,8 +1,8 @@
 @extends('divorce::layouts.master')
 @section('page-title')
-{{'Divorece registration page'}}
+{{'Return Wife registration page'}}
 @endsection
 
 @section('page-content')
-    @include('divorce::Forms.divorce_wife_form')
+    @include('divorce::Forms.return_wife_form')
 @endsection

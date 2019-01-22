@@ -3,9 +3,9 @@
         <ul class="list-unstyled">
             <li><a href="{{route('birth.index')}}"><i class="mdi mdi-baby"></i> <span>Birth</span></a></li>
             <li><a href="{{route('marriage.index')}}">Marriage</a></li>
-            <li><a href="{{route('divorce.index')}}">Divorce</a></li>
+            <li><a href="{{route('divorce.wife')}}">Divorce</a></li>
             <li><a href="{{route('death.index')}}">Death</a></li>
-            <li><a href="#">Return Divorce</a></li>
+            <li><a href="{{route('return.divorce')}}">Return Divorce</a></li>
         </ul>
     </li>
     <li class="has_sub">

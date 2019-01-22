@@ -6,8 +6,11 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Divorce\Events\NewDivorceEvent;
 use Modules\Divorce\Http\Requests\DivorceFormRequest;
+use Modules\Divorce\Http\Requests\ReturnDivorceFormRequest;
 use Modules\Divorce\Services\Registration\ProcessWives;
+use Modules\Divorce\Services\Registration\ReturnDivorce\PrecessDivorcedWives;
 use Modules\Divorce\Services\Registration\DivorceWife;
+use Modules\Divorce\Services\Registration\ReturnDivorce\ReturnWife;
 
 class DivorceController extends Controller
 {
@@ -20,20 +23,41 @@ class DivorceController extends Controller
         return view('divorce::index',['wives'=>$wives->validWives]);
     }
 
-    
 
+    public function return(PrecessDivorcedWives $wives)
+    {
+        return view('divorce::return_wife',['wives'=>$wives->validWives]);
+    }
+
+    public function divorce(ProcessWives $wives)
+    {
+        return view('divorce::divorce_wife',['wives'=>$wives->validWives]);
+    }
     /**
      * Store a newly created resource in storage.
      * @param  Request $request
      * @return Response
      */
-    public function store(DivorceFormRequest $request)
+    public function returnStore(ReturnDivorceFormRequest $request)
+    {
+        $return = new ReturnWife($request->all());
+        if(empty($return->error)){
+            //broadcast(new NewReturnDivorceEvent($return));
+        }
+        return redirect('/return_wife');
+    }
+    /**
+     * Store a newly created resource in storage.
+     * @param  Request $request
+     * @return Response
+     */
+    public function divorceStore(DivorceFormRequest $request)
     {
         $divorce = new DivorceWife($request->all());
         if(empty($divorce->error)){
             //broadcast(new NewDivorceEvent($divorce));
         }
-        return redirect('/divorce');
+        return redirect('/divorce_wife');
     }
 
     /**
