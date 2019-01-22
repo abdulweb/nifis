@@ -4,7 +4,7 @@ namespace Modules\Divorce\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReturnDivorceRequest extends FormRequest
+class ReturnDivorceFormRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,10 @@ class ReturnDivorceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'required|integer',
+            'last_name' => 'required|string',
+            'status' => 'required|integer',
+            'date' => 'required',
         ];
     }
 
