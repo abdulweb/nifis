@@ -15,8 +15,9 @@ class CreateWorkInsTable extends Migration
     {
         Schema::create('work_ins', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->foreign()->refernces('id')->on('users')->delete('restrict')->update('cascade');
+            $table->integer('profile_id')->unsigned()->foreign()->refernces('id')->on('users')->delete('restrict')->update('cascade');
             $table->integer('address_id')->unsigned()->foreign()->refernces('id')->on('addresses')->delete('restrict')->update('cascade');
+            $table->string('position')->nullable();
             $table->timestamps();
         });
     }

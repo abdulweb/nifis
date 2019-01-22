@@ -17,6 +17,7 @@ class CreateAddressesTable extends Migration
             $table->increments('id');
             $table->integer('house_id')->default(0)->unsigned()->nullable()->foreign()->refernces('id')->on('houses')->delete('restrict')->update('cascade');
             $table->integer('office_id')->default(0)->unsigned()->nullable()->foreign()->refernces('id')->on('offices')->delete('restrict')->update('cascade');
+            $table->string('position')->nullable();
             $table->timestamps();
         });
     }
