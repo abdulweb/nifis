@@ -20,7 +20,7 @@ class DivorceController extends Controller
      */
     public function index(ProcessWives $wives)
     {
-        return view('divorce::index',['wives'=>$wives->validWives]);
+        return view('divorce::index',['husband'=>Auth()->User()->profile->husband]);
     }
 
 
