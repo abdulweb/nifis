@@ -76,7 +76,7 @@
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Town / Village</td>
-		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->nam : ''}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Area</td>
@@ -100,7 +100,7 @@
                                 <p class="text-muted font-13">
                                     <table>
                                         <tr>
-                                            <td>Country</td>
+                                            <td width="200">Country</td>
                                             <td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->country->name : ''}}</td>
                                         </tr>
                                         <tr>
