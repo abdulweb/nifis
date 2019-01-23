@@ -43,7 +43,6 @@ class UpdateProfile
             
             case 'profile_image':
                 if($file =  request()->file($this->data['image'])){
-                	dd($file);
 	                $name = time().$file->getClientOriginalName();
 	                $file->move('images/profile',$name);
 	                $image = $this->user->profile->image()->create(['image'=>$name]);
@@ -63,7 +62,7 @@ class UpdateProfile
                 break;
             
             case 'work_history':
-                # code...
+                dd('work ihstory');
                 break;
             case 'new_business':
                 # code...

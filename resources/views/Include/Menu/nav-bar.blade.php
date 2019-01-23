@@ -68,7 +68,17 @@
                         <li>
                             <a href="#" class="user-list-item">
                                 <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
+                                    @if(Auth()->User()->profile != null && Auth()->User()->profile->image_id == null)
+                                        @if(Auth()->User()->profile->gender_id == 1)
+                                            <img src="assets/images/users/male.png" alt="">
+                                        @else
+                                            <img src="assets/images/users/female.png" alt="">
+                                        @endif
+                                    @elseif(Auth()->User()->profile->image_id != null)
+                                        <img src="assets/images/users/{{Auth()->User()->profile->image->name}}" alt="">
+                                    @else
+                                        <img src="assets/images/users/avatar-2.jpg" alt="">
+                                    @endif
                                 </div>
                                 <div class="user-desc">
                                     <span class="name">Patricia Beach</span>
