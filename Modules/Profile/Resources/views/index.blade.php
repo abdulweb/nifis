@@ -57,31 +57,31 @@
 		                    		<table>
 		                    			<tr>
 		                    				<td>Country</td>
-		                    				<td>{{$user->profile->leave->address->house->area->town->lga->state->country->name}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->country->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>State</td>
-		                    				<td>{{$user->profile->leave->address->house->area->town->lga->state->name}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Local Government</td>
-		                    				<td>{{$user->profile->leave->address->house->area->town->lga->name}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Town / Village</td>
-		                    				<td>{{$user->profile->leave->address->house->area->town->name}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->nam : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Area</td>
-		                    				<td>{{$user->profile->leave->address->house->area->name}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>House No</td>
-		                    				<td>{{$user->profile->leave->address->house->house_no}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->house_no : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td width="200">House Description</td>
-		                    				<td>{{$user->profile->leave->address->house->house_desc}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->house_desc : ''}}</td>
 		                    			</tr>
 		                    		</table>
 		                        </p>
@@ -129,36 +129,36 @@
                                 <h5 class="text-custom m-b-5">Work Address</h5>
 
                                 <p class="text-muted font-13 m-b-0">
-                                	<table>
+                                	<!-- <table>
 		                    			<tr>
 		                    				<td>Country</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->country->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>State</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Local Government</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Town / Village</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Company / Organisation</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->work != null ? $user->profile->work->address->office->company->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Office</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->work != null ? $user->profile->work->address->office->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Position</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->work != null ? $user->profile->work->address->position : ''}}</td>
 		                    			</tr>
-		                    		</table>
+		                    		</table> -->
                                 </p>
                             </div>
 

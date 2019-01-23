@@ -134,7 +134,7 @@ class Profile extends Model
 
     public function work()
     {
-        return $this->hasMany('Modules\Address\Entities\WorkIn');
+        return $this->hasOne('Modules\Address\Entities\WorkIn');
     }
 
 }
