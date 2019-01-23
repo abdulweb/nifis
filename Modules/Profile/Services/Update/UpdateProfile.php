@@ -68,8 +68,11 @@ class UpdateProfile
                 session()->flash('message','The profile business address updated');
                 break;
             case 'home_address':
-                
-                $this->user->profile->leave->update(['address_id'=>$this->address()]);
+                if($this->user->profile->leave == null){
+                	$this->user->profile->leave()->create(['address_id'=>$this->address()]);
+                }else{
+                	$this->user->profile->leave()->update(['address_id'=>$this->address()]);
+                }
                 session()->flash('message','The profile home address updated');
                 break;
             
