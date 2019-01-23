@@ -611,7 +611,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Office</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="office_no" value="{{$user->profile->work != null ? $user->profile->work->address->office->name : ''}}" class="form-control" />
+                                    <input type="text" name="office" value="{{$user->profile->work != null ? $user->profile->work->address->office->name : ''}}" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group">

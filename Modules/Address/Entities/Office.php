@@ -13,8 +13,8 @@ class Office extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function addresses()
+    public function address()
     {
-        return $this->hasMany(Address::class);
+        return $this->hasOne(Address::class);
     }
 }

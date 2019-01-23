@@ -16,7 +16,7 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('town_id')->default()->unsigned()->foreign()->refernces('id')->on('towns')->delete('restrict')->update('cascade');
-            $table->string('string');
+            $table->string('name');
             $table->timestamps();
         });
     }

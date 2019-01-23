@@ -15,8 +15,8 @@ class CreateOfficesTable extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('comp_id')->unsigned()->foreign()->refernces('id')->on('companies')->delete('restrict')->update('cascade');
-            $table->string('office_name')->unique();
+            $table->integer('company_id')->unsigned()->foreign()->refernces('id')->on('companies')->delete('restrict')->update('cascade');
+            $table->string('name');
             $table->timestamps();
         });
     }

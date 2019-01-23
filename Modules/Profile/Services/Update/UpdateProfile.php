@@ -60,8 +60,11 @@ class UpdateProfile
                 # code...
                 break;
             case 'business_address':
-                
-                $this->user->profile->work->update(['address_id'=>$this->workAddress()]);
+                if($this->user->profile->work != null){
+                	$this->user->profile->work()->update(['address_id'=>$this->workAddress()]);
+                }else{
+                	$this->user->profile->work()->create(['address_id'=> $this->workAddress()]);
+                }
                 session()->flash('message','The profile business address updated');
                 break;
             case 'home_address':

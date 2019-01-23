@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Modules\Marriage\Entities\Status;
 use Modules\Family\Entities\Tribe;
+use Modules\Profile\Entities\MaritalStatus;
 use Modules\Profile\Entities\Gender;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,19 @@ class DatabaseSeeder extends Seeder
         }  
       });
 
+
+      MaritalStatus::firstOrCreate([
+        'name'=>'Single'
+      ]);
+      MaritalStatus::firstOrCreate([
+        'name'=>'Married'
+      ]);
+      MaritalStatus::firstOrCreate([
+        'name'=>'Divorce'
+      ]);
+      MaritalStatus::firstOrCreate([
+        'name'=>'Cancel'
+      ]);
       Status::firstOrCreate([
         'name'=>'First Wife'
       ]);

@@ -3,11 +3,14 @@
 namespace Modules\Address\Services;
 
 use  Modules\Address\Services\WorkBaseAddress;
+use  Modules\Address\Entities\Town;
+use  Modules\Address\Entities\Office;
+use  Modules\Address\Entities\Company;
 
 trait WorkAddress
 {
    use WorkBaseAddress;
-   
+
    protected $company;
 
    protected $office;
@@ -17,20 +20,20 @@ trait WorkAddress
    protected function newCompany(Town $town)
     {
     	$this->company = $town->companies()->firstOrCreate([
-    		'company'=>$this->data['company']
+    		'name'=>$this->data['company']
     	]);
     }
 
     protected function newOffice(Company $company)
     {
     	$this->office = $company->offices()->firstOrCreate([
-    		'office_name'=>$this->data['office']
+    		'name'=>$this->data['office']
     	]);
     }
 
 	protected function newWorkAddress(Office $office)
 	{
-		$this->address = $office->addresses()->create(['position'=>$this->data['position']]);
+		$this->address = $office->address()->create(['position'=>$this->data['position']]);
 	}
 
     public function workAddress()
@@ -42,5 +45,6 @@ trait WorkAddress
         $this->newCompany($this->town);
         $this->newOffice($this->company);
         $this->newWorkAddress($this->office);
+        return $this->address->id;
     }
 }
