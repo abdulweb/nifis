@@ -55,7 +55,7 @@
                         <div class="separator line bottom"></div>
                     
                         Biography<br />
-                        <textarea name="about"id="mustHaveId" class="wysihtml5 form-control" rows="5">{{$user->profile->about_me}}</textarea>
+                        <textarea readonly name="about"id="mustHaveId" class="wysihtml5 form-control" rows="5">{{$user->profile->about_me}}</textarea>
                         
                         <!-- Form actions -->
                         
@@ -74,7 +74,7 @@
                                 <label class="col-md-3 control-label">First Name</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{$user->first_name}}" class="form-control" />
+                                        <input readonly type="text" value="{{$user->first_name}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="First name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                 <label class="col-md-3 control-label">Last Name</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{$user->last_name}}" class="form-control" />
+                                        <input readonly type="text" value="{{$user->last_name}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Last name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                                 <label class="col-md-3 control-label">Date of birth</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" id="datepicker1" class="form-control" value="{{date('M/D/Y',$user->profile->date_of_birth)}}" />
+                                        <input readonly type="text" id="datepicker1" class="form-control" value="{{date('M/D/Y',$user->profile->date_of_birth)}}" />
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Gender</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="gender" value="{{$user->profile->gender->name}}" class="form-control">
+                                    <input readonly type="text" name="gender" value="{{$user->profile->gender->name}}" class="form-control">
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -124,7 +124,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Age</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{floor($user->profile->date/31622400) != 0 ? floor($user->profile->date/31622400) : 'Not Available'}}" class="form-control" />
+                                    <input readonly type="text" value="{{floor($user->profile->date/31622400) != 0 ? floor($user->profile->date/31622400) : 'Not Available'}}" class="form-control" />
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -135,7 +135,7 @@
                     </div> <hr>
                     <div class="row">
                         <div class="col-md-3">
-                                <strong>Home Address Details</strong>
+                                <strong class="h4">Home Address Details</strong>
                         </div>
                     </div> 
                     <div class="row">
@@ -148,7 +148,7 @@
                                 <label class="col-md-3 control-label">Country</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->country->name : ''}}" class="form-control" />
+                                        <input readonly type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->country->name : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="First name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
                                 <label class="col-md-3 control-label">State</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->name : ''}}" class="form-control" />
+                                        <input readonly type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->name : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Last name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@
                                 <label class="col-md-3 control-label">Local Govt</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" id="datepicker1" class="form-control" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->name : ''}}" />
+                                        <input readonly type="text" id="datepicker1" class="form-control" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->name : ''}}" />
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Town</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="gender" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->name : ''}}" class="form-control">
+                                    <input readonly type="text" name="gender" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->name : ''}}" class="form-control">
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -198,21 +198,21 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Area</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->name : ''}}" class="form-control" />
+                                    <input readonly type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->area->name : ''}}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label">House No</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->house_no : ''}}" class="form-control" />
+                                    <input readonly type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->house_no : ''}}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label">House Description</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->house_desc : ''}}" class="form-control" />
+                                    <input readonly type="text" value="{{$user->profile->leave != null ? $user->profile->leave->address->house->house_desc : ''}}" class="form-control" />
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -241,7 +241,7 @@
                                 <label class="col-md-3 control-label">Country</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->country->name : ''}}" class="form-control" />
+                                        <input readonly type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->country->name : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="First name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@
                                 <label class="col-md-3 control-label">State</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->name : ''}}" class="form-control" />
+                                        <input readonly type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->name : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Last name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@
                                 <label class="col-md-3 control-label">Local Govt</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" id="datepicker1" class="form-control" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->name : ''}}" />
+                                        <input readonly type="text" id="datepicker1" class="form-control" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->name : ''}}" />
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
@@ -282,7 +282,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Town</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="gender" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->name : ''}}" class="form-control">
+                                    <input readonly type="text" name="gender" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->name : ''}}" class="form-control">
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -291,21 +291,21 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Organisation</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->name : ''}}" class="form-control" />
+                                    <input readonly type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->name : ''}}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Office</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->name : ''}}" class="form-control" />
+                                    <input readonly type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->name : ''}}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Position</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->position : ''}}" class="form-control" />
+                                    <input readonly type="text" value="{{$user->profile->work != null ? $user->profile->work->address->position : ''}}" class="form-control" />
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -334,7 +334,7 @@
                                 <div class="col-md-9">
                                     <div class="">
                                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                        <input name="phone" type="text" id="inputPhone" class="form-control" placeholder="01234567897" value="{{$user->phone}}" />
+                                        <input readonly name="phone" type="text" id="inputPhone" class="form-control" placeholder="01234567897" value="{{$user->phone}}" />
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +346,7 @@
                                 <div class="col-md-9">
                                     <div class="">
                                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                        <input name="email" type="text" id="inputEmail" class="form-control" placeholder="contact@mosaicpro.biz" value="{{Auth()->User()->email}}"  />
+                                        <input readonly name="email" type="text" id="inputEmail" class="form-control" placeholder="contact@mosaicpro.biz" value="{{Auth()->User()->email}}"  />
                                         
                                     </div>
                                 </div>
@@ -359,7 +359,7 @@
                                 <div class="col-md-9">
                                     <div class="">
                                         <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
-                                        <input name="facebook" type="text" id="inputFacebook" class="form-control" placeholder="mosaicpro" value="{{'isah labbo bagudo'}}"  />
+                                        <input readonly name="facebook" type="text" id="inputFacebook" class="form-control" placeholder="mosaicpro" value="{{'isah labbo bagudo'}}"  />
                                     </div>
                                 </div>
                             </div>
@@ -376,7 +376,7 @@
                                 <label class="col-md-3 control-label">Twitter</label>
                                 <div class="col-md-9">
                                     <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
-                                    <input name="twitter" type="text" id="inputTwitter" class="form-control" placeholder="mosaicpro"  value="{{'isah labbo'}}"  />
+                                    <input readonly name="twitter" type="text" id="inputTwitter" class="form-control" placeholder="mosaicpro"  value="{{'isah labbo'}}"  />
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -386,7 +386,7 @@
                                 <label class="col-md-3 control-label">Skype ID</label>
                                 <div class="col-md-9">
                                     <span class="input-group-addon"><i class="fa fa-skype"></i></span>
-                                    <input name="skype" type="text" id="inputSkype" class="form-control" placeholder="mySkypeID"  value="{{'isah labbo'}}"  />
+                                    <input readonly name="skype" type="text" id="inputSkype" class="form-control" placeholder="mySkypeID"  value="{{'isah labbo'}}"  />
                                         
                                 </div>
                             </div>
@@ -395,7 +395,7 @@
                                 <label class="col-md-3 control-label">Google</label>
                                 <div class="col-md-9">
                                     <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
-                                    <input name="google" type="text" id="inputgplus" class="form-control" placeholder="google ID"  value="{{'isahlabbo22@google.com'}}"  />
+                                    <input readonly name="google" type="text" id="inputgplus" class="form-control" placeholder="google ID"  value="{{'isahlabbo22@google.com'}}"  />
                                         
                                 </div>
                             </div>
@@ -404,8 +404,7 @@
                         </div>
                         <!-- // Group END -->
                     </div>
-                    <!-- // Column END -->
-                    <hr>
+                   
                     <!-- // Column END --> 
                 
                     
