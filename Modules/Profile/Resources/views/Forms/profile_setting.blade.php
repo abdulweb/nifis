@@ -554,7 +554,7 @@
                                 <label class="col-md-3 control-label">Country</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" name="country" value="{{$user->profile->work->address->office->town->lga->state->country->name != null ? '' : ''}}" class="form-control" />
+                                        <input type="text" name="country" value="{{$user->profile->work->address->office->company->town->lga->state->country->name != null ? '' : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="First name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -566,7 +566,7 @@
                                 <label class="col-md-3 control-label">State</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" name="state" value="{{'state'}}" class="form-control" />
+                                        <input type="text" name="state" value="{{$user->profile->work->address->office->company->town->lga->state->name != null ? '' : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Last name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -578,7 +578,7 @@
                                 <label class="col-md-3 control-label">Local Govt</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" name="lga" id="datepicker1" class="form-control" value="{{'local goverment'}}" />
+                                        <input type="text" name="lga" id="datepicker1" class="form-control" value="{{$user->profile->work->address->office->company->town->lga->name != null ? '' : ''}}" />
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
@@ -595,30 +595,29 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Town</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="town" value="{{'town'}}" class="form-control">
+                                    <input type="text" name="town" value="{{$user->profile->work->address->office->company->town->name != null ? '' : ''}}" class="form-control">
                                 </div>
                             </div>
                             <!-- // Group END -->
                             
                             <!-- Group -->
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Area</label>
-                                <div class="col-md-9">
-                                    <input type="text"name="area" value="{{'area'}}" class="form-control" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="col-md-3 control-label">Company</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="company" value="{{'company'}}" class="form-control" />
+                                    <input type="text" name="company" value="{{$user->profile->work->address->office->company->name != null ? '' : ''}}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Office No</label>
+                                <label class="col-md-3 control-label">Office</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="office_no" value="{{'Office no'}}" class="form-control" />
+                                    <input type="text" name="office_no" value="{{$user->profile->work->address->office->name != null ? '' : ''}}" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Position</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="position" value="{{$user->profile->work->address->position != null ? '' : ''}}" class="form-control" />
                                 </div>
                             </div>
                             <!-- // Group END -->
