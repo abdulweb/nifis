@@ -51,6 +51,18 @@
                                 <strong>Personnel Details</strong>
                         </div>
                     </div> <hr>
+                    <div class="row">
+                        <div class="separator line bottom"></div>
+                    
+                        Biography<br />
+                        <textarea name="about"id="mustHaveId" class="wysihtml5 form-control" rows="5">{{$user->profile->about_me}}</textarea>
+                        
+                        <!-- Form actions -->
+                        
+                        
+                        </div>  
+                    </div>
+                    <hr>
                     <!-- Row -->
                     <div class="row">
                     
@@ -112,7 +124,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Age</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{floor($user->profile->date/31622400)}}" class="form-control" />
+                                    <input type="text" value="{{floor($user->profile->date/31622400) != 0 ? floor($user->profile->date/31622400) : 'Not Available'}}" class="form-control" />
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -125,7 +137,7 @@
                         <div class="col-md-3">
                                 <strong>Home Address Details</strong>
                         </div>
-                    </div> <hr>
+                    </div> 
                     <div class="row">
                    
                         
@@ -218,7 +230,7 @@
                         <div class="col-md-3">
                                 <strong>Work Address Details</strong>
                         </div>
-                    </div> <hr>
+                    </div> 
                     <div class="row">
                    
                         
@@ -229,7 +241,7 @@
                                 <label class="col-md-3 control-label">Country</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{'country'}}" class="form-control" />
+                                        <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->country->name : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="First name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -241,7 +253,7 @@
                                 <label class="col-md-3 control-label">State</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" value="{{'state'}}" class="form-control" />
+                                        <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->name : ''}}" class="form-control" />
                                         <span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Last name is mandatory"><i class="fa fa-question-circle"></i></span>
                                     </div>
                                 </div>
@@ -253,7 +265,7 @@
                                 <label class="col-md-3 control-label">Local Govt</label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input type="text" id="datepicker1" class="form-control" value="{{'local government'}}" />
+                                        <input type="text" id="datepicker1" class="form-control" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->name : ''}}" />
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
@@ -270,7 +282,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Town</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="gender" value="{{'town'}}" class="form-control">
+                                    <input type="text" name="gender" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->town->name : ''}}" class="form-control">
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -279,21 +291,21 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Organisation</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{'company'}}" class="form-control" />
+                                    <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->company->name : ''}}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Office</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{'office'}}" class="form-control" />
+                                    <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->office->name : ''}}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Position</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="{{'position'}}" class="form-control" />
+                                    <input type="text" value="{{$user->profile->work != null ? $user->profile->work->address->position : ''}}" class="form-control" />
                                 </div>
                             </div>
                             <!-- // Group END -->
@@ -395,18 +407,7 @@
                     <!-- // Column END -->
                     <hr>
                     <!-- // Column END --> 
-                    <div class="row">
-                    <div class="separator line bottom"></div>
                 
-                    Biography<br />
-                    <textarea name="about"id="mustHaveId" class="wysihtml5 form-control" rows="5">{{$user->profile->about_me}}</textarea>
-                    
-                    <!-- Form actions -->
-                    
-                    
-                    </div>  
-                </div>
-
                     
                     <!-- // Form actions END -->
                     
