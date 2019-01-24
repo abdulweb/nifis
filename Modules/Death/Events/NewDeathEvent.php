@@ -2,9 +2,16 @@
 
 namespace Modules\Death\Events;
 
+use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class NewDeathEvent
+class NewDeathEvent implements ShouldBroadcastNow
 {
     use SerializesModels;
 
@@ -13,7 +20,7 @@ class NewDeathEvent
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($death)
     {
         //
     }

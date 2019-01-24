@@ -10,6 +10,11 @@ class Office extends Model
 
     public function company()
     {
-        return $this->belongTo(Company::class);
+        return $this->belongsTo(Company::class);
+    }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
     }
 }

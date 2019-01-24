@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOfficesTable extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateOfficesTable extends Migration
      */
     public function up()
     {
-        Schema::create('offices', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('company_id')->unsigned()->foreign()->refernces('id')->on('companies')->delete('restrict')->update('cascade');
+            $table->integer('town_id')->default()->unsigned()->foreign()->refernces('id')->on('towns')->delete('restrict')->update('cascade');
             $table->string('name');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateOfficesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offices');
+        Schema::dropIfExists('companies');
     }
 }

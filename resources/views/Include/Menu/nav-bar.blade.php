@@ -68,7 +68,17 @@
                         <li>
                             <a href="#" class="user-list-item">
                                 <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
+                                    @if(Auth()->User()->profile != null && Auth()->User()->profile->image_id == null)
+                                        @if(Auth()->User()->profile->gender_id == 1)
+                                            <img src="assets/images/users/male.png" alt="">
+                                        @else
+                                            <img src="assets/images/users/female.png" alt="">
+                                        @endif
+                                    @elseif(Auth()->User()->profile->image_id != null)
+                                        <img src="assets/images/users/{{Auth()->User()->profile->image->name}}" alt="">
+                                    @else
+                                        <img src="assets/images/users/avatar-2.jpg" alt="">
+                                    @endif
                                 </div>
                                 <div class="user-desc">
                                     <span class="name">Patricia Beach</span>
@@ -90,7 +100,7 @@
                         <li>
                             <h5>Hi, {{Auth()->User()->first_name.' '.Auth()->User()->last_name}}</h5>
                         </li>
-                        <li><a href="{{route('profile')}}"><i class="ti-user m-r-5"></i> Profile</a></li>
+                        <li><a href="{{route('profile.index')}}"><i class="ti-user m-r-5"></i>My Profile</a></li>
                         <li><a href="{{route('room')}}"><i class="ti-user m-r-5"></i> Join Room</a></li>
                         <li><a href="{{route('profile.setting')}}"><i class="ti-settings m-r-5"></i> Profile Settings</
                         <li><a href="{{ route('logout') }}"

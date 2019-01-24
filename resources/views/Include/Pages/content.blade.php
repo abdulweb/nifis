@@ -12,8 +12,8 @@
                 <!-- end row -->
 
                 <div class="row">
-                      @include('Include.Pages.message')
-                      @yield('page-content')
+                    @include('Include.Pages.message')
+                    @yield('page-content')
                 </div>
                 <!-- end row -->
             </div> <!-- container -->

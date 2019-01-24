@@ -19,17 +19,24 @@
                             <div class="text-left">
                                 <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">{{$user->first_name.' '.$user->last_name}}</span></p>
 
-                                <p class="text-muted font-13"><strong>Father Name :</strong> <span class="m-l-15">{{'Not Available'}}</span></p>
+                                <p class="text-muted font-13"><strong>Status :</strong> <span class="m-l-15">{{$user->profile->life_status_id == 1 ? 'A life' : 'Dead'}}</span></p>
 
-                                <p class="text-muted font-13"><strong>Mother Name :</strong> <span class="m-l-15">{{'Not available'}}</span></p>
+                                <p class="text-muted font-13"><strong>Health Status :</strong> <span class="m-l-15">{{$user->profile->health != null ? $user->profile->health->name : 'Not Available'}}</span></p>
+
+                                <p class="text-muted font-13"><strong>Father Name :</strong> <span class="m-l-15">{{$user->profile->child != null ? $user->profile->child->birth->father->husband->profile->user->first_name.''.$user->profile->child->birth->father->husband->profile->user->last_name : 'Not Available'}}</span></p>
+
+                                <p class="text-muted font-13"><strong>Mother Name :</strong> <span class="m-l-15">{{$user->profile->child != null ? $user->profile->child->birth->mother->wife->profile->user->first_name.''.$user->profile->child->birth->mother->wife->profile->user->last_name : 'Not Available'}}</span></p>
 
                                 <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">{{$user->phone}}</span></p>
 
                                 <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">{{$user->email}}</span></p>
 
-                                <p class="text-muted font-13"><strong>Marriage :</strong> <span class="m-l-15">Not Available</span></p>
+                                <p class="text-muted font-13"><strong>Marriage :</strong> <span class="m-l-15">{{$user->profile->maritalStatus != null ? $user->profile->maritalStatus->name : 'Not Available'}}</span></p>
 
-                                <p class="text-muted font-13"><strong>Birth :</strong> <span class="m-l-15">Not Available</span></p>
+                                @if($user->profile->husband != null || $user->profile->wife != null)
+                                    <p class="text-muted font-13"><strong>Birth :</strong> <span class="m-l-15">{{$user->profile->husband->father != null ? count($user->profile->husband->father->birth()) : 0}}</span></p>
+                                @endif
+
                             </div>
 
                         </div>
@@ -43,11 +50,7 @@
                 		<div class="col-md-8 col-sm-6">
                 			<h4 class="text-custom m-b-5">Biography</h4>
 		                    <div class="p-t-10">
-		                    	<p class="text-muted font-13">Lorem Ipsum is simply dummy text
-		                            of the printing and typesetting industry. Lorem Ipsum has
-		                            been the industry's standard dummy text ever since the
-		                            1500s, when an unknown printer took a galley of type and
-		                            scrambled it to make a type specimen book.
+		                    	<p class="text-muted font-13">{{$user->profile->about_me}}
 		                        </p>
 		                    </div>
                 		</div>
@@ -61,36 +64,73 @@
 		                    		<table>
 		                    			<tr>
 		                    				<td>Country</td>
-		                    				<td>{{$user->profile->leave->address->house->area->town->lga->state->country->name}}</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->country->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>State</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->state->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Local Government</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->lga->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Town / Village</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->town->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>Area</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->area->name : ''}}</td>
 		                    			</tr>
 		                    			<tr>
 		                    				<td>House No</td>
-		                    				<td></td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->house_no : ''}}</td>
 		                    			</tr>
 		                    			<tr>
-		                    				<td>House Description</td>
-		                    				<td></td>
+		                    				<td width="200">House Description</td>
+		                    				<td>{{$user->profile->leave != null ? $user->profile->leave->address->house->house_desc : ''}}</td>
 		                    			</tr>
 		                    		</table>
 		                        </p>
 		                    </div>
                 		</div>
+                        <div class="col-md-8 col-sm-6">
+                            <h4 class="text-custom m-b-5">Work Address</h4>
+                            <div class="p-t-10">
+                                <p class="text-muted font-13">
+                                    <table>
+                                        <tr>
+                                            <td width="200">Country</td>
+                                            <td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->country->name : ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>State</td>
+                                            <td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->state->name : ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Local Government</td>
+                                            <td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->lga->name : ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Town / Village</td>
+                                            <td>{{$user->profile->work != null ? $user->profile->work->address->office->company->town->name : ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Company / Organisation</td>
+                                            <td>{{$user->profile->work != null ? $user->profile->work->address->office->company->name : ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Office</td>
+                                            <td>{{$user->profile->work != null ? $user->profile->work->address->office->name : ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Position</td>
+                                            <td>{{$user->profile->work != null ? $user->profile->work->address->position : ''}}</td>
+                                        </tr>
+                                    </table>
+                                </p>
+                            </div>
+                        </div>
                 	</div>
 
                     <h4 class="text-custom m-b-5">Expertise</h4>
@@ -125,44 +165,6 @@
                                     been the industry's standard dummy text ever since the
                                     1500s, when an unknown printer took a galley of type and
                                     scrambled it to make a type specimen book. @ <a href="">{{'working place'}}</a>
-                                </p>
-                            </div>
-
-                            <hr/>
-                            <div class=" p-t-10">
-                                <h5 class="text-custom m-b-5">Work Address</h5>
-
-                                <p class="text-muted font-13 m-b-0">
-                                	<table>
-		                    			<tr>
-		                    				<td>Country</td>
-		                    				<td></td>
-		                    			</tr>
-		                    			<tr>
-		                    				<td>State</td>
-		                    				<td></td>
-		                    			</tr>
-		                    			<tr>
-		                    				<td>Local Government</td>
-		                    				<td></td>
-		                    			</tr>
-		                    			<tr>
-		                    				<td>Town / Village</td>
-		                    				<td></td>
-		                    			</tr>
-		                    			<tr>
-		                    				<td>Company / Organisation</td>
-		                    				<td></td>
-		                    			</tr>
-		                    			<tr>
-		                    				<td>Office</td>
-		                    				<td></td>
-		                    			</tr>
-		                    			<tr>
-		                    				<td>Position</td>
-		                    				<td></td>
-		                    			</tr>
-		                    		</table>
                                 </p>
                             </div>
 

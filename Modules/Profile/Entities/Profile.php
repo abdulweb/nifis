@@ -112,12 +112,12 @@ class Profile extends Model
     	return $this->belongsTo(MaritalStatus::class);
     }
 
-    public function userContact()
+    public function contacts()
     {
     	return $this->hasMany(UserContact::class);
     }
 
-    public function userDetail()
+    public function details()
     {
     	return $this->hasMany(UserDetail::class);
     }
@@ -127,9 +127,14 @@ class Profile extends Model
     	return $this->hasOne(Health::class);
     }
 
-    public function workHistory()
+    public function workHistories()
     {
     	return $this->hasMany(WorkHistory::class);
+    }
+
+    public function work()
+    {
+        return $this->hasOne('Modules\Address\Entities\WorkIn');
     }
 
 }

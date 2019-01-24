@@ -5,6 +5,7 @@ namespace Modules\Profile\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Profile\Services\Update\UpdateProfile;
 
 class ProfileController extends Controller
 {
@@ -14,7 +15,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile::Forms.profile_setting',['user'=>Auth()->User()]);
+        return view('profile::index',['user'=>Auth()->User()]);
     }
 
     /**
@@ -48,6 +49,9 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
+        new UpdateProfile($request->all());
+
+        return redirect()->route('profile.index');
     }
 
     

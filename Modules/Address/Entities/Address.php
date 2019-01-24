@@ -8,9 +8,9 @@ class Address extends Model
 {
     protected $guarded = [];
 
-    public function leaves()
+    public function leave()
     {
-        return $this->hasMany(LivesIn::class);
+        return $this->hasOne(LivesIn::class);
     }
 
     public function work()

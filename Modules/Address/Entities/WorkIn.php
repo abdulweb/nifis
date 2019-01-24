@@ -10,11 +10,11 @@ class WorkIn extends Model
 
     public function profile()
     {
-        return $this->belongTo(Profile::class);
+        return $this->belongsTo('Modules\Profile\Entities\Profile');
     }
 
     public function address()
     {
-        return $this->belongTo(Address::class);
+        return $this->belongsTo(Address::class);
     }
 }

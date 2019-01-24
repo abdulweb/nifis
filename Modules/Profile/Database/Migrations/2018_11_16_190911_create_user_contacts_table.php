@@ -13,9 +13,9 @@ class CreateUserContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_contacts', function (Blueprint $table) {
+        Schema::create('profile_contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->foreign()->refernces('id')->on('users')->delete('restrict')->update('cascade');
+            $table->integer('profile_id')->unsigned()->foreign()->refernces('id')->on('profiles')->delete('restrict')->update('cascade');
             $table->integer('contact_refrence_id')->unsigned()->foreign()->refernces('id')->on('contact_refrences')->delete('restrict')->update('cascade');            
             $table->string('contact'); 
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateUserContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_contacts');
+        Schema::dropIfExists('profile_contacts');
     }
 }

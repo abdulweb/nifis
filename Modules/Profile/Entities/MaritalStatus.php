@@ -9,8 +9,8 @@ class MaritalStatus extends Model
 
     protected $guarded = [];
 
-    public function profile()
+    public function profiles()
     {
-    	return $this->hasMany(Profile::class);
+    	return $this->belongsToMany(Profile::class);
     }
 }

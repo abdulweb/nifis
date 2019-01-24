@@ -11,9 +11,9 @@
 |
 */
 
-Route::prefix('profile')->middleware(['auth','web','hasProfile'])->group(function() {
-    Route::get('/', 'ProfileController@index')->name('profile');
-    Route::get('setting', 'ProfileController@setting')->name('profile.setting');
-    Route::get('details', 'ProfileController@userDetail')->name('user.detail');
-    Route::get('update', 'ProfileController@update')->name('profile.update');
+Route::middleware(['auth','web','hasProfile'])->group(function() {
+    Route::get('/profile', 'ProfileController@index')->name('profile.index');
+    Route::get('/profile_setting', 'ProfileController@setting')->name('profile.setting');
+    Route::get('/profile_details', 'ProfileController@userDetail')->name('user.detail');
+    Route::post('/update_profile', 'ProfileController@update')->name('profile.update');
 });

@@ -22,4 +22,10 @@ class Town extends Model
     {
     	return $this->hasMany(Location::class);
     }
+
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
 }
