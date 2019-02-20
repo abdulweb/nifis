@@ -20,14 +20,7 @@
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
-
-        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
+        <link href="assets/css/stylesheet.css" rel="stylesheet" type="text/css" />
         <script src="assets/js/modernizr.min.js"></script>
 
     </head>
@@ -45,38 +38,19 @@
                 
 
                 <!-- Button mobile view to collapse sidebar menu -->
-                <div class="navbar navbar-inverse" role="navigation">
-                    <div class="container">
-
-                        <!-- Navbar-left -->
-                        <ul class="nav navbar-nav navbar-left">
-    
-                            <li class="hidden-xs">
-                                <form role="search" class="app-search">
-                                    <input type="text" placeholder="Search..."
-                                           class="form-control">
-                                    <a href=""><i class="fa fa-search"></i></a>
-                                </form>
-                            </li>
-                           
-                            
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                        <a class="navbar-brand text-white" href="">Nigeria Family Train</a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right m-r-10">
+                            <li><a href="{{route('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            <li><a href="{{route('register')}}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
                         </ul>
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="{{route('login')}}">Sign In</a>
-
-                            </li>
-
-                            <li>
-                                <a href="{{route('register')}}">Sign Up</a>
-
-                            </li>
-                        </ul> <!-- end navbar-right -->
-
-                    </div><!-- end container -->
-                </div><!-- end navbar -->
+                    </div>
+                </nav>
             </div>
+            
             
             <div class="content-pages">
                 <!-- Start content -->
@@ -166,8 +140,8 @@
 
                 </div> <!-- content -->
 
-                <footer class="footer text-right">
-                    2017 - 2018 © Nigerian Family information system.
+                <footer class="footer footer-text">
+                    <p> © <?=date('Y')?>  Nigerian Family information system.</p>
                 </footer>
 
             </div>
