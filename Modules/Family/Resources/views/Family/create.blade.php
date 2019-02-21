@@ -16,7 +16,8 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <strong class="lead">Family Location :</strong>
-                                {{'The family location information was require to restrict other family having the same family name within your location example we may have two family of the same name but different location.'}}
+                                    {{'Your Family Location is required in order to differenciate Your Family from other Families that may have the same name as yours. For example we may have two 
+                                    family of the same name but different location.'}}
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group clearfix">
@@ -54,7 +55,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <strong class="lead">Family Information :</strong>
-                                {{'We need your family information to store agains any body who will be register under this family will be a member of this family and any information to be share in this family he will recive it'}}
+                                {{'Your Family Information is needed in order to store aganist anyone registering under this family and in order to share vital information among the family member'}}
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group clearfix">
@@ -108,7 +109,7 @@
                                         <div class="tab-content">
                                             <!-- Tab content -->
                                             <div class="tab-pane active" id="yes">
-                                                <strong>We assume that you are a root of the family you want register if not click <a no href="#no" data-toggle="tab"><i></i>No</a></li></strong>
+                                                <strong>We assume you are the root of the family you want register, if not click <a no href="#no" data-toggle="tab"><i></i>No</a></li></strong>
                                                 <div class="form-group clearfix">
                                                     <label class="col-lg-2 control-label " for="mdate">Date Of Birth</label>
                                                     <div class="col-lg-10">
@@ -177,7 +178,7 @@
                                 For information refer to our manual.
                                 </label>
                             </div>
-                            <input type="submit" class="btb btn-primary" value="Create Account">
+                            <input type="submit" class="btn btn-primary createBtn" value="Create Account">
                         </div>
 
                     </section>
