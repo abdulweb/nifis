@@ -1,0 +1,13 @@
+.footer-text p{
+    margin-left:300px; 
+    font-size: 17px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
+}
+.footer-text{
+   border: none;
+}
+.createBtn{
+    float: right;
+    margin-right: 30px;
+}
